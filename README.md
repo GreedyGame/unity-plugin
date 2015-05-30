@@ -8,6 +8,8 @@ This is a complete guide to integrate GreedyGame plugin within your unity game. 
 1. Import GreedyGame_v5.7.1.package into your unity project.
    - Using TopMenu: *Assets > Import Package > Custom Package*
 2. Attached **ThemeUnit** or **SharedThemeUnit** monobehaviour to GameObject having **Renderer** (Mesh, Sprite, Cloth). And must having texture.
+![SharedThemeUnit MonoBehaviour](screen_shots/attach_monobehaviour.png?raw=true "SharedThemeUnit MonoBehaviour attached to Stockcar/Body_Complete")
+
 3. Login using panel's credential.
    - Using TopMenu: *GreedyGame > DynamicUnitManager*
 4. Build and sync unit list.
