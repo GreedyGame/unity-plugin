@@ -13,7 +13,7 @@ This is a complete guide to integrate GreedyGame plugin within your unity game. 
 - Attach complie MonoBehaviour **ThemeUnit** or **SharedThemeUnit**  to GameObject having **Renderer**.
 - Supported Renderers are Mesh, Plan, Cloth and Sprite (only with SharedThemeUnit).
 - GameObject must having 2D texture.
-- ![SharedThemeUnit MonoBehaviour](screen_shots/2_attached_monobehaviour.png?raw=true "SharedThemeUnit MonoBehaviour attached to Stockcar/Body_Complete" )
+- ![SharedThemeUnit MonoBehaviour](screen-shots/2_attached_monobehaviour.png?raw=true "SharedThemeUnit MonoBehaviour attached to Stockcar/Body_Complete" )
 
 #### 3. Setting up with Server
 - Using TopMenu: *GreedyGame > DynamicUnitManager*
@@ -23,7 +23,7 @@ This is a complete guide to integrate GreedyGame plugin within your unity game. 
 | Refresh List  | Save List     |
 | ------------- | ------------- |
 | To create list of units to be used for branding | To sync list with server and register as ad-unit |
-| ![Refresh UnitList](screen_shots/5_post_refresh.png?raw=true "list of units to be used for branding" )  | ![Save UnitList](screen_shots/6_post_save.png?raw=true "sync list with server and register as ad-unit" )  |
+| ![Refresh UnitList](screen-shots/5_post_refresh.png?raw=true "list of units to be used for branding" )  | ![Save UnitList](screen-shots/6_post_save.png?raw=true "sync list with server and register as ad-unit" )  |
 - **Yellow** indicates unit has been added
 - **Green** indicates unit has synced to server
 - **Red** indicates unit cannot to added or invalid 
@@ -84,7 +84,7 @@ void OnGreedyEvent(RuntimeEvent greedy_events){
 1. Goto loading scene, here Demo Scene.
 2. Select **GreedyGameConfigObject**, and look for **GlobalConfig** component attached.
 3. Validate value of **GlobalConfig** component, with values from *panel.greedygame.com*
- ![GreedyGameConfigObject](screen_shots/7_global_config.png?raw=true "Checking runtime unit list" )
+ ![GreedyGameConfigObject](screen-shots/7_global_config.png?raw=true "Checking runtime unit list" )
 
 
 

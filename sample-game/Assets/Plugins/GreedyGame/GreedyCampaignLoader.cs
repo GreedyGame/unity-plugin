@@ -10,8 +10,8 @@ public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>{
 	public GUIStyle LaterBtnStyle, DownloadBtnStyle;
 	public float BtnWidth, BtnHeight;
 	public GUITexture loading;	
-	private GreedyAdManager ggAdManager = null;
 
+	private GreedyAdManager ggAdManager = null;
 	void Awake(){		
 		ggAdManager = GreedyAdManager.Instance;
 	}
