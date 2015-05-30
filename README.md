@@ -28,6 +28,49 @@ This is a complete guide to integrate GreedyGame plugin within your unity game. 
 - **Green** indicates unit has synced to server
 - **Red** indicates unit cannot to added or invalid 
 
+#### 4. Manage campagin fetching and post loading scene
+- For quick action, sample script `GreedyCampaignLoader.cs` can be attached to loading scene's object.
+- For advance customization, here explanation of `GreedyCampaignLoader.cs`
+  - GreedyGame's headers 
+```csharp
+//Headers
+using GreedyGame.Runtime.Common;
+using GreedyGame.Platform;
+```
+  - GreedyAdManager's method. (Singleton object)
+```csharp
+private GreedyAdManager ggAdManager = null;
+void Awake(){
+//Initialization as singleton
+	ggAdManager = GreedyAdManager.Instance;
+}
+
+void Start() {
+//Taking values from GlobalConfig
+	GlobalConfig[] ggLoaders = Resources.FindObjectsOfTypeAll<GlobalConfig> ();
+	GlobalConfig ggConfig = ggLoaders [0];
+	
+//Making server request for suitable campaign
+	ggAdManager.init (ggConfig.GameId, ggConfig.AdUnits.ToArray(), OnGreedyEvent);
+}
+```
+  - Event's listener
+```csharp
+void OnGreedyEvent(RuntimeEvent greedy_events){
+	if (greedy_events == RuntimeEvent.CAMPAIGN_LOADED || 
+	    greedy_events == RuntimeEvent.CAMPAIGN_NOT_LOADED) {
+	//Goto play scene if server reponse is recevied
+		Application.LoadLevel (1);
+	}
+
+	if (greedy_events == RuntimeEvent.UNIT_CLOSED){
+		//Do game resume, if click unit is closed
+	}else if(greedy_events == RuntimeEvent.UNIT_OPENED){
+		//Do game resume, if click unit is opened
+	}
+}
+```
+
 ---
 #### Checking runtime unit list
 
