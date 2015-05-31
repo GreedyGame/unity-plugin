@@ -14,6 +14,8 @@ public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>{
 	private GreedyAdManager ggAdManager = null;
 	void Awake(){		
 		ggAdManager = GreedyAdManager.Instance;
+
+
 	}
 
 	void Start() {
