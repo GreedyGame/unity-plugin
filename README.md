@@ -87,7 +87,7 @@ void OnGreedyEvent(RuntimeEvent greedy_events){
 1. Goto loading scene, here Demo Scene.
 2. Select **GreedyGameConfigObject**, and look for **GlobalConfig** component attached.
 3. Validate value of **GlobalConfig** component, with values from *panel.greedygame.com*
- ![GreedyGameConfigObject](screen-shots/7_global_config.png?raw=true "Checking runtime unit list" )
+ ![GreedyGameConfigObject](screen-shots/6_global_config.png?raw=true "Checking runtime unit list" )
 
 
 
