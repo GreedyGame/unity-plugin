@@ -58,34 +58,31 @@ Contains high-level classes encapsulating the overall GreedyGame ad flow and mod
 #### Public Singleton Constructors
 `GreedyAdManager.Instance`
 
-#### Init
-`init(String GameId, String[] AdUnits, OnGreedyEvent)`
-
-Lookup for new native campaign from server.
-
-- GameId - Unique game profile id from panel.greedygame.com
-- AdUnits - Array register unit id. eg. Unit-XYZ
-- OnGreedyEvent - Callback function for **RuntimeEvent** as follow:
-	- CAMPAIGN_NOT_LOADED
-	- CAMPAIGN_LOADED
-	- CAMPAIGN_DOWNLOADED
-	- UNIT_OPENED
-	- UNIT_CLOSED
-
-  - GreedyGame's headers 
-```csharp
-//Headers
-using GreedyGame.Runtime.Common;
-using GreedyGame.Platform;
-```
-  - GreedyAdManager's method. (Singleton object)
+Example
 ```csharp
 private GreedyAdManager ggAdManager = null;
 void Awake(){
 //Initialization as singleton
 	ggAdManager = GreedyAdManager.Instance;
 }
+```
 
+
+#### Init
+`init(String GameId, String[] AdUnits, OnGreedyEvent)`
+
+Lookup for new native campaign from server.
+* GameId - Unique game profile id from panel.greedygame.com
+* AdUnits - Array register unit id. eg. Unit-XYZ
+* OnGreedyEvent - Callback function for **RuntimeEvent** as follow:
+	- CAMPAIGN_NOT_LOADED
+	- CAMPAIGN_LOADED
+	- CAMPAIGN_DOWNLOADED
+	- UNIT_OPENED
+	- UNIT_CLOSED
+
+Example
+```csharp
 void Start() {
 //Taking values from GlobalConfig
 	GlobalConfig[] ggLoaders = Resources.FindObjectsOfTypeAll<GlobalConfig> ();
@@ -95,7 +92,12 @@ void Start() {
 	ggAdManager.init (ggConfig.GameId, ggConfig.AdUnits.ToArray(), OnGreedyEvent);
 }
 ```
-  - Event's listener
+#### OnGreedyEvent
+`void OnGreedyEvent(RuntimeEvent greedy_events)`
+
+Callback function for **RuntimeEvent**
+
+E.g
 ```csharp
 void OnGreedyEvent(RuntimeEvent greedy_events){
 	if (greedy_events == RuntimeEvent.CAMPAIGN_LOADED || 
@@ -111,6 +113,19 @@ void OnGreedyEvent(RuntimeEvent greedy_events){
 	}
 }
 ```
+
+  - GreedyGame's headers 
+```csharp
+//Headers
+using GreedyGame.Runtime.Common;
+using GreedyGame.Platform;
+```
+  - GreedyAdManager's method. (Singleton object)
+
+
+
+  - Event's listener
+
 
 ---
 #### Checking runtime unit list
