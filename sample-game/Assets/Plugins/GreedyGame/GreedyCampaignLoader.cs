@@ -7,30 +7,36 @@ using GreedyGame.Platform;
 
 public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>{
 
-	public GUIStyle LaterBtnStyle, DownloadBtnStyle;
-	public float BtnWidth, BtnHeight;
-	public GUITexture loading;	
+	public Texture2D SkipButton;
+	public int PostLevel;
+	private int BtnWidth = 150;
+	private int BtnHeight = 70;
+	private bool isSupported = false;
 
 	private GreedyAdManager ggAdManager = null;
-	void Awake(){		
-		ggAdManager = GreedyAdManager.Instance;
-
-
+	void Awake(){
+		if (RuntimePlatform.Android == Application.platform) {
+			isSupported = true;
+			ggAdManager = GreedyAdManager.Instance;
+		}else{
+			Application.LoadLevel (PostLevel);
+		}
 	}
 
 	void Start() {
-		GlobalConfig[] ggLoaders = Resources.FindObjectsOfTypeAll<GlobalConfig> ();
-		GlobalConfig ggConfig = ggLoaders [0];
-		ggAdManager.init (ggConfig.GameId, ggConfig.AdUnits.ToArray(), OnGreedyEvent);
+		if (isSupported) {
+			GlobalConfig[] ggLoaders = Resources.FindObjectsOfTypeAll<GlobalConfig> ();
+			GlobalConfig ggConfig = ggLoaders [0];
+			ggAdManager.init (ggConfig.GameId, ggConfig.AdUnits.ToArray (), OnGreedyEvent);
+		}
 	}
 	
 	void OnGUI () {
-		if(ggAdManager.isNewCampaign){
-			loading.enabled = false;
-			Rect a = new Rect (0, Screen.height - 200, Screen.width*ggAdManager.progress/100.0f, 30);
-			DrawRectangle (a, Color.white);
+		if(isSupported && ggAdManager.isNewCampaign){
+			Rect a = new Rect (0, Screen.height/2, Screen.width*ggAdManager.progress/100.0f, 30);
+			DrawRectangle (a, Color.black);
 			if(ggAdManager.isForced == false){
-				if (GUI.Button(new Rect ( (Screen.width - BtnWidth)/2 - BtnWidth/2, Screen.height - 100, BtnWidth, BtnHeight), "Next Time", LaterBtnStyle)) {
+				if (GUI.Button(new Rect (Screen.width - BtnWidth, Screen.height - 100, BtnWidth, BtnHeight), SkipButton, GUIStyle.none)) {
 					ggAdManager.cancelDownload();
 				}
 			}
@@ -42,7 +48,7 @@ public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>{
 		Debug.Log(String.Format("OnGreedyEvent - {0}", greedy_events));
 		if (greedy_events == RuntimeEvent.CAMPAIGN_LOADED || 
 		    greedy_events == RuntimeEvent.CAMPAIGN_NOT_LOADED) {
-			Application.LoadLevel (1);
+			Application.LoadLevel (PostLevel);
 		}
 
 		if (greedy_events == RuntimeEvent.UNIT_CLOSED){
