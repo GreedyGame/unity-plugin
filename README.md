@@ -19,49 +19,53 @@ This is a complete guide to integrate GreedyGame plugin within your unity game. 
 * Supported Renderers are Mesh, Plan, Cloth and Sprite (only with SharedThemeUnit).
 * GameObject must having 2D texture.
 
-> Preview:
+> Preview: SharedThemeUnit MonoBehaviour attached to Stockcar/Body_Complete
 
 > ![SharedThemeUnit MonoBehaviour](https://raw.githubusercontent.com/GreedyGame/Unity-Sample/master/screen-shots/2_attached_monobehaviour.png?raw=true "SharedThemeUnit MonoBehaviour attached to Stockcar/Body_Complete" )
  1. SharedThemeUnit Attached, yellow helpbox states it ready to build in unitlist
  2. 2D texture, will be used for branded assets, such as logo, product image etc.
  3. MeshRender will be used as renderer to blend branding image over object
 
-#### 3. Setting up with Server
-- Using TopMenu: *GreedyGame > DynamicUnitManager*
-- Login using panel's credential.
-- Build and sync unit list.
+### 3. Setting up with Server
+* Using TopMenu: *GreedyGame > DynamicUnitManager*
+* Login using panel's credential.
+* Build and sync unit list.
 
-##### Preview
-![Refresh UnitList](https://raw.githubusercontent.com/GreedyGame/Unity-Sample/master/screen-shots/5_refresh_save.png?raw=true "list of units to be used for branding" )
+> Preview: list of units to be used for branding. Left list post refresh action and right list after save action.
 
-1. **GameProfileId**, game-id from panel.greedygame.com
-2. **LoadingLevel**, will be used for fetching and loading campaign assets
-3. **Refresh Button** To create list of units to be used for branding
-4. **Build Button** To sync list with server and register as ad-unit
-5. Indicators
-	- **Yellow** indicates unit has been added
-	- **Green** indicates unit has synced to server
-	- **Red** indicates unit cannot to added or invalid 
+> ![Refresh UnitList](https://raw.githubusercontent.com/GreedyGame/Unity-Sample/master/screen-shots/5_refresh_save.png?raw=true "list of units to be used for branding" )
+ 1. **GameProfileId**, game-id from panel.greedygame.com
+ 2. **LoadingLevel**, will be used for fetching and loading campaign assets
 
-#### 4. Manage campagin fetching and post loading scene
-- Attach sample script `GreedyCampaignLoader.cs` with loading scene's object.
-	- PostScene : Scene to load after campaign get fetched
-	- Loading : Loading asset's texture
-- Attach `AdHeadLoader.cs` with respective scene's object to fetch floating AdHead on that scene.
-	- AdUnit : Panel's ad-unit to fetch specific unit from server. 
-- For advance customization, see Documentation of **GreedyAdManager** object
+ **Buttons**
+ 
+| Refresh       | Build       | Export      |
+| ------------- | ----------- | ----------- |
+| Create list of units to be used for branding    | Sync list with server and register as ad-unit | Export ad-unit  as package rar |
+
+**Indicators**
+* **Yellow** indicates unit has been added
+* **Green** indicates unit has synced to server
+* **Red** indicates unit cannot to added or invalid 
+
+### 4. Manage campagin fetching and post loading scene
+* Attach sample script `GreedyCampaignLoader.cs` with loading scene's object.
+	* PostScene : Scene to load after campaign get fetched
+	* Loading : Loading asset's texture
+* Attach `AdHeadLoader.cs` with respective scene's object to fetch floating AdHead on that scene.
+	* AdUnit : Panel's ad-unit to fetch specific unit from server. 
+* For advance customization, see Documentation of **GreedyAdManager** object
  
 ---
 
-Advance Customization Documentation
----
-#### GreedyAdManager
+## Advance Customization Documentation
+
+### GreedyAdManager
 #### Class Overview
 Contains high-level classes encapsulating the overall GreedyGame ad flow and model.
 
 #### GreedyGame's headers 
 ```csharp
-//Headers
 using GreedyGame.Runtime.Common;
 using GreedyGame.Platform;
 ```
@@ -129,12 +133,13 @@ void OnGreedyEvent(RuntimeEvent greedy_events){
 ```
 ---
 
-#### Checking runtime unit list
+## Checking runtime unit list
 
 1. Goto loading scene, here Demo Scene.
 2. Select **GreedyGameConfigObject**, and look for **GlobalConfig** component attached.
 3. Validate value of **GlobalConfig** component, with values from *panel.greedygame.com*
- ![GreedyGameConfigObject](https://raw.githubusercontent.com/GreedyGame/Unity-Sample/master/screen-shots/6_global_config.png?raw=true "Checking runtime unit list" )
+
+> ![GreedyGameConfigObject](https://raw.githubusercontent.com/GreedyGame/Unity-Sample/master/screen-shots/6_global_config.png?raw=true "Checking runtime unit list" )
 
 
 
