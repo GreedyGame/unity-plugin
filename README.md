@@ -4,25 +4,27 @@ GreedyGame Unity Integration Guide
 This is a complete guide to integrate GreedyGame plugin within your unity game. You can download [GreedyGame_v5.7.1.unitypackage](current-sdk/GreedyGame_v5.7.1.unitypackage).
 
 ### Ads that people love
-![SharedThemeUnit MonoBehaviour](screen-shots/1_branded_game.png?raw=true "SharedThemeUnit MonoBehaviour attached to Stockcar/Body_Complete" )
 
-### Steps
+![SharedThemeUnit MonoBehaviour](https://raw.githubusercontent.com/GreedyGame/Unity-Sample/master/screen-shots/1_branded_game.png?raw=true "SharedThemeUnit MonoBehaviour attached to Stockcar/Body_Complete" )
 
-#### 1. Import Plugin Package
-- Using TopMenu: *Assets > Import Package > Custom Package*
-- Import GreedyGame_v5.7.1.package into your unity project.
 
-#### 2. Select GameObject for branding
-- Attach complie MonoBehaviour **ThemeUnit** or **SharedThemeUnit**  to GameObject having **Renderer**.
-- Supported Renderers are Mesh, Plan, Cloth and Sprite (only with SharedThemeUnit).
-- GameObject must having 2D texture.
+## Steps
 
-##### Preview
-![SharedThemeUnit MonoBehaviour](screen-shots/2_attached_monobehaviour.png?raw=true "SharedThemeUnit MonoBehaviour attached to Stockcar/Body_Complete" )
+### 1. Import Plugin Package
+* **TopMenu**: *Assets > Import Package > Custom Package*
+* Import GreedyGame_v5.7.1.package into your unity project.
 
-1. SharedThemeUnit Attached, yellow helpbox states it ready to build in unitlist
-2. 2D texture, will be used for branded assets, such as logo, product image etc.
-3. MeshRender will be used as renderer to blend branding image over object
+### 2. Select GameObject for branding
+* Attach complie MonoBehaviour **ThemeUnit** or **SharedThemeUnit**  to GameObject having **Renderer**.
+* Supported Renderers are Mesh, Plan, Cloth and Sprite (only with SharedThemeUnit).
+* GameObject must having 2D texture.
+
+> Preview:
+
+> ![SharedThemeUnit MonoBehaviour](https://raw.githubusercontent.com/GreedyGame/Unity-Sample/master/screen-shots/2_attached_monobehaviour.png?raw=true "SharedThemeUnit MonoBehaviour attached to Stockcar/Body_Complete" )
+ 1. SharedThemeUnit Attached, yellow helpbox states it ready to build in unitlist
+ 2. 2D texture, will be used for branded assets, such as logo, product image etc.
+ 3. MeshRender will be used as renderer to blend branding image over object
 
 #### 3. Setting up with Server
 - Using TopMenu: *GreedyGame > DynamicUnitManager*
@@ -30,7 +32,7 @@ This is a complete guide to integrate GreedyGame plugin within your unity game. 
 - Build and sync unit list.
 
 ##### Preview
-![Refresh UnitList](screen-shots/5_refresh_save.png?raw=true "list of units to be used for branding" )
+![Refresh UnitList](https://raw.githubusercontent.com/GreedyGame/Unity-Sample/master/screen-shots/5_refresh_save.png?raw=true "list of units to be used for branding" )
 
 1. **GameProfileId**, game-id from panel.greedygame.com
 2. **LoadingLevel**, will be used for fetching and loading campaign assets
@@ -132,7 +134,7 @@ void OnGreedyEvent(RuntimeEvent greedy_events){
 1. Goto loading scene, here Demo Scene.
 2. Select **GreedyGameConfigObject**, and look for **GlobalConfig** component attached.
 3. Validate value of **GlobalConfig** component, with values from *panel.greedygame.com*
- ![GreedyGameConfigObject](screen-shots/6_global_config.png?raw=true "Checking runtime unit list" )
+ ![GreedyGameConfigObject](https://raw.githubusercontent.com/GreedyGame/Unity-Sample/master/screen-shots/6_global_config.png?raw=true "Checking runtime unit list" )
 
 
 
