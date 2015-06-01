@@ -50,15 +50,25 @@ This is a complete guide to integrate GreedyGame plugin within your unity game. 
 - For advance customization, see Documentation of **GreedyAdManager** object
  
 ---
-### Advance Customization Documentation
+
+Advance Customization Documentation
+---
 #### GreedyAdManager
 #### Class Overview
 Contains high-level classes encapsulating the overall GreedyGame ad flow and model.
 
+#### GreedyGame's headers 
+```csharp
+//Headers
+using GreedyGame.Runtime.Common;
+using GreedyGame.Platform;
+```
+---
+
 #### Public Singleton Constructors
 `GreedyAdManager.Instance`
 
-Example
+*Example*
 ```csharp
 private GreedyAdManager ggAdManager = null;
 void Awake(){
@@ -66,7 +76,7 @@ void Awake(){
 	ggAdManager = GreedyAdManager.Instance;
 }
 ```
-
+---
 
 #### Init
 `init(String GameId, String[] AdUnits, OnGreedyEvent)`
@@ -81,7 +91,7 @@ Lookup for new native campaign from server.
 	- UNIT_OPENED
 	- UNIT_CLOSED
 
-Example
+*Example*
 ```csharp
 void Start() {
 //Taking values from GlobalConfig
@@ -92,12 +102,14 @@ void Start() {
 	ggAdManager.init (ggConfig.GameId, ggConfig.AdUnits.ToArray(), OnGreedyEvent);
 }
 ```
+---
+
 #### OnGreedyEvent
 `void OnGreedyEvent(RuntimeEvent greedy_events)`
 
 Callback function for **RuntimeEvent**
 
-E.g
+*Example*
 ```csharp
 void OnGreedyEvent(RuntimeEvent greedy_events){
 	if (greedy_events == RuntimeEvent.CAMPAIGN_LOADED || 
@@ -113,21 +125,8 @@ void OnGreedyEvent(RuntimeEvent greedy_events){
 	}
 }
 ```
-
-  - GreedyGame's headers 
-```csharp
-//Headers
-using GreedyGame.Runtime.Common;
-using GreedyGame.Platform;
-```
-  - GreedyAdManager's method. (Singleton object)
-
-
-
-  - Event's listener
-
-
 ---
+
 #### Checking runtime unit list
 
 1. Goto loading scene, here Demo Scene.
