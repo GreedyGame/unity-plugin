@@ -3,6 +3,9 @@ GreedyGame Unity Integration Guide
 
 This is a complete guide to integrate GreedyGame plugin within your unity game. You can download [GreedyGame_v5.7.1.unitypackage](current-sdk/GreedyGame_v5.7.1.unitypackage).
 
+### Ads that people love
+![SharedThemeUnit MonoBehaviour](screen-shots/1_branded_game.png?raw=true "SharedThemeUnit MonoBehaviour attached to Stockcar/Body_Complete" )
+
 ### Steps
 
 #### 1. Import Plugin Package
@@ -20,13 +23,13 @@ This is a complete guide to integrate GreedyGame plugin within your unity game. 
 - Login using panel's credential.
 - Build and sync unit list.
   
-| Refresh List  | Save List     |
-| ------------- | ------------- |
-| To create list of units to be used for branding | To sync list with server and register as ad-unit |
-| ![Refresh UnitList](screen-shots/5_post_refresh.png?raw=true "list of units to be used for branding" )  | ![Save UnitList](screen-shots/6_post_save.png?raw=true "sync list with server and register as ad-unit" )  |
-- **Yellow** indicates unit has been added
-- **Green** indicates unit has synced to server
-- **Red** indicates unit cannot to added or invalid 
+
+	- To create list of units to be used for branding
+	- To sync list with server and register as ad-unit
+	- ![Refresh UnitList](screen-shots/5_refresh_save.png?raw=true "list of units to be used for branding" )
+	- **Yellow** indicates unit has been added
+	- **Green** indicates unit has synced to server
+	- **Red** indicates unit cannot to added or invalid 
 
 #### 4. Manage campagin fetching and post loading scene
 - Attach sample script `GreedyCampaignLoader.cs` with loading scene's object.
