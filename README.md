@@ -16,17 +16,27 @@ This is a complete guide to integrate GreedyGame plugin within your unity game. 
 - Attach complie MonoBehaviour **ThemeUnit** or **SharedThemeUnit**  to GameObject having **Renderer**.
 - Supported Renderers are Mesh, Plan, Cloth and Sprite (only with SharedThemeUnit).
 - GameObject must having 2D texture.
-- ![SharedThemeUnit MonoBehaviour](screen-shots/2_attached_monobehaviour.png?raw=true "SharedThemeUnit MonoBehaviour attached to Stockcar/Body_Complete" )
+
+##### Preview
+![SharedThemeUnit MonoBehaviour](screen-shots/2_attached_monobehaviour.png?raw=true "SharedThemeUnit MonoBehaviour attached to Stockcar/Body_Complete" )
+
+1. SharedThemeUnit Attached, yellow helpbox states it ready to build in unitlist
+2. 2D texture, will be used for branded assets, such as logo, product image etc.
+3. MeshRender will be used as renderer to blend branding image over object
 
 #### 3. Setting up with Server
 - Using TopMenu: *GreedyGame > DynamicUnitManager*
 - Login using panel's credential.
 - Build and sync unit list.
-  
 
-	- To create list of units to be used for branding
-	- To sync list with server and register as ad-unit
-	- ![Refresh UnitList](screen-shots/5_refresh_save.png?raw=true "list of units to be used for branding" )
+##### Preview
+![Refresh UnitList](screen-shots/5_refresh_save.png?raw=true "list of units to be used for branding" )
+
+1. **GameProfileId**, game-id from panel.greedygame.com
+2. **LoadingLevel**, will be used for fetching and loading campaign assets
+3. **Refresh Button** To create list of units to be used for branding
+4. **Build Button** To sync list with server and register as ad-unit
+5. Indicators
 	- **Yellow** indicates unit has been added
 	- **Green** indicates unit has synced to server
 	- **Red** indicates unit cannot to added or invalid 
@@ -40,7 +50,28 @@ This is a complete guide to integrate GreedyGame plugin within your unity game. 
 - For advance customization, see Documentation of **GreedyAdManager** object
  
 ---
-### GreedyAdManager's Documentation
+### Advance Customization Documentation
+#### GreedyAdManager
+#### Class Overview
+Contains high-level classes encapsulating the overall GreedyGame ad flow and model.
+
+#### Public Singleton Constructors
+`GreedyAdManager.Instance`
+
+#### Init
+`init(String GameId, String[] AdUnits, OnGreedyEvent)`
+
+Lookup for new native campaign from server.
+
+- GameId - Unique game profile id from panel.greedygame.com
+- AdUnits - Array register unit id. eg. Unit-XYZ
+- OnGreedyEvent - Callback function for **RuntimeEvent** as follow:
+	- CAMPAIGN_NOT_LOADED
+	- CAMPAIGN_LOADED
+	- CAMPAIGN_DOWNLOADED
+	- UNIT_OPENED
+	- UNIT_CLOSED
+
   - GreedyGame's headers 
 ```csharp
 //Headers
