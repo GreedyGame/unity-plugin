@@ -39,7 +39,7 @@ This is a complete guide to integrate GreedyGame plugin within your unity game. 
 
  **Buttons**
  
-| Refresh       | Build       | Export      |
+| Refresh       | Save       | Export      |
 | ------------- | ----------- | ----------- |
 | Create list of units to be used for branding    | Sync list with server and register as ad-unit | Export ad-unit  as package rar |
 
