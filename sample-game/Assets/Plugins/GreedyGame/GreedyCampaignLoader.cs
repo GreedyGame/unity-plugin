@@ -26,6 +26,11 @@ public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>{
 	void Start() {
 		if (isSupported) {
 			GlobalConfig[] ggLoaders = Resources.FindObjectsOfTypeAll<GlobalConfig> ();
+			if(ggLoaders != null && ggLoaders.Length != 1){
+				isSupported = false;
+				Debug.LogError("None or multuple occurrence of GlobalConfig object found!");
+				return;
+			}
 			GlobalConfig ggConfig = ggLoaders [0];
 			ggAdManager.init (ggConfig.GameId, ggConfig.AdUnits.ToArray (), OnGreedyEvent);
 		}
@@ -42,8 +47,7 @@ public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>{
 			}
 		}
 	}
-
-
+	
 	void OnGreedyEvent(RuntimeEvent greedy_events){
 		Debug.Log(String.Format("OnGreedyEvent - {0}", greedy_events));
 		if (greedy_events == RuntimeEvent.CAMPAIGN_LOADED || 
@@ -64,8 +68,5 @@ public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>{
 		texture.Apply();
 		GUI.skin.box.normal.background = texture;
 		GUI.Box(position, GUIContent.none);
-	}
-
-
+	}	
 }
-

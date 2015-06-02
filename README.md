@@ -1,7 +1,7 @@
 GreedyGame Unity Integration Guide
 ===================
 
-This is a complete guide to integrate GreedyGame plugin within your unity game. You can download [GreedyGame_v5.7.1.unitypackage](current-sdk/GreedyGame_v5.7.1.unitypackage).
+This is a complete guide to integrate GreedyGame plugin within your unity game. You can download [GreedyGame_v5.7.2.unitypackage](current-sdk/GreedyGame_v5.7.2.unitypackage).
 
 ### Ads that people love
 
@@ -12,7 +12,7 @@ This is a complete guide to integrate GreedyGame plugin within your unity game. 
 
 ### 1. Import Plugin Package
 * **TopMenu**: *Assets > Import Package > Custom Package*
-* Import GreedyGame_v5.7.1.package into your unity project.
+* Import GreedyGame_v5.7.2.package into your unity project.
 
 ### 2. Select GameObject for branding
 * Attach complie MonoBehaviour **ThemeUnit** or **SharedThemeUnit**  to GameObject having **Renderer**.
@@ -100,12 +100,16 @@ Lookup for new native campaign from server.
 *Example*
 ```csharp
 void Start() {
-//Taking values from GlobalConfig
-	GlobalConfig[] ggLoaders = Resources.FindObjectsOfTypeAll<GlobalConfig> ();
-	GlobalConfig ggConfig = ggLoaders [0];
-	
-//Making server request for suitable campaign
-	ggAdManager.init (ggConfig.GameId, ggConfig.AdUnits.ToArray(), OnGreedyEvent);
+	if (isSupported) {
+		GlobalConfig[] ggLoaders = Resources.FindObjectsOfTypeAll<GlobalConfig> ();
+		if(ggLoaders != null && ggLoaders.Length != 1){
+			isSupported = false;
+			Debug.LogError("None or multuple occurrence of GlobalConfig object found!");
+			return;
+		}
+		GlobalConfig ggConfig = ggLoaders [0];
+		ggAdManager.init (ggConfig.GameId, ggConfig.AdUnits.ToArray (), OnGreedyEvent);
+	}
 }
 ```
 ---
@@ -121,7 +125,7 @@ void OnGreedyEvent(RuntimeEvent greedy_events){
 	if (greedy_events == RuntimeEvent.CAMPAIGN_LOADED || 
 	    greedy_events == RuntimeEvent.CAMPAIGN_NOT_LOADED) {
 	//Goto play scene if server reponse is recevied
-		Application.LoadLevel (1);
+		Application.LoadLevel (PostLevel);
 	}
 
 	if (greedy_events == RuntimeEvent.UNIT_CLOSED){
