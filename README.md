@@ -59,7 +59,6 @@ This is a complete guide to integrate GreedyGame plugin within your unity game. 
 	* Set-up ad-unit manually on panel.greedygame.com/games/<game_namespace>/units 
 	* AdUnit : Panel's ad-unit to fetch specific unit from server. 
 
-* For advance customization, see Documentation of **GreedyAdManager** object
 ---
 
 ## Advance Customization Documentation
