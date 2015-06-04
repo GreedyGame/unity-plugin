@@ -52,10 +52,14 @@ This is a complete guide to integrate GreedyGame plugin within your unity game. 
 * Attach sample script `GreedyCampaignLoader.cs` with loading scene's object.
 	* PostScene : Scene to load after campaign get fetched
 	* Loading : Loading asset's texture
+
+
+### 5. Add Floating Ad-Head
 * Attach `AdHeadLoader.cs` with respective scene's object to fetch floating AdHead on that scene.
+	* Set-up ad-unit manually on panel.greedygame.com/games/<game_namespace>/units 
 	* AdUnit : Panel's ad-unit to fetch specific unit from server. 
+
 * For advance customization, see Documentation of **GreedyAdManager** object
- 
 ---
 
 ## Advance Customization Documentation
