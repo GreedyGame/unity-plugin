@@ -1,7 +1,7 @@
 GreedyGame Unity Integration Guide
 ===================
 
-This is a complete guide to integrate GreedyGame plugin within your unity game. You can download [GreedyGame_v5.7.2.unitypackage](current-sdk/GreedyGame_v5.7.2.unitypackage).
+This is a complete guide to integrate GreedyGame plugin within your unity game. You can download [GreedyGame_v6.unitypackage](current-sdk/GreedyGame_v6.unitypackage).
 
 ### Ads that people love
 
@@ -12,7 +12,7 @@ This is a complete guide to integrate GreedyGame plugin within your unity game. 
 
 ### 1. Import Plugin Package
 * **TopMenu**: *Assets > Import Package > Custom Package*
-* Import GreedyGame_v5.7.2.package into your unity project.
+* Import GreedyGame_v6.package into your unity project.
 
 ### 2. Select GameObject for branding
 * Attach complie MonoBehaviour **ThemeUnit** or **SharedThemeUnit**  to GameObject having **Renderer**.

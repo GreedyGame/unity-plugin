@@ -14,68 +14,135 @@ public class GreedyGame {
     protected static String TAG = "GreedyGame";
     private static GreedyGameAgent ggAgent = null;
     private String gameObjectName;
-    private String version = "5.7";
+    private String version = "5.7.2";
     Activity gameActivity = null;
     
 	public GreedyGame() {
-		gameActivity = UnityPlayer.currentActivity;
-		
-		
-		ggAgent = new GreedyGameAgent(gameActivity, new GreedyListner());
-		ggAgent.setAdHeadAnimation(false);
-		Log.i("GreedyGame", "Agent version = "+ggAgent.get_verison() +"Wrapper verison = "+version);
-		this.setDebug(true);
+		try{
+			gameActivity = UnityPlayer.currentActivity;
+			ggAgent = new GreedyGameAgent(gameActivity, new GreedyListner());
+			ggAgent.setAdHeadAnimation(false);
+			Log.i("GreedyGame", "Agent version = "+ggAgent.get_verison() +"Wrapper verison = "+version);
+			this.setDebug(true);
+		}catch(Exception e){
+			LogE("sdk error ", e);
+		}
 	}
 	
 	public void init(String _gameObject, String _gameId, String []_units){
-		gameObjectName = _gameObject;
-		ggAgent.init(_gameId, _units, FETCH_TYPE.DOWNLOAD_BY_ID);
+		try{
+			gameObjectName = _gameObject;
+			ggAgent.init(_gameId, _units, FETCH_TYPE.DOWNLOAD_BY_ID);
+		}catch(Exception e){
+			LogE("sdk error ", e);
+		}
 	}
 
 	public void cancelDownload() {
-		ggAgent.cancelDownload();
+		try{
+			ggAgent.cancelDownload();
+		}catch(Exception e){
+			LogE("sdk error ", e);
+		}
 	}
 	
 	public String activeTheme() {
-		return ggAgent.activeTheme();
+		try{
+			return ggAgent.activeTheme();
+		}catch(Exception e){
+			LogE("sdk error ", e);
+		}
+		return null;
 	}
 	
 
 	public float getProgress() {
-		return this.progress;
+		try{
+			return this.progress;
+		}catch(Exception e){
+			LogE("sdk error ", e);
+		}
+		return 100;
 	}
 	
 	public void fetchHeadAd(String unit_id){
-		ggAgent.fetchHeadAd(unit_id);
-	}
-	
-	public void fetchHeadAd(String unit_id, float x, float y){
-		ggAgent.fetchHeadAd(unit_id,x,y);
-	}
-	
-	public void removeHeadAd(String unit_id){
-		ggAgent.removeHeadAd(unit_id);
-	}
-	
-	public String newTheme() {
-		return ggAgent.newTheme();
-	}
-	
-	public int isForceUpdate() {
-		if(ggAgent.isForceUpdate()) {
-			return 1;
-		}else {
-			return 0;
+		try{
+			ggAgent.fetchHeadAd(unit_id);
+		}catch(Exception e){
+			LogE("sdk error ", e);
 		}
 	}
 	
+	public void fetchHeadAd(String unit_id, float x, float y){
+		try{
+			ggAgent.fetchHeadAd(unit_id,x,y);
+		}catch(Exception e){
+			LogE("sdk error ", e);
+		}
+	}
+	
+	public void removeHeadAd(String unit_id){
+		try{
+			ggAgent.removeHeadAd(unit_id);
+		}catch(Exception e){
+			LogE("sdk error ", e);
+		}
+	}
+	
+	public String newTheme() {
+		try{
+			return ggAgent.newTheme();
+		}catch(Exception e){
+			LogE("sdk error ", e);
+		}
+		return null;
+	}
+	
+	public int isForceUpdate() {
+		try{
+			if(ggAgent.isForceUpdate()) {
+				return 1;
+			}else {
+				return 0;
+			}
+		}catch(Exception e){
+			LogE("sdk error ", e);
+		}
+		return 0;
+	}
+	
 	public String getActivePath(){
-		return ggAgent.getActivePath();
+		try{
+			return ggAgent.getActivePath();
+		}catch(Exception e){
+			LogE("sdk error ", e);
+		}
+		return null;
+	}
+	
+	public void onStartEvent(){
+		try{
+			ggAgent.onCustomEvent("UnityOnStart");
+		}catch(Exception e){
+			LogE("sdk error ", e);
+		}
+	}
+	
+	public void onDestroyEvent(){
+		try{
+			ggAgent.onCustomEvent("UnityOnDestroy");
+		}catch(Exception e){
+			LogE("sdk error ", e);
+		}
 	}
 	
 	public void setDebug(boolean b) {
-		isDebug = b;
-		ggAgent.setDebug(b);
+		try{
+			isDebug = b;
+			ggAgent.setDebug(b);
+		}catch(Exception e){
+			LogE("sdk error ", e);
+		}
 	}
 	
     private static boolean isDebug = false;
