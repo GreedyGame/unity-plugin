@@ -6,19 +6,15 @@ using System.Collections;
 using System.Collections.Generic;
 using GreedyGame.Runtime.Common;
 
-public class DynamicUnitManager : ScriptableObject
-{
+public class DynamicUnitManager : ScriptableObject {
 	public List<UnitItem> Units;
 	public string GameProfile = null;
 	public string PostLevel = null;
 
-	public string[] UnitsID
-	{
-		get
-		{
+	public string[] UnitsID {
+		get {
 			List<string> s = new List<string>();
-			foreach(UnitItem u in Units)
-			{
+			foreach(UnitItem u in Units) {
 				s.Add(u.unitId);
 			}
 
@@ -29,19 +25,18 @@ public class DynamicUnitManager : ScriptableObject
 	//Singleton Mechanism
     private static DynamicUnitManager s_Instance = null;
 
-    public static DynamicUnitManager Instance
-    {
+    public static DynamicUnitManager Instance {
 		get {
 			return GetInstance();
 		}
 	}
 
-    private static DynamicUnitManager GetInstance()
-    {
-		DynamicUnitManager asset = null;
-#if UNITY_EDITOR
-		// If there's no instance, load or create one
+    private static DynamicUnitManager GetInstance() {
+
 		if( s_Instance == null ) {
+#if UNITY_EDITOR
+			// If there's no instance, load or create one
+			DynamicUnitManager asset = null;
 			string assetPathAndName = GeneratePath();
 
 			// Check the asset database for an existing instance of the asset
@@ -54,12 +49,11 @@ public class DynamicUnitManager : ScriptableObject
 				AssetDatabase.CreateAsset( asset, assetPathAndName );
 				AssetDatabase.SaveAssets();	
 			}
-
+#else
+			asset = ScriptableObject.FindObjectOfType(typeof(DynamicUnitManager)) as DynamicUnitManager;
+#endif
 			s_Instance = asset;
 		}
-#else
-		asset = ScriptableObject.FindObjectOfType(typeof(DynamicUnitManager)) as DynamicUnitManager;
-#endif
 
 		return s_Instance;
 	}
