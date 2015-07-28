@@ -14,7 +14,7 @@ public class GreedyGame {
     protected static String TAG = "GreedyGame";
     private static GreedyGameAgent ggAgent = null;
     private String gameObjectName;
-    private String version = "5.7.2";
+    private String version = "5.7.3";
     Activity gameActivity = null;
     
 	public GreedyGame() {
