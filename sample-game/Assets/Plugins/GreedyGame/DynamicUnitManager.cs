@@ -49,10 +49,10 @@ public class DynamicUnitManager : ScriptableObject {
 				AssetDatabase.CreateAsset( asset, assetPathAndName );
 				AssetDatabase.SaveAssets();	
 			}
-#else
-			asset = ScriptableObject.FindObjectOfType(typeof(DynamicUnitManager)) as DynamicUnitManager;
-#endif
 			s_Instance = asset;
+#else
+			s_Instance = ScriptableObject.FindObjectOfType(typeof(DynamicUnitManager)) as DynamicUnitManager;
+#endif
 		}
 
 		return s_Instance;
