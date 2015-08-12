@@ -21,4 +21,16 @@ public class AdHeadLoader : MonoBehaviour {
 	void OnDestroy (){
 		ggAdManager.RemoveAdHead (AdUnit);
 	}
+
+	void OnGUI() {
+		if (GUI.Button(new Rect(10, 10, 200, 200), "HIDE")){
+			Debug.Log("Clicked the button with text");
+			ggAdManager.RemoveAdHead (AdUnit);
+		}
+
+		if (GUI.Button(new Rect(210, 10, 200, 200), "SHOW")){
+			Debug.Log("Clicked the button with text");
+			ggAdManager.FetchAdHead (AdUnit);
+		}
+	}
 }
