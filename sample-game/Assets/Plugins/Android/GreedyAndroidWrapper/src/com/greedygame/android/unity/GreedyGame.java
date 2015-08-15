@@ -14,7 +14,7 @@ public class GreedyGame {
     protected static String TAG = "GreedyGame";
     private static GreedyGameAgent ggAgent = null;
     private String gameObjectName;
-    private String version = "5.7.3";
+    private String version = "5.8";
     Activity gameActivity = null;
     
 	public GreedyGame() {
@@ -68,14 +68,6 @@ public class GreedyGame {
 	public void fetchHeadAd(String unit_id){
 		try{
 			ggAgent.fetchHeadAd(unit_id);
-		}catch(Exception e){
-			LogE("sdk error ", e);
-		}
-	}
-	
-	public void fetchHeadAd(String unit_id, float x, float y){
-		try{
-			ggAgent.fetchHeadAd(unit_id,x,y);
 		}catch(Exception e){
 			LogE("sdk error ", e);
 		}
@@ -135,7 +127,15 @@ public class GreedyGame {
 			LogE("sdk error ", e);
 		}
 	}
-	
+
+	public void onCustomEvent(String event_name){
+		try{
+			ggAgent.onCustomEvent(event_name);
+		}catch(Exception e){
+			LogE("sdk error ", e);
+		}
+	}
+
 	public void setDebug(boolean b) {
 		try{
 			isDebug = b;
