@@ -22,7 +22,7 @@ public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>{
 			Application.LoadLevel (PostLevel);
 		}
 	}
-
+	
 	void Start() {
 		if (isSupported) {
 			GlobalConfig[] ggLoaders = Resources.FindObjectsOfTypeAll<GlobalConfig> ();
@@ -33,7 +33,10 @@ public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>{
 			}
 			GlobalConfig ggConfig = ggLoaders [0];
 			ggAdManager.init (ggConfig.GameId, ggConfig.AdUnits.ToArray (), OnGreedyEvent);
+
 		}
+
+	
 	}
 	
 	void OnGUI () {
