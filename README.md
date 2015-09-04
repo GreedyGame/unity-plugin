@@ -1,11 +1,11 @@
 GreedyGame Unity Integration Guide
 ===================
 
-This is a complete guide to integrate GreedyGame plugin within your unity game. You can download [GreedyGame_v6.4.unitypackage](current-sdk/GreedyGame_v6.4.unitypackage).
+This is a complete guide to integrate GreedyGame plugin within your unity game. You can download [GreedyGame_v6.9.unitypackage](current-sdk/GreedyGame_v6.9.unitypackage).
 
 ### Ads that people love
 
-![SharedThemeUnit MonoBehaviour](https://raw.githubusercontent.com/GreedyGame/Unity-Sample/master/screen-shots/1_branded_game.png?raw=true "SharedThemeUnit MonoBehaviour attached to Stockcar/Body_Complete" )
+![SharedAdUnit MonoBehaviour](https://raw.githubusercontent.com/GreedyGame/Unity-Sample/master/screen-shots/1_branded_game.png?raw=true "SharedAdUnit MonoBehaviour attached to Stockcar/Body_Complete" )
 
 
 ## Steps
@@ -15,14 +15,14 @@ This is a complete guide to integrate GreedyGame plugin within your unity game. 
 * Import GreedyGame_v6.package into your unity project.
 
 ### 2. Select GameObject for branding
-* Attach complie MonoBehaviour **ThemeUnit** or **SharedThemeUnit**  to GameObject having **Renderer**.
-* Supported Renderers are Mesh, Plan, Cloth and Sprite (only with SharedThemeUnit).
+* Attach complie MonoBehaviour **AdUnit** or **SharedAdUnit**  to GameObject having **Renderer**.
+* Supported Renderers are Mesh, Plan, Cloth and Sprite (only with SharedAdUnit).
 * GameObject must having 2D texture.
 
-> Preview: SharedThemeUnit MonoBehaviour attached to Stockcar/Body_Complete
+> Preview: SharedAdUnit MonoBehaviour attached to Stockcar/Body_Complete
 
-> ![SharedThemeUnit MonoBehaviour](https://raw.githubusercontent.com/GreedyGame/Unity-Sample/master/screen-shots/2_attached_monobehaviour.png?raw=true "SharedThemeUnit MonoBehaviour attached to Stockcar/Body_Complete" )
- 1. SharedThemeUnit Attached, yellow helpbox states it ready to build in unitlist
+> ![SharedAdUnit MonoBehaviour](https://raw.githubusercontent.com/GreedyGame/Unity-Sample/master/screen-shots/2_attached_monobehaviour.png?raw=true "SharedAdUnit MonoBehaviour attached to Stockcar/Body_Complete" )
+ 1. SharedAdUnit Attached, yellow helpbox states it ready to build in unitlist
  2. 2D texture, will be used for branded assets, such as logo, product image etc.
  3. MeshRender will be used as renderer to blend branding image over object
 
