@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" 
     android:versionCode="1" 
     android:versionName="1.0" 
-    package="com.greedygame.android.unity" 
+    package="com.greedygame.android" 
     android:installLocation="preferExternal">
     <uses-sdk
         android:minSdkVersion="8"
@@ -12,37 +12,40 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
-    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
-	<application >
-				
-		<service
-		    android:name="com.greedygame.android.GreedyBackgroundService"
-		    android:enabled="true" >
-		</service>
-		
-	    <receiver 
-	        	android:name="com.greedygame.android.GreedyAppReceiver" 
-	        	android:enabled="true" 
-	        	android:priority="100">
-	      <intent-filter>
-	        <action android:name="android.intent.action.PACKAGE_INSTALL" />
-	        <action android:name="android.intent.action.PACKAGE_ADDED" />
-	        <action android:name="android.intent.action.PACKAGE_REMOVED" />
-	        <action android:name="android.intent.action.PACKAGE_REPLACED" />
-	        <data android:scheme="package" />
-	      </intent-filter>
-	    </receiver>
-	    
-	   	<receiver 
-	        	android:name="com.greedygame.android.GreedyRefReceiver" 
-	        	android:enabled="true" 
-	        	android:priority="100">
-	      <intent-filter>
-	        <action android:name="com.android.vending.INSTALL_REFERRER" />
-	      </intent-filter>
-	    </receiver>
-	</application>
+    <application >
+        <activity
+            android:name="com.greedygame.android.AdHeadActivity"
+            android:theme="@style/Theme.Transparent" >
+        </activity>
+        <service
+            android:name="com.greedygame.android.GreedyBackgroundService"
+            android:enabled="true" >
+        </service>
+        
+        <receiver 
+            android:name="com.greedygame.android.GreedyAppReceiver" 
+            android:enabled="true" 
+            android:priority="100">
+          <intent-filter>
+            <action android:name="android.intent.action.PACKAGE_INSTALL" />
+            <action android:name="android.intent.action.PACKAGE_ADDED" />
+            <action android:name="android.intent.action.PACKAGE_REMOVED" />
+            <action android:name="android.intent.action.PACKAGE_REPLACED" />
+            <data android:scheme="package" />
+          </intent-filter>
+        </receiver>
+        
+        <receiver 
+            android:name="com.greedygame.android.GreedyRefReceiver" 
+            android:enabled="true" 
+            android:priority="100">
+          	<intent-filter>
+            	<action android:name="com.android.vending.INSTALL_REFERRER" />
+          	</intent-filter>
+        </receiver>
+
+    </application>
 </manifest>
