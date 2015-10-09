@@ -172,9 +172,7 @@ public class GreedyGame {
 			}else{
 				//ToDO: fail campaign
 			}
-			
 
-			
 		}
 		
 		@Override
@@ -183,16 +181,6 @@ public class GreedyGame {
 			progress = _progress;
 		}
 
-		@Override
-		public void onUnitClicked(boolean clicked) {
-			Log.i("GreedyGame", "onUnitClicked = "+clicked);
-			int i = 0;
-			if(clicked){
-				i = 1;
-			}
-			UnityPlayer.UnitySendMessage(gameObjectName, "GG_onClicked", Integer.toString(i));
-			
-		}
 
 		@Override
 		public void onInit(OnINIT_EVENT arg0) {
@@ -212,6 +200,11 @@ public class GreedyGame {
 			}
    			
    			UnityPlayer.UnitySendMessage(gameObjectName, "GG_onInit", Integer.toString(r));  	
+		}
+
+		@Override
+		public void onUnitClicked(boolean clicked) {
+			Log.w("GreedyGame", "[deprecated] onUnitClicked = "+clicked);			
 		}
     }
 
