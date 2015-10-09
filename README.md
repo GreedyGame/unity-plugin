@@ -149,4 +149,22 @@ void OnGreedyEvent(RuntimeEvent greedy_events){
 > ![GreedyGameConfigObject](https://raw.githubusercontent.com/GreedyGame/Unity-Sample/master/screen-shots/6_global_config.png?raw=true "Checking runtime unit list" )
 
 
+---
 
+## Android Setup
+1. [For users running a version of Unity earlier than 5.0] Navigate to Temp/StagingArea of your project directory and copy AndroidManifest.xml to Assets/Plugins/Android. Add the following <meta-data> tag to the AndroidManifest.xml file:
+  
+  ```xml
+  <activity android:name="com.unity3d.player.UnityPlayerActivity" ...>
+    ...
+    <meta-data android:name="unityplayer.ForwardNativeEventsToDalvik" android:value="true" />
+  </activity>
+  ```
+2. And set application *hardwareAccelerated=true* as
+  ```xml
+  <application 
+     android:hardwareAccelerated="true"
+  ....
+  </application>
+  
+  ```
