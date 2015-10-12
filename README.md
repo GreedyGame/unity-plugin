@@ -58,6 +58,24 @@ This is a complete guide to integrate GreedyGame plugin within your unity game. 
 * Attach `AdHeadLoader.cs` with respective scene's object to fetch floating AdHead on that scene.
 	* Set-up ad-unit manually on panel.greedygame.com/games/<game_namespace>/units 
 	* AdUnit : Panel's ad-unit to fetch specific unit from server. 
+```csharp
+private GreedyAdManager ggAdManager = null;
+void Awake (){
+	ggAdManager = GreedyAdManager.Instance;
+}
+
+void Start (){
+    //Fetch with floating behaviour
+    ggAdManager.FetchAdHead ("unit-1");
+    //Fetch at specific screen dpi.
+	ggAdManager.FetchAdHead ("unit-2", 300, 300);
+}
+
+void OnDestroy (){
+    ggAdManager.RemoveAdHead ("unit-1")
+	ggAdManager.RemoveAdHead ("unit-2");
+}
+```
 
 ---
 
