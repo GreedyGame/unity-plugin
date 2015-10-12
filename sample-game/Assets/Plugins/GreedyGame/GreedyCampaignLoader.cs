@@ -28,7 +28,7 @@ public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>{
 			GlobalConfig[] ggLoaders = Resources.FindObjectsOfTypeAll<GlobalConfig> ();
 			if(ggLoaders != null && ggLoaders.Length != 1){
 				isSupported = false;
-				Debug.LogError("None or multuple occurrence of GlobalConfig object found!");
+				Debug.LogError("None or multuple occurrence of GlobalConfig object found!\nGoto GreedyGame > DynamicUnitManager > Save");
 				return;
 			}
 			GlobalConfig ggConfig = ggLoaders [0];

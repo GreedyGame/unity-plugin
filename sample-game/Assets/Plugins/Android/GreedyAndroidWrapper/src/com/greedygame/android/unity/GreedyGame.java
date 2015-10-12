@@ -3,25 +3,30 @@ package com.greedygame.android.unity;
 import android.app.Activity;
 import android.util.Log;
 
+import com.greedygame.android.FloatAdLayout;
 import com.greedygame.android.GreedyGameAgent;
 import com.greedygame.android.GreedyGameAgent.FETCH_TYPE;
 import com.greedygame.android.GreedyGameAgent.OnINIT_EVENT;
 import com.greedygame.android.IAgentListner;
 import com.unity3d.player.UnityPlayer;
 
+
 public class GreedyGame {
 
     protected static String TAG = "GreedyGame";
     private static GreedyGameAgent ggAgent = null;
     private String gameObjectName;
-    private String version = "5.8";
+    private String version = "6.0";
     Activity gameActivity = null;
+
+	private FloatAdLayout ggFloat = null;
     
 	public GreedyGame() {
 		try{
 			gameActivity = UnityPlayer.currentActivity;
 			ggAgent = new GreedyGameAgent(gameActivity, new GreedyListner());
 			ggAgent.setAdHeadAnimation(false);
+			ggFloat = new FloatAdLayout(gameActivity);
 			Log.i("GreedyGame", "Agent version = "+ggAgent.get_verison() +"Wrapper verison = "+version);
 			this.setDebug(true);
 		}catch(Exception e){
@@ -67,7 +72,15 @@ public class GreedyGame {
 	
 	public void fetchHeadAd(String unit_id){
 		try{
-			ggAgent.fetchHeadAd(unit_id);
+			ggFloat.fetchHeadAd(unit_id);
+		}catch(Exception e){
+			LogE("sdk error ", e);
+		}
+	}
+
+	public void fetchHeadAd(String unit_id, int x, int y){
+		try{
+			ggFloat.fetchHeadAd(unit_id, x, y);
 		}catch(Exception e){
 			LogE("sdk error ", e);
 		}
@@ -75,7 +88,7 @@ public class GreedyGame {
 	
 	public void removeHeadAd(String unit_id){
 		try{
-			ggAgent.removeHeadAd(unit_id);
+			ggFloat.fetchHeadAd(unit_id);
 		}catch(Exception e){
 			LogE("sdk error ", e);
 		}
@@ -202,10 +215,8 @@ public class GreedyGame {
    			UnityPlayer.UnitySendMessage(gameObjectName, "GG_onInit", Integer.toString(r));  	
 		}
 
-		@Override
-		public void onUnitClicked(boolean clicked) {
-			Log.w("GreedyGame", "[deprecated] onUnitClicked = "+clicked);			
-		}
+
+
     }
 
 }
