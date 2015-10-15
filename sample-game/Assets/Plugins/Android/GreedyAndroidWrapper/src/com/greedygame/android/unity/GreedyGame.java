@@ -16,7 +16,7 @@ public class GreedyGame {
     protected static String TAG = "GreedyGame";
     private static GreedyGameAgent ggAgent = null;
     private String gameObjectName;
-    private String version = "6.0";
+    private String version = "6.1";
     Activity gameActivity = null;
 
 	private FloatAdLayout ggFloat = null;
@@ -88,7 +88,7 @@ public class GreedyGame {
 	
 	public void removeHeadAd(String unit_id){
 		try{
-			ggFloat.fetchHeadAd(unit_id);
+			ggFloat.removeHeadAd(unit_id);
 		}catch(Exception e){
 			LogE("sdk error ", e);
 		}

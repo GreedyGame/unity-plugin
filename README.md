@@ -1,7 +1,7 @@
 GreedyGame Unity Integration Guide
 ===================
 
-This is a complete guide to integrate GreedyGame plugin within your unity game. You can download [GreedyGame_v7.4.1.unitypackage](current-sdk/GreedyGame_v7.4.1.unitypackage).
+This is a complete guide to integrate GreedyGame plugin within your unity game. You can download [GreedyGame_v7.4.2.unitypackage](current-sdk/GreedyGame_v7.4.2.unitypackage).
 
 ### Ads that people love
 
