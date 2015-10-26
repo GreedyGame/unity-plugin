@@ -8,14 +8,15 @@ using GreedyGame.Platform;
 public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>{
 
 	public Texture2D SkipButton;
-	public int PostLevel;
+	public int PostLevel = 1;
 	private int BtnWidth = 150;
 	private int BtnHeight = 70;
 	private bool isSupported = false;
 
 	private GreedyAdManager ggAdManager = null;
 	void Awake(){
-		if (RuntimePlatform.Android == Application.platform) {
+		if (RuntimePlatform.Android == Application.platform ||
+		    Application.isEditor) {
 			isSupported = true;
 			ggAdManager = GreedyAdManager.Instance;
 		}else{
@@ -58,11 +59,6 @@ public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>{
 			Application.LoadLevel (PostLevel);
 		}
 
-		if (greedy_events == RuntimeEvent.UNIT_CLOSED){
-			Time.timeScale = 1.0f;
-		}else if(greedy_events == RuntimeEvent.UNIT_OPENED){
-			Time.timeScale = 0.0f;
-		}
 	}
 
 	void DrawRectangle (Rect position, Color color) {    
