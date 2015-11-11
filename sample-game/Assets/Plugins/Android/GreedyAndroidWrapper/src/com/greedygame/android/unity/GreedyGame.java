@@ -2,6 +2,7 @@ package com.greedygame.android.unity;
 
 import android.app.Activity;
 import android.util.Log;
+import android.widget.FrameLayout;
 
 import com.greedygame.android.FloatAdLayout;
 import com.greedygame.android.GreedyGameAgent;
@@ -16,7 +17,7 @@ public class GreedyGame {
     protected static String TAG = "GreedyGame";
     private static GreedyGameAgent ggAgent = null;
     private String gameObjectName;
-    private String version = "6.1";
+    private String version = "6.3";
     Activity gameActivity = null;
 
 	private FloatAdLayout ggFloat = null;
@@ -27,6 +28,16 @@ public class GreedyGame {
 			ggAgent = new GreedyGameAgent(gameActivity, new GreedyListner());
 			ggAgent.setAdHeadAnimation(false);
 			ggFloat = new FloatAdLayout(gameActivity);
+			
+			gameActivity.runOnUiThread(
+				new Runnable() {
+					public void run() {
+						FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
+								FrameLayout.LayoutParams.WRAP_CONTENT,
+								FrameLayout.LayoutParams.WRAP_CONTENT);
+						gameActivity.addContentView(ggFloat, params);
+					}
+				});
 			Log.i("GreedyGame", "Agent version = "+ggAgent.get_verison() +"Wrapper verison = "+version);
 			this.setDebug(true);
 		}catch(Exception e){
@@ -86,9 +97,9 @@ public class GreedyGame {
 		}
 	}
 	
-	public void removeHeadAd(String unit_id){
+	public void removeAllHeadAd(){
 		try{
-			ggFloat.removeHeadAd(unit_id);
+			ggFloat.removeAllHeadAd();
 		}catch(Exception e){
 			LogE("sdk error ", e);
 		}

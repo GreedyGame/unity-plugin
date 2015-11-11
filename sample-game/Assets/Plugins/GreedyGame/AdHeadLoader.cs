@@ -19,7 +19,7 @@ public class AdHeadLoader : MonoBehaviour {
 	}
 	
 	void OnDestroy (){
-		ggAdManager.RemoveAdHead (AdUnit);
+		ggAdManager.RemoveAllAdHead ();
 	}
 	
 }
