@@ -6,11 +6,7 @@ using GreedyGame.Runtime.Common;
 using GreedyGame.Platform;
 
 public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>{
-
-	public Texture2D SkipButton;
-	public int PostLevel = 1;
-	private int BtnWidth = 150;
-	private int BtnHeight = 70;
+	
 	private bool isSupported = false;
 
 	private GreedyAdManager ggAdManager = null;
@@ -20,35 +16,29 @@ public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>{
 			isSupported = true;
 			ggAdManager = GreedyAdManager.Instance;
 		}else{
-			Application.LoadLevel (PostLevel);
+			Application.LoadLevel (1);
 		}
 	}
 	
 	void Start() {
 		if (isSupported) {
 			GlobalConfig[] ggLoaders = Resources.FindObjectsOfTypeAll<GlobalConfig> ();
-			if(ggLoaders != null && ggLoaders.Length != 1){
+			if(ggLoaders == null || ggLoaders.Length == 0){
 				isSupported = false;
-				Debug.LogError("None or multuple occurrence of GlobalConfig object found!\nGoto GreedyGame > DynamicUnitManager > Save");
+				Debug.LogError("No occurrence of GlobalConfig object found!\nGoto GreedyGame > DynamicUnitManager > Save");
 				return;
 			}
 			GlobalConfig ggConfig = ggLoaders [0];
-			ggAdManager.init (ggConfig.GameId, ggConfig.AdUnits.ToArray (), OnGreedyEvent);
-
+			ggAdManager.init (ggConfig.GameId, ggConfig.AdUnits.ToArray (), ggConfig.isDebug, ggConfig.isLazyLoad, OnGreedyEvent);
 		}
 
-	
+		Application.LoadLevel (1);
 	}
 	
 	void OnGUI () {
-		if(isSupported && ggAdManager.isNewCampaign){
+		if(isSupported){
 			Rect a = new Rect (0, Screen.height/2, Screen.width*ggAdManager.progress/100.0f, 30);
 			DrawRectangle (a, Color.black);
-			if(ggAdManager.isForced == false){
-				if (GUI.Button(new Rect (Screen.width - BtnWidth, Screen.height - 100, BtnWidth, BtnHeight), SkipButton, GUIStyle.none)) {
-					ggAdManager.cancelDownload();
-				}
-			}
 		}
 	}
 	
@@ -56,9 +46,8 @@ public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>{
 		Debug.Log(String.Format("OnGreedyEvent - {0}", greedy_events));
 		if (greedy_events == RuntimeEvent.CAMPAIGN_LOADED || 
 		    greedy_events == RuntimeEvent.CAMPAIGN_NOT_LOADED) {
-			Application.LoadLevel (PostLevel);
+			//Application.LoadLevel (1);
 		}
-
 	}
 
 	void DrawRectangle (Rect position, Color color) {    
@@ -67,5 +56,5 @@ public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>{
 		texture.Apply();
 		GUI.skin.box.normal.background = texture;
 		GUI.Box(position, GUIContent.none);
-	}	
+	}
 }

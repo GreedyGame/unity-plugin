@@ -15,11 +15,11 @@ public class AdHeadLoader : MonoBehaviour {
 	}
 
 	void Start (){
-		ggAdManager.FetchAdHead (AdUnit, 300, 300);
+		ggAdManager.FetchAdHead (AdUnit);
 	}
 	
 	void OnDestroy (){
-		ggAdManager.RemoveAdHead (AdUnit);
+		ggAdManager.RemoveAllAdHead ();
 	}
 	
 }

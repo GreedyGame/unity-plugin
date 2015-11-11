@@ -14,14 +14,17 @@ public final class R {
         public static int greedy_close=0x7f020000;
     }
     public static final class id {
-        public static int gg_head_bannerview=0x7f050003;
-        public static int gg_head_layout=0x7f050000;
-        public static int gg_head_outside=0x7f050001;
-        public static int gg_head_webview=0x7f050002;
-        public static int loadingPanel=0x7f050004;
+        public static int gg_head_bannerview=0x7f060003;
+        public static int gg_head_layout=0x7f060000;
+        public static int gg_head_outside=0x7f060001;
+        public static int gg_head_webview=0x7f060002;
+        public static int loadingPanel=0x7f060004;
     }
     public static final class layout {
         public static int float_main=0x7f030000;
+    }
+    public static final class string {
+        public static int greedy_game_profile=0x7f040000;
     }
     public static final class style {
         /** 
@@ -34,11 +37,11 @@ public final class R {
 	        backward-compatibility can go here.
 	    
          */
-        public static int AppBaseTheme=0x7f040000;
+        public static int AppBaseTheme=0x7f050000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static int AppTheme=0x7f040002;
-        public static int Theme_Transparent=0x7f040001;
+        public static int AppTheme=0x7f050002;
+        public static int Theme_Transparent=0x7f050001;
     }
 }
