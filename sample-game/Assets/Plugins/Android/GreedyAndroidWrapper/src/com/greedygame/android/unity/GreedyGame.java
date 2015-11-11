@@ -1,7 +1,14 @@
 package com.greedygame.android.unity;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 import android.app.Activity;
 import android.util.Log;
+import android.widget.FrameLayout;
 
 import com.greedygame.android.FloatAdLayout;
 import com.greedygame.android.GreedyGameAgent;
@@ -16,7 +23,7 @@ public class GreedyGame {
     protected static String TAG = "GreedyGame";
     private static GreedyGameAgent ggAgent = null;
     private String gameObjectName;
-    private String version = "6.1";
+    private String version = "6.4";
     Activity gameActivity = null;
 
 	private FloatAdLayout ggFloat = null;
@@ -25,8 +32,17 @@ public class GreedyGame {
 		try{
 			gameActivity = UnityPlayer.currentActivity;
 			ggAgent = new GreedyGameAgent(gameActivity, new GreedyListner());
-			ggAgent.setAdHeadAnimation(false);
 			ggFloat = new FloatAdLayout(gameActivity);
+			
+			gameActivity.runOnUiThread(
+				new Runnable() {
+					public void run() {
+						FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
+								FrameLayout.LayoutParams.WRAP_CONTENT,
+								FrameLayout.LayoutParams.WRAP_CONTENT);
+						gameActivity.addContentView(ggFloat, params);
+					}
+				});
 			Log.i("GreedyGame", "Agent version = "+ggAgent.get_verison() +"Wrapper verison = "+version);
 			this.setDebug(true);
 		}catch(Exception e){
@@ -34,22 +50,30 @@ public class GreedyGame {
 		}
 	}
 	
-	public void init(String _gameObject, String _gameId, String []_units){
+	public void init(String _gameObject, String _gameId, String []_units, boolean isEdit){
+		Log.i("GreedyGame", "_gameObject = "+_gameObject +", _gameId = "+_gameId +", isEdit = "+isEdit);
 		try{
 			gameObjectName = _gameObject;
-			ggAgent.init(_gameId, _units, FETCH_TYPE.DOWNLOAD_BY_ID);
+			
+			//Remove null and empty
+			List<String> list = new ArrayList<String>(Arrays.asList(_units));
+			list.removeAll(Arrays.asList("", null));
+			
+			//Remove duplicates
+			Set<String> stringSet = new HashSet<String>(list);
+			String[] filteredArray = stringSet.toArray(new String[0]);
+			
+			if(isEdit){
+				ggAgent.init(_gameId, filteredArray, FETCH_TYPE.DOWNLOAD_BY_ID, "1");
+			}else{
+				ggAgent.init(_gameId, filteredArray, FETCH_TYPE.DOWNLOAD_BY_ID);
+			}
+			
 		}catch(Exception e){
 			LogE("sdk error ", e);
 		}
 	}
 
-	public void cancelDownload() {
-		try{
-			ggAgent.cancelDownload();
-		}catch(Exception e){
-			LogE("sdk error ", e);
-		}
-	}
 	
 	public String activeTheme() {
 		try{
@@ -70,51 +94,45 @@ public class GreedyGame {
 		return 100;
 	}
 	
-	public void fetchHeadAd(String unit_id){
-		try{
-			ggFloat.fetchHeadAd(unit_id);
-		}catch(Exception e){
-			LogE("sdk error ", e);
-		}
+	public void fetchHeadAd(final String unit_id){
+		gameActivity.runOnUiThread(
+				new Runnable() {
+					public void run() {
+						try{
+							ggFloat.fetchHeadAd(unit_id);
+						}catch(Exception e){
+							LogE("sdk error ", e);
+						}
+					}
+				});
 	}
 
-	public void fetchHeadAd(String unit_id, int x, int y){
-		try{
-			ggFloat.fetchHeadAd(unit_id, x, y);
-		}catch(Exception e){
-			LogE("sdk error ", e);
-		}
+	public void fetchHeadAd(final String unit_id, final int x, final int y){
+		gameActivity.runOnUiThread(
+				new Runnable() {
+					public void run() {
+						try{
+							ggFloat.fetchHeadAd(unit_id, x, y);
+						}catch(Exception e){
+							LogE("sdk error ", e);
+						}
+					}
+				});
 	}
 	
-	public void removeHeadAd(String unit_id){
-		try{
-			ggFloat.removeHeadAd(unit_id);
-		}catch(Exception e){
-			LogE("sdk error ", e);
-		}
+	public void removeAllHeadAd(){
+		gameActivity.runOnUiThread(
+			new Runnable() {
+				public void run() {
+					try{
+						ggFloat.removeAllHeadAd();
+					}catch(Exception e){
+						LogE("sdk error ", e);
+					}
+				}
+			});
 	}
 	
-	public String newTheme() {
-		try{
-			return ggAgent.newTheme();
-		}catch(Exception e){
-			LogE("sdk error ", e);
-		}
-		return null;
-	}
-	
-	public int isForceUpdate() {
-		try{
-			if(ggAgent.isForceUpdate()) {
-				return 1;
-			}else {
-				return 0;
-			}
-		}catch(Exception e){
-			LogE("sdk error ", e);
-		}
-		return 0;
-	}
 	
 	public String getActivePath(){
 		try{
@@ -127,7 +145,7 @@ public class GreedyGame {
 	
 	public void onStartEvent(){
 		try{
-			ggAgent.onCustomEvent("UnityOnStart");
+			ggAgent.onResume();
 		}catch(Exception e){
 			LogE("sdk error ", e);
 		}
@@ -135,7 +153,7 @@ public class GreedyGame {
 	
 	public void onDestroyEvent(){
 		try{
-			ggAgent.onCustomEvent("UnityOnDestroy");
+			ggAgent.onPause();
 		}catch(Exception e){
 			LogE("sdk error ", e);
 		}
@@ -214,8 +232,6 @@ public class GreedyGame {
    			
    			UnityPlayer.UnitySendMessage(gameObjectName, "GG_onInit", Integer.toString(r));  	
 		}
-
-
 
     }
 
