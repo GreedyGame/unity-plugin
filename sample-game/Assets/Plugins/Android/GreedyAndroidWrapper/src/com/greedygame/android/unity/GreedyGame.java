@@ -1,5 +1,11 @@
 package com.greedygame.android.unity;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 import android.app.Activity;
 import android.util.Log;
 import android.widget.FrameLayout;
@@ -17,7 +23,7 @@ public class GreedyGame {
     protected static String TAG = "GreedyGame";
     private static GreedyGameAgent ggAgent = null;
     private String gameObjectName;
-    private String version = "6.3";
+    private String version = "6.4";
     Activity gameActivity = null;
 
 	private FloatAdLayout ggFloat = null;
@@ -48,7 +54,17 @@ public class GreedyGame {
 	public void init(String _gameObject, String _gameId, String []_units){
 		try{
 			gameObjectName = _gameObject;
-			ggAgent.init(_gameId, _units, FETCH_TYPE.DOWNLOAD_BY_ID);
+			
+			//Remove null and empty
+			List<String> list = new ArrayList<String>(Arrays.asList(_units));
+			list.removeAll(Arrays.asList("", null));
+			
+			//Remove duplicates
+			Set<String> stringSet = new HashSet<String>(list);
+			String[] filteredArray = stringSet.toArray(new String[0]);
+			
+			System.out.println(filteredArray);
+			ggAgent.init(_gameId, filteredArray, FETCH_TYPE.DOWNLOAD_BY_ID);
 		}catch(Exception e){
 			LogE("sdk error ", e);
 		}
@@ -81,28 +97,44 @@ public class GreedyGame {
 		return 100;
 	}
 	
-	public void fetchHeadAd(String unit_id){
-		try{
-			ggFloat.fetchHeadAd(unit_id);
-		}catch(Exception e){
-			LogE("sdk error ", e);
-		}
+	public void fetchHeadAd(final String unit_id){
+		gameActivity.runOnUiThread(
+				new Runnable() {
+					public void run() {
+						try{
+							ggFloat.fetchHeadAd(unit_id);
+						}catch(Exception e){
+							LogE("sdk error ", e);
+						}
+					}
+				});
 	}
 
-	public void fetchHeadAd(String unit_id, int x, int y){
-		try{
-			ggFloat.fetchHeadAd(unit_id, x, y);
-		}catch(Exception e){
-			LogE("sdk error ", e);
-		}
+	public void fetchHeadAd(final String unit_id, final int x, final int y){
+		gameActivity.runOnUiThread(
+				new Runnable() {
+					public void run() {
+						try{
+							ggFloat.fetchHeadAd(unit_id, x, y);
+						}catch(Exception e){
+							LogE("sdk error ", e);
+						}
+					}
+				});
 	}
 	
 	public void removeAllHeadAd(){
-		try{
-			ggFloat.removeAllHeadAd();
-		}catch(Exception e){
-			LogE("sdk error ", e);
-		}
+
+		gameActivity.runOnUiThread(
+				new Runnable() {
+					public void run() {
+						try{
+							ggFloat.removeAllHeadAd();
+						}catch(Exception e){
+							LogE("sdk error ", e);
+						}
+					}
+				});
 	}
 	
 	public String newTheme() {
@@ -138,7 +170,7 @@ public class GreedyGame {
 	
 	public void onStartEvent(){
 		try{
-			ggAgent.onCustomEvent("UnityOnStart");
+			ggAgent.onClockStart();
 		}catch(Exception e){
 			LogE("sdk error ", e);
 		}
@@ -146,7 +178,7 @@ public class GreedyGame {
 	
 	public void onDestroyEvent(){
 		try{
-			ggAgent.onCustomEvent("UnityOnDestroy");
+			ggAgent.onClockStop();
 		}catch(Exception e){
 			LogE("sdk error ", e);
 		}

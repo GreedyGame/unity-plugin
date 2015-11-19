@@ -21,23 +21,6 @@
             android:name="com.greedygame.android.AdHeadActivity"
             android:theme="@style/Theme.Transparent" >
         </activity>
-        <service
-            android:name="com.greedygame.android.GreedyBackgroundService"
-            android:enabled="true" >
-        </service>
-        
-        <receiver 
-            android:name="com.greedygame.android.GreedyAppReceiver" 
-            android:enabled="true" 
-            android:priority="100">
-          <intent-filter>
-            <action android:name="android.intent.action.PACKAGE_INSTALL" />
-            <action android:name="android.intent.action.PACKAGE_ADDED" />
-            <action android:name="android.intent.action.PACKAGE_REMOVED" />
-            <action android:name="android.intent.action.PACKAGE_REPLACED" />
-            <data android:scheme="package" />
-          </intent-filter>
-        </receiver>
         
         <receiver 
             android:name="com.greedygame.android.GreedyRefReceiver" 
