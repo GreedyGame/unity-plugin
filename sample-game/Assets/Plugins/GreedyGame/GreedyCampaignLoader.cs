@@ -36,7 +36,7 @@ public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>{
 	}
 	
 	void OnGUI () {
-		if(isSupported && ggAdManager.isNewCampaign){
+		if(isSupported){
 			Rect a = new Rect (0, Screen.height/2, Screen.width*ggAdManager.progress/100.0f, 30);
 			DrawRectangle (a, Color.black);
 		}

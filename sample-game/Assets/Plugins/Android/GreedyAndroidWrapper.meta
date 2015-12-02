@@ -1,18 +1,21 @@
 fileFormatVersion: 2
-guid: de6dc58bb7bf04a61ae9f14738ffd1f1
-timeCreated: 1449066635
-licenseType: Free
+guid: a8d2e1a7e482a43969ea5d38d73c6624
+folderAsset: yes
 PluginImporter:
   serializedVersion: 1
   iconMap: {}
   executionOrder: {}
   isPreloaded: 0
   platformData:
+    Android:
+      enabled: 1
+      settings:
+        CPU: ARMv7
     Any:
       enabled: 0
       settings: {}
     Editor:
-      enabled: 1
+      enabled: 0
       settings:
         DefaultValueInitialized: true
   userData: 

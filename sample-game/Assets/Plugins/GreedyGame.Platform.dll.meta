@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: de6dc58bb7bf04a61ae9f14738ffd1f1
-timeCreated: 1449066635
+guid: 7cdd41c7536b84ef18fe8bc3ffafcfe9
+timeCreated: 1449066388
 licenseType: Free
 PluginImporter:
   serializedVersion: 1
@@ -9,10 +9,10 @@ PluginImporter:
   isPreloaded: 0
   platformData:
     Any:
-      enabled: 0
+      enabled: 1
       settings: {}
     Editor:
-      enabled: 1
+      enabled: 0
       settings:
         DefaultValueInitialized: true
   userData: 
