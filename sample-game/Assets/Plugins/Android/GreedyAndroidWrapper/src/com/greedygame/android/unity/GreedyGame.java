@@ -30,6 +30,7 @@ public class GreedyGame {
     
 	public GreedyGame() {
 		try{
+			GreedyGameAgent.GameEngine = "unity";
 			gameActivity = UnityPlayer.currentActivity;
 			ggAgent = new GreedyGameAgent(gameActivity, new GreedyListner());
 			ggFloat = new FloatAdLayout(gameActivity);
@@ -64,10 +65,9 @@ public class GreedyGame {
 			String[] filteredArray = stringSet.toArray(new String[0]);
 			
 			if(isEdit){
-				ggAgent.init(_gameId, filteredArray, FETCH_TYPE.DOWNLOAD_BY_ID, "1");
-			}else{
-				ggAgent.init(_gameId, filteredArray, FETCH_TYPE.DOWNLOAD_BY_ID);
+				GreedyGameAgent.Debug = true;
 			}
+			ggAgent.init(filteredArray, FETCH_TYPE.DOWNLOAD_BY_ID);
 			
 		}catch(Exception e){
 			LogE("sdk error ", e);
