@@ -32,7 +32,6 @@ public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>{
 			ggAdManager.init (ggConfig.GameId, ggConfig.AdUnits.ToArray (), ggConfig.isDebug, ggConfig.isLazyLoad, OnGreedyEvent);
 		}
 
-		Application.LoadLevel (1);
 	}
 	
 	void OnGUI () {
@@ -46,7 +45,7 @@ public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>{
 		Debug.Log(String.Format("OnGreedyEvent - {0}", greedy_events));
 		if (greedy_events == RuntimeEvent.CAMPAIGN_LOADED || 
 		    greedy_events == RuntimeEvent.CAMPAIGN_NOT_LOADED) {
-			//Application.LoadLevel (1);
+			Application.LoadLevel (1);
 		}
 	}
 
