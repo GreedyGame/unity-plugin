@@ -44,8 +44,10 @@ public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>{
 	void OnGreedyEvent(RuntimeEvent greedy_events){
 		Debug.Log(String.Format("OnGreedyEvent - {0}", greedy_events));
 		if (greedy_events == RuntimeEvent.CAMPAIGN_LOADED || 
-		    greedy_events == RuntimeEvent.CAMPAIGN_NOT_LOADED) {
-			Application.LoadLevel (1);
+		    greedy_events == RuntimeEvent.CAMPAIGN_NOT_LOADED ) {
+			if(Application.loadedLevel == 0){
+				Application.LoadLevel (1);
+			}
 		}
 	}
 
