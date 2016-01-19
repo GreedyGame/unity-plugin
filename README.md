@@ -191,4 +191,5 @@ void OnGreedyEvent(RuntimeEvent greedy_events){
 ```
 ---
 
+For more help please see [FAQ] (https://github.com/GreedyGame/unity-plugin/wiki/FAQs)
 
