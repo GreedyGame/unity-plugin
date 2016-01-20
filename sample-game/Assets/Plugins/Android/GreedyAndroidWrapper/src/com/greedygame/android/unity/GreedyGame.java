@@ -238,30 +238,8 @@ public class GreedyGame {
 		@Override
 		public void unAvailablePermissions(
 				ArrayList<String> permissions) {
-			// TODO Auto-generated method stub
-			final  ArrayList<String> perms = permissions; 
-			if(permissions!=null){
-			gameActivity.runOnUiThread(new Runnable() {
-				public void run() {
-					try {
-						if(perms.size()!=0){
-							for(String s : perms)
-						Toast.makeText(gameActivity,
-								s + " not available",
-								Toast.LENGTH_SHORT).show();
-						} else {
-							Toast.makeText(gameActivity,
-									 "All permissions are available",
-									Toast.LENGTH_SHORT).show();
-						}
-						
-					} catch (Exception e) {
-						LogE("sdk error ", e);
-					}
-				}
-			});
-			}
 
+			
 		}
 
 	}
