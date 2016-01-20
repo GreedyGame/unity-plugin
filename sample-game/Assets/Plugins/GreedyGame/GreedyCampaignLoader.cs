@@ -11,6 +11,7 @@ public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>{
 
 	private GreedyAdManager ggAdManager = null;
 	void Awake(){
+		DontDestroyOnLoad(this.gameObject) ;
 		if (RuntimePlatform.Android == Application.platform ||
 		    Application.isEditor) {
 			isSupported = true;
@@ -33,29 +34,33 @@ public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>{
 		}
 
 	}
+
+	float timer = 0.0f; // begins at this value
+	float timerMax = 10.0f; // 10.0 seconds or however long a lap is
 	
-	void OnGUI () {
-		if(isSupported){
-			Rect a = new Rect (0, Screen.height/2, Screen.width*ggAdManager.progress/100.0f, 30);
-			DrawRectangle (a, Color.black);
+	void Update() {
+		timer += Time.deltaTime;
+		if (timer >= timerMax){
+			Debug.Log("timerMax reached !");// function at timermax
+			
+				if(Application.loadedLevel == 0){
+				Application.LoadLevel (1);
+			}
+			
+			
 		}
 	}
 	
 	void OnGreedyEvent(RuntimeEvent greedy_events){
 		Debug.Log(String.Format("OnGreedyEvent - {0}", greedy_events));
 		if (greedy_events == RuntimeEvent.CAMPAIGN_LOADED || 
-		    greedy_events == RuntimeEvent.CAMPAIGN_NOT_LOADED ) {
+		    greedy_events == RuntimeEvent.CAMPAIGN_NOT_LOADED) {
 			if(Application.loadedLevel == 0){
 				Application.LoadLevel (1);
 			}
+			
 		}
 	}
 
-	void DrawRectangle (Rect position, Color color) {    
-		Texture2D texture = new Texture2D(1, 1);
-		texture.SetPixel(0,0,color);
-		texture.Apply();
-		GUI.skin.box.normal.background = texture;
-		GUI.Box(position, GUIContent.none);
-	}
+
 }

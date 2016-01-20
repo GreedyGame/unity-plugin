@@ -1,4 +1,5 @@
 int drawable greedy_close 0x7f020000
+int drawable xgreedy_close 0x7f020001
 int id gg_head_bannerview 0x7f060003
 int id gg_head_layout 0x7f060000
 int id gg_head_outside 0x7f060001

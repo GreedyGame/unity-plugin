@@ -12,6 +12,7 @@ public final class R {
     }
     public static final class drawable {
         public static int greedy_close=0x7f020000;
+        public static int xgreedy_close=0x7f020001;
     }
     public static final class id {
         public static int gg_head_bannerview=0x7f060003;
