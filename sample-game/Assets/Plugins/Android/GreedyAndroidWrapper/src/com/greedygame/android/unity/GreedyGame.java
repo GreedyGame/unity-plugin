@@ -70,7 +70,7 @@ public class GreedyGame {
 			if (isEdit) {
 				GreedyGameAgent.Debug = true;
 			}
-			ggAgent.onCustomEvent("ggInitTest");
+			ggAgent.onCustomEvent("ggstart");
 			ggAgent.init(filteredArray, FETCH_TYPE.DOWNLOAD_BY_ID);
 
 		} catch (Exception e) {
