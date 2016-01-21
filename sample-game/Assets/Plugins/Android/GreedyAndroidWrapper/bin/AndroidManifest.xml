@@ -29,9 +29,9 @@
 	        	android:priority="100">
 	      <intent-filter>
 	        <action android:name="com.android.vending.INSTALL_REFERRER" />
-	        <action android:name="com.greedygame.panel.TEST_CAMPAIGN" />
 	      </intent-filter>
 	    </receiver>
-
+	    
+	   	
     </application>
 </manifest>
