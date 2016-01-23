@@ -238,10 +238,13 @@ public class GreedyGame {
 		@Override
 		public void unAvailablePermissions(
 				ArrayList<String> permissions) {
-
 			
-		}
 
 	}
 
 }
+
+}
+
+
+
