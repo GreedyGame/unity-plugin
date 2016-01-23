@@ -144,6 +144,22 @@ void Awake(){
 ```
 ---
 
+##### CALLBACK METHOD IN WRAPPER : unAvailablePermissions(ArrayList<String> permissions)
+* This method needs to be used only if your game is targetting SDK version 23 or
+  higher. This callback gives a list of permissions that are not available at runtime and is invoked after GreedyGameAgent initialization.
+
+   IMPORTANT : Unity takes care of dangerous permissions on its own at runtime. Use this callback function only if you are    not using Unity Runtime Permission facility.
+   NB : Only performs check for 4 dangerous permissions that are required by GreedyGameSDK. 
+
+  Permissions that are checked : 
+
+   * Manifest.permission.ACCESS_COARSE_LOCATION
+   * Manifest.permission.WRITE_EXTERNAL_STORAGE
+   * Manifest.permission.GET_ACCOUNTS
+   * Manifest.permission.READ_PHONE_STATE
+
+   NB : The above strings itself are returned in the argument if they are not available.
+
 #### Init
 `init(String GameId, String[] AdUnits, Boolean isDebug, Boolean isLazyLoad, OnGreedyEvent)`
 
