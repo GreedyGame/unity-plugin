@@ -34,22 +34,7 @@ public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>{
 		}
 
 	}
-
-	float timer = 0.0f; // begins at this value
-	float timerMax = 10.0f; // 10.0 seconds or however long a lap is
-	
-	void Update() {
-		timer += Time.deltaTime;
-		if (timer >= timerMax){
-			Debug.Log("timerMax reached !");// function at timermax
-			
-				if(Application.loadedLevel == 0){
-				Application.LoadLevel (1);
-			}
-			
-			
-		}
-	}
+		
 	
 	void OnGreedyEvent(RuntimeEvent greedy_events){
 		Debug.Log(String.Format("OnGreedyEvent - {0}", greedy_events));
