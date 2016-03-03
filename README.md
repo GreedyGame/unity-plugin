@@ -207,5 +207,8 @@ void OnGreedyEvent(RuntimeEvent greedy_events){
 ```
 ---
 
+### Video Tutorial
+Check out the following youtube link for a video tutorial which contains the entire walkthrough for GreedyGame Integration in Unity ! (https://www.youtube.com/watch?v=L8Lq5UIbd68)
+
 ### For more help please see [FAQ] (https://github.com/GreedyGame/unity-plugin/wiki/FAQs)
 
