@@ -207,8 +207,11 @@ void OnGreedyEvent(RuntimeEvent greedy_events){
 ```
 ---
 
+### External Jars
+GreedyGame SDK uses Volley from Google and PriorityJobQueue from path as external jars. In case of conflicts you can remove it from libs folder of the wrapper. 
+
 ### Video Tutorial
-Check out the following youtube link for a video tutorial which contains the entire walkthrough for GreedyGame Integration in Unity ! (https://www.youtube.com/watch?v=L8Lq5UIbd68)
+Check out the following youtube link for a video tutorial which contains the entire walkthrough for GreedyGame Integration in Unity ! [Video Tutorial] (https://www.youtube.com/watch?v=L8Lq5UIbd68)
 
 ### For more help please see [FAQ] (https://github.com/GreedyGame/unity-plugin/wiki/FAQs)
 
