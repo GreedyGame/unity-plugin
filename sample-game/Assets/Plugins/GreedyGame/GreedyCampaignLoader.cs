@@ -8,7 +8,7 @@ using GreedyGame.Platform;
 public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>{
 	
 	private bool isSupported = false;
-
+	
 	private GreedyAdManager ggAdManager = null;
 	void Awake(){
 		DontDestroyOnLoad(this.gameObject) ;
@@ -32,25 +32,45 @@ public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>{
 			GlobalConfig ggConfig = ggLoaders [0];
 			ggAdManager.init (ggConfig.GameId, ggConfig.AdUnits.ToArray (), ggConfig.isDebug, ggConfig.isLazyLoad, OnGreedyEvent);
 		}
-
-	}
 		
+	}
+	
 	
 	void OnGreedyEvent(RuntimeEvent greedy_events){
 		Debug.Log(String.Format("OnGreedyEvent - {0}", greedy_events));
-
-		if (greedy_events == RuntimeEvent.CAMPAIGN_AVAILABLE) {
-
-		}if(greedy_events == RuntimeEvent.CAMPAIGN_NOT_AVAILABLE) {
-			if(Application.loadedLevel == 0){
+		switch(greedy_events) {
+			case RuntimeEvent.CAMPAIGN_AVAILABLE :
+			break;
+			case RuntimeEvent.CAMPAIGN_NOT_AVAILABLE :
+			if (Application.loadedLevel == 0) {
 				Application.LoadLevel (1);
 			}
-		}if(greedy_events == RuntimeEvent.CAMPAIGN_DOWNLOADED) {
-			if(Application.loadedLevel == 0){
+			break;
+			case RuntimeEvent.CAMPAIGN_DOWNLOADED :
+			if (Application.loadedLevel == 0) {
 				Application.LoadLevel (1);
 			}
+			break;
+			case RuntimeEvent.CAMPAIGN_DOWNLOAD_ERROR :
+			if (Application.loadedLevel == 0) {
+				Application.LoadLevel (1);
+			}
+			break;
+			default:
+			break;
 		}
+
+		}
+	
+
+	public static void FetchFloat(String f_id){
+		Debug.Log (String.Format ("Fetching unit {0}", f_id));
+		GreedyAdManager.Instance.FetchAdHead (f_id);
 	}
 
-
+	public static void RemoveAllFloat(){
+		GreedyAdManager.Instance.RemoveAllAdHead ();
+	}
+	
+	
 }
