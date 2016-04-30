@@ -9,11 +9,11 @@
     	android:layout_width="match_parent"
     	android:layout_height="match_parent"/>
     
-    <RelativeLayout
+    <FrameLayout
         android:id="@+id/gg_head_webview"
 		android:layout_margin="20dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
     
 	<FrameLayout
         android:id="@+id/gg_head_bannerview"
@@ -22,16 +22,12 @@
         android:layout_width="40dp"
         android:layout_height="40dp" />
 
-        <RelativeLayout
-		    android:id="@+id/loadingPanel"
-		    android:layout_width="match_parent"
-		    android:layout_height="match_parent"
-		    android:gravity="center" >
-		
 		    <ProgressBar
+		        android:id="@+id/loading_panel"
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
+		        android:layout_centerInParent="true"
 		        android:indeterminate="true" />
-		</RelativeLayout>
+		
 
 </RelativeLayout>
