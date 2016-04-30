@@ -20,7 +20,7 @@ This is a complete guide for integrating GreedyGame plugin within your unity gam
 ---
 
 ## Declaration of Native Ads
-![SharedAdUnit MonoBehaviour](https://raw.githubusercontent.com/GreedyGame/Unity-Sample/master/screen-shots/1_branded_game.png?raw=true "SharedAdUnit MonoBehaviour attached to Stockcar/Body_Complete" )
+![SharedAdUnit MonoBehaviour](https://raw.githubusercontent.com/GreedyGame/unity-plugin/master/screen-shots/1_branded_game.png?raw=true "SharedAdUnit MonoBehaviour attached to Stockcar/Body_Complete" )
 
 ### 1. Select GameObject for branding
 1. Select the GameObject from your scene which can be used for branding.
@@ -34,7 +34,7 @@ This is a complete guide for integrating GreedyGame plugin within your unity gam
 
 > Preview: SharedAdUnit MonoBehaviour attached to Stockcar/Body_Complete
 
-> ![SharedAdUnit MonoBehaviour](https://raw.githubusercontent.com/GreedyGame/Unity-Sample/master/screen-shots/2_attached_monobehaviour.png?raw=true "SharedAdUnit MonoBehaviour attached to Stockcar/Body_Complete" )
+> ![SharedAdUnit MonoBehaviour](https://raw.githubusercontent.com/GreedyGame/unity-plugin/master/screen-shots/2_attached_monobehaviour.png?raw=true "SharedAdUnit MonoBehaviour attached to Stockcar/Body_Complete" )
  1. SharedAdUnit Attached, yellow helpbox states it ready to build in unitlist
  2. 2D texture, will be used for branded assets, such as logo, product image etc.
  3. MeshRender will be used as renderer to blend branding image over object
@@ -46,7 +46,7 @@ This is a complete guide for integrating GreedyGame plugin within your unity gam
 
 > Preview: list of units to be used for branding.
 
-> ![Refresh UnitList](https://raw.githubusercontent.com/GreedyGame/Unity-Sample/master/screen-shots/3_exportpngs.png?raw=true "list of units to be used for branding" )
+> ![Refresh UnitList](https://raw.githubusercontent.com/GreedyGame/unity-plugin/master/screen-shots/3_exportpngs.png?raw=true "list of units to be used for branding" )
  1. **GameProfileId**, game-id from panel.greedygame.com
  2. **LoadingLevel**, will be used for fetching and loading campaign assets
  3. **Save**, will upload images to server and create GlobalConfig objects at LoadingLevel
@@ -56,10 +56,10 @@ This is a complete guide for integrating GreedyGame plugin within your unity gam
 ### 3. Link textures to unit_ids
 1. After Step 2 create, `GreedyGameConfigPrefab`
 2. Put generated GameProfileID and unit ids for native and float units.
-> ![GreedyGameConfigPrefab](https://raw.githubusercontent.com/GreedyGame/Unity-Sample/master/screen-shots/4_link_unit_ids.png?raw=true "linking of textures to unit id" )
+> ![GreedyGameConfigPrefab](https://raw.githubusercontent.com/GreedyGame/unity-plugin/master/screen-shots/4_link_unit_ids.png?raw=true "linking of textures to unit id" )
 
 3. Assign unit_id to relative game objects.
-> ![SharedUnit Monobehaviour](https://raw.githubusercontent.com/GreedyGame/Unity-Sample/master/screen-shots/4_link_unit_ids.png?raw=true "linking of textures to unit id" )
+> ![SharedUnit Monobehaviour](https://raw.githubusercontent.com/GreedyGame/unity-plugin/master/screen-shots/5_link_unit_ids.png?raw=true "linking of textures to unit id" )
 
 ### 4. Generate Android XMLs
 Goto to GreedyGame > CreateAndroidXMLs
@@ -72,7 +72,7 @@ Goto to GreedyGame > CreateAndroidXMLs
 ---
 ## Declaration of FloatAd-Unit
 
-![SharedAdUnit MonoBehaviour](https://raw.githubusercontent.com/GreedyGame/Unity-Sample/master/screen-shots/7_float_ad.png?raw=true "SharedAdUnit MonoBehaviour attached to Stockcar/Body_Complete" )
+![SharedAdUnit MonoBehaviour](https://raw.githubusercontent.com/GreedyGame/unity-plugin/master/screen-shots/7_float_ad.png?raw=true "SharedAdUnit MonoBehaviour attached to Stockcar/Body_Complete" )
 
 **In panel.greedygame.com**
 
@@ -228,3 +228,4 @@ GreedyGame SDK uses Volley from Google and PriorityJobQueue from path as externa
 Check out the following youtube link for a video tutorial which contains the entire walkthrough for GreedyGame Integration in Unity ! [Video Tutorial] (https://www.youtube.com/watch?v=L8Lq5UIbd68)
 
 ### For more help please see [FAQ] (https://github.com/GreedyGame/unity-plugin/wiki/FAQs)
+
