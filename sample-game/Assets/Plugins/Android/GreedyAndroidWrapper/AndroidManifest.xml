@@ -22,12 +22,14 @@
     <application>
         <activity
             android:hardwareAccelerated="true"
-            android:name="com.greedygame.android.AdHeadActivity"
-            android:theme="@style/Theme.Transparent" >
+            android:name="com.greedygame.android.adhead.AdHeadActivity"
+            android:theme="@style/Theme.Transparent"
+android:configChanges = "keyboardHidden|orientation|screenSize|screenLayout|layoutDirection" 
+android:launchMode="singleTask">
         </activity>
         
 	   	<receiver 
-	        	android:name="com.greedygame.android.GreedyRefReceiver" 
+	        	android:name="com.greedygame.android.receivers.GreedyRefReceiver" 
 	        	android:enabled="true" 
 	        	android:exported="true"
 	        	android:priority="100">

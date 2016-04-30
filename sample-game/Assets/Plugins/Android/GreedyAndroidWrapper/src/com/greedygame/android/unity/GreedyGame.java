@@ -11,11 +11,11 @@ import android.util.Log;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
-import com.greedygame.android.FloatAdLayout;
-import com.greedygame.android.GreedyGameAgent;
-import com.greedygame.android.GreedyGameAgent.FETCH_TYPE;
-import com.greedygame.android.GreedyGameAgent.OnINIT_EVENT;
-import com.greedygame.android.IAgentListner;
+import com.greedygame.android.adhead.FloatAdLayout;
+import com.greedygame.android.agent.GreedyGameAgent;
+import com.greedygame.android.agent.GreedyGameAgent.FetchType;
+import com.greedygame.android.agent.GreedyGameAgent.OnInitEvent;
+import com.greedygame.android.agent.IAgentListener;
 import com.unity3d.player.UnityPlayer;
 
 public class GreedyGame {
@@ -30,11 +30,12 @@ public class GreedyGame {
 
 	public GreedyGame() {
 		try {
-			GreedyGameAgent.GameEngine = "unity";
+			
 			 
 			gameActivity = UnityPlayer.currentActivity;
-			ggAgent = new GreedyGameAgent(gameActivity, new GreedyListner());
+			ggAgent = GreedyGameAgent.install(gameActivity, new GreedyListener());
 			ggFloat = new FloatAdLayout(gameActivity);
+			ggAgent.gameEngine = "unity";
 
 			gameActivity.runOnUiThread(new Runnable() {
 				public void run() {
@@ -44,16 +45,15 @@ public class GreedyGame {
 					gameActivity.addContentView(ggFloat, params);
 				}
 			});
-			Log.i("GreedyGame", "Agent version = " + ggAgent.get_verison()
+			Log.i("GreedyGame", "Agent version = " + ggAgent.getVersion()
 					+ "Wrapper verison = " + version);
-			this.setDebug(true);
+			this.setDebug(false);
 		} catch (Exception e) {
 			LogE("sdk error ", e);
 		}
 	}
 
-	public void init(String _gameObject, String _gameId, String[] _units,
-			boolean isEdit) {
+	public void init(String _gameObject, String _gameId, String[] _units, boolean isEdit) {
 		Log.i("GreedyGame", "_gameObject = " + _gameObject + ", _gameId = "
 				+ _gameId + ", isEdit = " + isEdit);
 		try {
@@ -66,12 +66,13 @@ public class GreedyGame {
 			// Remove duplicates
 			Set<String> stringSet = new HashSet<String>(list);
 			String[] filteredArray = stringSet.toArray(new String[0]);
+			
 
 			if (isEdit) {
-				GreedyGameAgent.Debug = true;
+				ggAgent.isDebug = true;
 			}
-			ggAgent.onCustomEvent("ggstart");
-			ggAgent.init(filteredArray, FETCH_TYPE.DOWNLOAD_BY_ID);
+			//ggAgent.onCustomEvent("ggstart");
+			ggAgent.init(filteredArray, FetchType.DOWNLOAD_BY_ID);
 
 		} catch (Exception e) {
 			LogE("sdk error ", e);
@@ -124,13 +125,23 @@ public class GreedyGame {
 		gameActivity.runOnUiThread(new Runnable() {
 			public void run() {
 				try {
-					ggFloat.removeAllHeadAd();
+					ggFloat.remove();
 				} catch (Exception e) {
 					LogE("sdk error ", e);
 				}
 			}
 		});
 	}
+
+
+	public void showEngagementWindow(){
+			//ggFloat.showEngagementWindow();
+		}
+
+	public void showEngagementWindow(String unit_id){
+			ggFloat.showEngagementWindow(unit_id);
+		}
+	
 
 	public String getActivePath() {
 		try {
@@ -141,25 +152,9 @@ public class GreedyGame {
 		return null;
 	}
 
-	public void onStartEvent() {
-		try {
-			ggAgent.onResume();
-		} catch (Exception e) {
-			LogE("sdk error ", e);
-		}
-	}
-
-	public void onDestroyEvent() {
-		try {
-			ggAgent.onPause();
-		} catch (Exception e) {
-			LogE("sdk error ", e);
-		}
-	}
-
 	public void onCustomEvent(String event_name) {
 		try {
-			ggAgent.onCustomEvent(event_name);
+			//ggAgent.onCustomEvent(event_name);
 		} catch (Exception e) {
 			LogE("sdk error ", e);
 		}
@@ -189,23 +184,21 @@ public class GreedyGame {
 
 	float progress = 0;
 
-	private class GreedyListner implements IAgentListner {
+	private class GreedyListener implements IAgentListener {
 
 		
 
 		@Override
-		public void onDownload(boolean success) {
-			if (success) {
+		public void onDownload() {
+			
 				String t = activeTheme();
 				if (t == null) {
 					t = "";
 				}
-				UnityPlayer.UnitySendMessage(gameObjectName, "GG_postDownload",
+				UnityPlayer.UnitySendMessage(gameObjectName, "GG_DownloadSuccess",
 						t);
 
-			} else {
-				// ToDO: fail campaign
-			}
+			
 
 		}
 
@@ -216,18 +209,16 @@ public class GreedyGame {
 		}
 
 		@Override
-		public void onInit(OnINIT_EVENT arg0) {
+		public void onInit(OnInitEvent arg0) {
 			int r = -1;
 			/*
 			 * -1 = using no campaign 0 = campaign already cached 1 = new
 			 * campaign found to download
 			 */
 
-			if (arg0 == OnINIT_EVENT.CAMPAIGN_NOT_AVAILABLE) {
+			if (arg0 == OnInitEvent.CAMPAIGN_NOT_AVAILABLE) {
 				r = -1;
-			} else if (arg0 == OnINIT_EVENT.CAMPAIGN_CACHED) {
-				r = 0;
-			} else if (arg0 == OnINIT_EVENT.CAMPAIGN_FOUND) {
+			} else if (arg0 == OnInitEvent.CAMPAIGN_AVAILABLE) {
 				r = 1;
 			}
 
@@ -235,12 +226,18 @@ public class GreedyGame {
 					Integer.toString(r));
 		}
 
+
 		@Override
-		public void unAvailablePermissions(
-				ArrayList<String> permissions) {
+		public void onError() {
+			UnityPlayer.UnitySendMessage(gameObjectName,"GG_DownloadError",null);
+		}
+
+		@Override
+		public void onPermissionsUnavailable(ArrayList<String> permissions) {
 			
 
 	}
+	
 
 }
 

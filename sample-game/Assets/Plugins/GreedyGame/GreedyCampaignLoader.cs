@@ -38,12 +38,17 @@ public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>{
 	
 	void OnGreedyEvent(RuntimeEvent greedy_events){
 		Debug.Log(String.Format("OnGreedyEvent - {0}", greedy_events));
-		if (greedy_events == RuntimeEvent.CAMPAIGN_LOADED || 
-		    greedy_events == RuntimeEvent.CAMPAIGN_NOT_LOADED) {
+
+		if (greedy_events == RuntimeEvent.CAMPAIGN_AVAILABLE) {
+
+		}if(greedy_events == RuntimeEvent.CAMPAIGN_NOT_AVAILABLE) {
 			if(Application.loadedLevel == 0){
 				Application.LoadLevel (1);
 			}
-			
+		}if(greedy_events == RuntimeEvent.CAMPAIGN_DOWNLOADED) {
+			if(Application.loadedLevel == 0){
+				Application.LoadLevel (1);
+			}
 		}
 	}
 

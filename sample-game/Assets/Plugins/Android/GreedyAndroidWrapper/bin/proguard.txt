@@ -1,0 +1,6 @@
+# view AndroidManifest.xml #generated:23
+-keep class com.greedygame.android.adhead.AdHeadActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:31
+-keep class com.greedygame.android.receivers.GreedyRefReceiver { <init>(...); }
+
