@@ -1,3 +1,4 @@
+
 GreedyGame Unity Integration Guide
 ===================
 
@@ -13,13 +14,13 @@ This is a complete guide for integrating GreedyGame plugin within your unity gam
    3. In top menu goto GreedyGame then AdUnitManager and use panel.greedygame.com's credential to login.
    4. In the Inspector window, use the **GAMEPROFILE_ID** assigned to you on the panel for the game you created and select LoadingLevel and save. 
   
-	>**LoadingLevel** is the scene where the plugin will initiate. Only post that scene will you see the branded units.
+  >**LoadingLevel** is the scene where the plugin will initiate. Only post that scene will you see the branded units.
 
 
 ---
 
 ## Declaration of Native Ads
-![SharedAdUnit MonoBehaviour](https://raw.githubusercontent.com/GreedyGame/Unity-Sample/master/screen-shots/1_branded_game.png?raw=true "SharedAdUnit MonoBehaviour attached to Stockcar/Body_Complete" )
+![SharedAdUnit MonoBehaviour](https://raw.githubusercontent.com/GreedyGame/unity-plugin/master/screen-shots/1_branded_game.png?raw=true "SharedAdUnit MonoBehaviour attached to Stockcar/Body_Complete" )
 
 ### 1. Select GameObject for branding
 1. Select the GameObject from your scene which can be used for branding.
@@ -33,24 +34,33 @@ This is a complete guide for integrating GreedyGame plugin within your unity gam
 
 > Preview: SharedAdUnit MonoBehaviour attached to Stockcar/Body_Complete
 
-> ![SharedAdUnit MonoBehaviour](https://raw.githubusercontent.com/GreedyGame/Unity-Sample/master/screen-shots/2_attached_monobehaviour.png?raw=true "SharedAdUnit MonoBehaviour attached to Stockcar/Body_Complete" )
- 1. SharedAdUnit Attached, yellow helpbox states it ready to build in unitlist
- 2. 2D texture, will be used for branded assets, such as logo, product image etc.
- 3. MeshRender will be used as renderer to blend branding image over object
+> ![SharedAdUnit MonoBehaviour](https://raw.githubusercontent.com/GreedyGame/unity-plugin/master/screen-shots/2_attached_monobehaviour.png?raw=true "SharedAdUnit MonoBehaviour attached to Stockcar/Body_Complete" )
 
-### 2. Setting up with Server
-1. Using TopMenu: GreedyGame > AdUnitManager
-2. Click Save button to build list and save changes.
-3. Check and make sure that all the native ad units you added in Part 1 are listed in this window as shown. 
+> SharedAdUnit Attached, yellow help box states it to input "unit-id" and "gameprofile-id" in GreedyGameConfig
 
-> Preview: list of units to be used for branding.
 
-> ![Refresh UnitList](https://raw.githubusercontent.com/GreedyGame/Unity-Sample/master/screen-shots/5_refresh_save.png?raw=true "list of units to be used for branding" )
- 1. **GameProfileId**, game-id from panel.greedygame.com
- 2. **LoadingLevel**, will be used for fetching and loading campaign assets
- 3. **Save**, will upload images to server and create GlobalConfig objects at LoadingLevel
+### 2. Export texture to Server
+1. Using TopMenu: GreedyGame > ExportPNGs
+2. Choose folder to export all textures
+3. Drag and drop textures at publisher.greedygame.com under Ad Unit tabs
 
-### 3. Manage campagin fetching and post LoadingLevel
+> ![Refresh UnitList](https://raw.githubusercontent.com/GreedyGame/unity-plugin/master/screen-shots/3_exportpngs.png?raw=true "list of units to be used for branding" )
+
+> Preview: Export game texture as raw png file.
+
+
+### 3. Link textures to unit_ids
+1. After Step 2 create, `GreedyGameConfigPrefab`
+2. Put generated GameProfileID and unit ids for native and float units.
+> ![GreedyGameConfigPrefab](https://raw.githubusercontent.com/GreedyGame/unity-plugin/master/screen-shots/4_link_unit_ids.png?raw=true "linking of textures to unit id" )
+
+3. Assign unit_id to relative game objects.
+> ![SharedUnit Monobehaviour](https://raw.githubusercontent.com/GreedyGame/unity-plugin/master/screen-shots/5_link_unit_ids.png?raw=true "linking of textures to unit id" )
+
+### 4. Generate Android XMLs
+Goto to GreedyGame > CreateAndroidXMLs
+
+### 5. Manage campaign fetching and post LoadingLevel
 1. After Step 2 open your LoadingLevel scene.
 2. On any GameObject from LoadingLevel Scene attached script GreedyCampaignLoader.cs 
 
@@ -58,7 +68,7 @@ This is a complete guide for integrating GreedyGame plugin within your unity gam
 ---
 ## Declaration of FloatAd-Unit
 
-![SharedAdUnit MonoBehaviour](https://raw.githubusercontent.com/GreedyGame/Unity-Sample/master/screen-shots/7_float_ad.png?raw=true "SharedAdUnit MonoBehaviour attached to Stockcar/Body_Complete" )
+![SharedAdUnit MonoBehaviour](https://raw.githubusercontent.com/GreedyGame/unity-plugin/master/screen-shots/7_float_ad.png?raw=true "SharedAdUnit MonoBehaviour attached to Stockcar/Body_Complete" )
 
 **In panel.greedygame.com**
 
@@ -73,14 +83,15 @@ This is a complete guide for integrating GreedyGame plugin within your unity gam
 6. Wherever you want to fetch or hide the FloatAd-Unit,  just use the following function from `GreedyGame.Runtime.Common`
   * To show FloatAd-Unit
   
-	```csharp
-	GreedyAdManager.Instance.FetchAdHead (FloatAd_ID);
-	```
+  ```csharp
+  GreedyAdManager.Instance.FetchAdHead (FloatAd_ID);
+  ```
+  
   * To remove FloatAd-Unit
  
-  	```csharp
-  	GreedyAdManager.Instance.RemoveAllAdHead ();
-  	```
+   ```csharp
+    GreedyAdManager.Instance.RemoveAllAdHead ();
+    ```
 
 
 ---
@@ -111,7 +122,7 @@ This is a complete guide for integrating GreedyGame plugin within your unity gam
 2. Look for **GlobalConfig** component attached.
 3. Validate value of **GlobalConfig** component, with values from *panel.greedygame.com*
 
-  > ![GreedyGameConfigObject](https://raw.githubusercontent.com/GreedyGame/Unity-Sample/master/screen-shots/6_global_config.png?raw=true "Checking runtime unit list" )
+  > ![GreedyGameConfigObject](https://raw.githubusercontent.com/GreedyGame/unity-plugin/master/screen-shots/6_global_config.png?raw=true "Checking runtime unit list" )
 
 4. During the ‘debug’ mode you’ll see debug branded objects. (Colored grid texture)
 5. To disable ‘debug’, uncheck isDebug. 
@@ -211,7 +222,10 @@ void OnGreedyEvent(RuntimeEvent greedy_events){
 GreedyGame SDK uses Volley from Google and PriorityJobQueue from path as external jars. In case of conflicts you can remove it from libs folder of the wrapper. 
 
 ### Video Tutorial
-Check out the following youtube link for a video tutorial which contains the entire walkthrough for GreedyGame Integration in Unity ! [Video Tutorial] (https://www.youtube.com/watch?v=L8Lq5UIbd68)
+Check out the following youtube link for a video tutorial which contains the entire walkthrough for GreedyGame Integration in Unity.
+
+[![Video Tutorial](https://img.youtube.com/vi/L8Lq5UIbd68/0.jpg)](https://www.youtube.com/watch?v=L8Lq5UIbd68)
+
+
 
 ### For more help please see [FAQ] (https://github.com/GreedyGame/unity-plugin/wiki/FAQs)
-
