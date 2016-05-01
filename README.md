@@ -1,4 +1,4 @@
-
+﻿
 GreedyGame Unity Integration Guide
 ===================
 
@@ -180,9 +180,10 @@ Lookup for new native campaign from server.
 * isDebug- To build debug app for testing
 * isLazyLoad- In case of true, it will show branded assets as soon as downloaded 
 * OnGreedyEvent - Callback function for **RuntimeEvent** as follow:
-  - CAMPAIGN_NOT_LOADED
-  - CAMPAIGN_LOADED
-  - CAMPAIGN_DOWNLOADED
+  - CAMPAIGN_NOT_AVAILABLE  :  if currently no campaign is available.
+  - CAMPAIGN_AVAILABLE : if a campaign is available and ready for download.
+  - CAMPAIGN_DOWNLOADED : callback after campaign is available and assets have been downloaded.
+  - CAMPAIGN_DOWNLOAD_ERROR : callback after campaign is available but failed before complete download.
 
 *Example*
 ```csharp
@@ -209,8 +210,8 @@ Callback function for **RuntimeEvent**
 *Example*
 ```csharp
 void OnGreedyEvent(RuntimeEvent greedy_events){
-  if (greedy_events == RuntimeEvent.CAMPAIGN_LOADED || 
-      greedy_events == RuntimeEvent.CAMPAIGN_NOT_LOADED) {
+  if (greedy_events == RuntimeEvent.CAMPAIGN_NOT_AVAILABLE || 
+      greedy_events == RuntimeEvent.CAMPAIGN_DOWNLOAD_ERROR) {
   //Goto play scene if server reponse is recevied
     Application.LoadLevel (PostLevel);
   }
@@ -219,7 +220,7 @@ void OnGreedyEvent(RuntimeEvent greedy_events){
 ---
 
 ### External Jars
-GreedyGame SDK uses Volley from Google and PriorityJobQueue from path as external jars. In case of conflicts you can remove it from libs folder of the wrapper. 
+GreedyGame SDK uses Volley from Google as the only external jar. In case of conflicts you can remove it from libs folder of the wrapper. 
 
 ### Video Tutorial
 Check out the following youtube link for a video tutorial which contains the entire walkthrough for GreedyGame Integration in Unity.
