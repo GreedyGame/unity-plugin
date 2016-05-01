@@ -71,7 +71,6 @@ public class GreedyGame {
 			if (isEdit) {
 				ggAgent.isDebug = true;
 			}
-			//ggAgent.onCustomEvent("ggstart");
 			ggAgent.init(filteredArray, FetchType.DOWNLOAD_BY_ID);
 
 		} catch (Exception e) {
@@ -79,9 +78,9 @@ public class GreedyGame {
 		}
 	}
 
-	public String activeTheme() {
+	public String activeCampaign() {
 		try {
-			return ggAgent.activeTheme();
+			return ggAgent.activeCampaign();
 		} catch (Exception e) {
 			LogE("sdk error ", e);
 		}
@@ -109,17 +108,6 @@ public class GreedyGame {
 		});
 	}
 
-	public void fetchHeadAd(final String unit_id, final int x, final int y) {
-		gameActivity.runOnUiThread(new Runnable() {
-			public void run() {
-				try {
-					ggFloat.fetchHeadAd(unit_id, x, y);
-				} catch (Exception e) {
-					LogE("sdk error ", e);
-				}
-			}
-		});
-	}
 
 	public void removeAllHeadAd() {
 		gameActivity.runOnUiThread(new Runnable() {
@@ -191,7 +179,7 @@ public class GreedyGame {
 		@Override
 		public void onDownload() {
 			
-				String t = activeTheme();
+				String t = activeCampaign();
 				if (t == null) {
 					t = "";
 				}
