@@ -71,6 +71,7 @@ public class GreedyGame {
 			if (isEdit) {
 				ggAgent.isDebug = true;
 			}
+			ggAgent.onActivityResumed(gameActivity);
 			ggAgent.init(filteredArray, FetchType.DOWNLOAD_BY_ID);
 
 		} catch (Exception e) {
