@@ -27,6 +27,7 @@ public class GreedyGame {
 	Activity gameActivity = null;
 
 	private FloatAdLayout ggFloat = null;
+	private static boolean isDebug = false;
 
 	public GreedyGame() {
 		try {
@@ -36,6 +37,8 @@ public class GreedyGame {
 			ggAgent = GreedyGameAgent.install(gameActivity, new GreedyListener());
 			ggFloat = new FloatAdLayout(gameActivity);
 			ggAgent.gameEngine = "unity";
+			ggAgent.setDebugLog(true);
+			
 
 			gameActivity.runOnUiThread(new Runnable() {
 				public void run() {
@@ -69,7 +72,7 @@ public class GreedyGame {
 			
 
 			if (isEdit) {
-				ggAgent.isDebug = true;
+				ggAgent.isDebugCampaign = true;
 			}
 			ggAgent.onActivityResumed(gameActivity);
 			ggAgent.init(filteredArray, FetchType.DOWNLOAD_BY_ID);
@@ -152,13 +155,21 @@ public class GreedyGame {
 	public void setDebug(boolean b) {
 		try {
 			isDebug = b;
-			ggAgent.setDebug(b);
+			ggAgent.setDebugCampaign(b);
+		} catch (Exception e) {
+			LogE("sdk error ", e);
+		}
+	}
+	
+	public void setDebugLog(boolean b) {
+		try {
+			ggAgent.setDebugLog(b);
 		} catch (Exception e) {
 			LogE("sdk error ", e);
 		}
 	}
 
-	private static boolean isDebug = false;
+	
 
 	protected static void LogE(String msg, Exception e) {
 		Log.e(TAG, msg, e);
