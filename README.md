@@ -10,12 +10,7 @@ This is a complete guide for integrating GreedyGame plugin within your unity gam
    2. Create game profile to get **GAME_PROFILE_ID**
 * In UnityEngine
    1. Download the latest GreedyGame unity package from github release
-   2. Import GreedyGame_vX.Y.Z.package into your unity project. Once you do that you’ll see an icon “GreedyGame” appear in the top menu.
-   3. In top menu goto GreedyGame then AdUnitManager and use panel.greedygame.com's credential to login.
-   4. In the Inspector window, use the **GAMEPROFILE_ID** assigned to you on the panel for the game you created and select LoadingLevel and save. 
-  
-  >**LoadingLevel** is the scene where the plugin will initiate. Only post that scene will you see the branded units.
-
+   2. Import GreedyGame_vX.Y.Z.package into your unity project. Once you do that you’ll see “GreedyGame” appear in the top menu.
 
 ---
 
