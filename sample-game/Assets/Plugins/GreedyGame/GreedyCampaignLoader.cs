@@ -7,69 +7,65 @@ using GreedyGame.Platform;
 
 public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>{
 	
-	private bool isSupported = false;
-	
-	private GreedyAdManager ggAdManager = null;
+	public bool isDebug = false;
+	private bool isLazyLoad = true;
 	void Awake(){
 		DontDestroyOnLoad(this.gameObject) ;
 		if (RuntimePlatform.Android == Application.platform ||
 		    Application.isEditor) {
-			isSupported = true;
-			ggAdManager = GreedyAdManager.Instance;
+			GreedyAdManager.Instance.init (isDebug, isLazyLoad, new GreedyAgentListener());
 		}else{
+			moveToNextScene();
+		}
+	}
+	
+	private static void moveToNextScene(){
+		if (Application.loadedLevel == 0) {
 			Application.LoadLevel (1);
 		}
 	}
-	
-	void Start() {
-		if (isSupported) {
-			GlobalConfig[] ggLoaders = Resources.FindObjectsOfTypeAll<GlobalConfig> ();
-			if(ggLoaders == null || ggLoaders.Length == 0){
-				isSupported = false;
-				Debug.LogError("No occurrence of GlobalConfig object found!\nGoto GreedyGame > DynamicUnitManager > Save");
-				return;
-			}
-			GlobalConfig ggConfig = ggLoaders [0];
-			ggAdManager.init (ggConfig.GameId, ggConfig.AdUnits.ToArray (), ggConfig.isDebug, ggConfig.isLazyLoad, OnGreedyEvent);
-		}
-		
-	}
-	
-	
-	void OnGreedyEvent(RuntimeEvent greedy_events){
-		Debug.Log(String.Format("OnGreedyEvent - {0}", greedy_events));
-		switch(greedy_events) {
-			case RuntimeEvent.CAMPAIGN_AVAILABLE :
-			break;
-			case RuntimeEvent.CAMPAIGN_NOT_AVAILABLE :
-			if (Application.loadedLevel == 0) {
-				Application.LoadLevel (1);
-			}
-			break;
-			case RuntimeEvent.CAMPAIGN_DOWNLOADED :
-			if (Application.loadedLevel == 0) {
-				Application.LoadLevel (1);
-			}
-			break;
-			case RuntimeEvent.CAMPAIGN_DOWNLOAD_ERROR :
-			if (Application.loadedLevel == 0) {
-				Application.LoadLevel (1);
-			}
-			break;
-			default:
-			break;
+
+	public class GreedyAgentListener : IAgentListener
+	{
+		public void onAvailable() {
+			/**
+			* TODO: New campaign is available and ready to use for the next scene.
+			**/
+			moveToNextScene();
 		}
 
+		public void onUnavailable() {
+			/**
+			* TODO: No campaign is available, proceed with normal follow of the game.
+			**/
+			moveToNextScene();
 		}
-	
 
-	public static void FetchFloat(String f_id){
-		Debug.Log (String.Format ("Fetching unit {0}", f_id));
-		GreedyAdManager.Instance.FetchAdHead (f_id);
+		public void onProgress(int progress) {
+			/**
+			* TODO: progress will give progress value of download from 0 to 100.
+			* This can be used to render loading bar.
+			**/
+		}
+
+		public void onPermissionsUnavailable(string[] permissions) {
+			/**
+         * TODO: Prompt user to give required permission
+         **/
+			for(int i = 0; i < permissions.Length; i++) {
+				string p = permissions[i];
+				Debug.Log(String.Format("permission unavailable = {0}", p));
+			}
+		}
 	}
 
-	public static void RemoveAllFloat(){
-		GreedyAdManager.Instance.RemoveAllAdHead ();
+	public static void fetchFloatAd(String f_id){
+		Debug.Log (String.Format ("Fetching FloatUnit {0}", f_id));
+		GreedyAdManager.Instance.fetchFloatUnit (f_id);
+	}
+
+	public static void removeFloatAd(){
+		GreedyAdManager.Instance.removeAllFloatUnits ();
 	}
 	
 	
