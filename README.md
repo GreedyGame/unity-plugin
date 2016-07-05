@@ -1,4 +1,4 @@
-GreedyGame Android's SDK Reference
+GreedyGame Unity3d's SDK Reference
 ---------------------
  * [Introduction](#introduction)
  * [Requirements](#requirements)
