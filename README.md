@@ -5,7 +5,7 @@ GreedyGame Android's SDK Reference
  * [Integration](#integration)
  * [Documentation](#documentation)
     * [GreedyAdManager](#greedyadmanager)
-    * [IAgentListener](#iagentlistener)
+    * [interface IAgentListener](#interface-iagentlistener)
  * [Android Setup](#android-setup) 
 	 * [Proguard Settings](#proguard-settings)
  * [FAQ](#faq)
