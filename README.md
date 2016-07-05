@@ -1,96 +1,122 @@
-﻿
-GreedyGame Unity Integration Guide
-===================
+GreedyGame Android's SDK Reference
+---------------------
+ * [Introduction](#introduction)
+ * [Requirements](#requirements)
+ * [Integration](#integration)
+ * [Documentation](#documentation)
+    * [GreedyAdManager](#greedyadmanager)
+    * [IAgentListener](#iagentlistener)
+ * [Android Setup](#android-setup) 
+	 * [Proguard Settings](#proguard-settings)
+ * [FAQ](#faq)
 
-This is a complete guide for integrating GreedyGame plugin within your unity game. You can download *GreedyGame_vX.Y.Z.unitypackage* from [github release](https://github.com/GreedyGame/unity-plugin/releases).
-
-## Setting up
-* In panel.greedygame.com
-   1. Make account on panel.greedygame.com
-   2. Create game profile to get **GAME_PROFILE_ID**
-* In UnityEngine
-   1. Download the latest GreedyGame unity package from github release
-   2. Import GreedyGame_vX.Y.Z.package into your unity project. Once you do that you’ll see “GreedyGame” appear in the top menu.
-
----
-
-## Declaration of Native Ads
-![SharedAdUnit MonoBehaviour](https://raw.githubusercontent.com/GreedyGame/unity-plugin/master/screen-shots/1_branded_game.png?raw=true "SharedAdUnit MonoBehaviour attached to Stockcar/Body_Complete" )
-
-### 1. Select GameObject for branding
-1. Select the GameObject from your scene which can be used for branding.
-
- > GameOjects should **not** be from the **LoadingLevel** as plugin initiates during this level. Only GameObject with renderer with 2D textures can be used.
-2. From Inspector panel  add component **AdUnit** or **Shared AdUnit**
-3. Now you should see a component added with a yellow colour help box.
-4. Similarly repeat steps 2 and 3 for all game objects you want.
-5. You can use AdUnit and Shared AdUnit to change [material](http://docs.unity3d.com/ScriptReference/Renderer-material.html) and [sharedMaterials](http://docs.unity3d.com/ScriptReference/Renderer-sharedMaterial.html).
-
-
-> Preview: SharedAdUnit MonoBehaviour attached to Stockcar/Body_Complete
-
-> ![SharedAdUnit MonoBehaviour](https://raw.githubusercontent.com/GreedyGame/unity-plugin/master/screen-shots/2_attached_monobehaviour.png?raw=true "SharedAdUnit MonoBehaviour attached to Stockcar/Body_Complete" )
-
-> SharedAdUnit Attached, yellow help box states it to input "unit-id" and "gameprofile-id" in GreedyGameConfig
-
-
-### 2. Export texture to Server
-1. Using TopMenu: GreedyGame > ExportPNGs
-2. Choose folder to export all textures
-3. Drag and drop textures at publisher.greedygame.com under Ad Unit tabs
-
-> ![Refresh UnitList](https://raw.githubusercontent.com/GreedyGame/unity-plugin/master/screen-shots/3_exportpngs.png?raw=true "list of units to be used for branding" )
-
-> Preview: Export game texture as raw png file.
-
-
-### 3. Link textures to unit_ids
-1. After Step 2 create, `GreedyGameConfigPrefab`
-2. Put generated GameProfileID and unit ids for native and float units.
-> ![GreedyGameConfigPrefab](https://raw.githubusercontent.com/GreedyGame/unity-plugin/master/screen-shots/4_link_unit_ids.png?raw=true "linking of textures to unit id" )
-
-3. Assign unit_id to relative game objects.
-> ![SharedUnit Monobehaviour](https://raw.githubusercontent.com/GreedyGame/unity-plugin/master/screen-shots/5_link_unit_ids.png?raw=true "linking of textures to unit id" )
-
-### 4. Generate Android XMLs
-Goto to GreedyGame > CreateAndroidXMLs
-
-### 5. Manage campaign fetching and post LoadingLevel
-1. After Step 2 open your LoadingLevel scene.
-2. On any GameObject from LoadingLevel Scene attached script GreedyCampaignLoader.cs 
-
-
----
-## Declaration of FloatAd-Unit
-
-![SharedAdUnit MonoBehaviour](https://raw.githubusercontent.com/GreedyGame/unity-plugin/master/screen-shots/7_float_ad.png?raw=true "SharedAdUnit MonoBehaviour attached to Stockcar/Body_Complete" )
-
-**In panel.greedygame.com**
-
-1. For creating a FloatAd-Unit go back to the panel
-2. If you’ve already selected the game then open the tab “Ad Units” on the left side on the panel.
-3. Create a new FloatAd-Unit in the panel by clicking on the button “Add Floating Unit”. 
-4. Note down the **FloatAd_ID** number generated. ( this will be later used for calling the floatad)
-
-**In UnityEngine**
-
-5. Select the scene where you need the FloatAd-Unit to be displayed.
-6. Wherever you want to fetch or hide the FloatAd-Unit,  just use the following function from `GreedyGame.Runtime.Common`
-  * To show FloatAd-Unit
-  
-  ```csharp
-  GreedyAdManager.Instance.FetchAdHead (FloatAd_ID);
-  ```
-  
-  * To remove FloatAd-Unit
  
-   ```csharp
-    GreedyAdManager.Instance.RemoveAllAdHead ();
-    ```
+# Introduction
+Before we get started with the detailed reference, let’s brush through the definitions of some important terms that we’ll see referenced regularly. [Here at greedygame.github.io] (http://greedygame.github.io/)
+
+# Requirements
+* Android API Version: 14
+* Unity3d 4 or lastest
+
+# Integration
+If you have gone through the definitions of important keywords. To make the rest of the integration an absolute breeze for you, we’ve set up an integration wizard on your [publisher panel](http://publisher.greedygame.com).
+
+Once you’ve logged in, on the top of your page and select **SDK Integration Wizard** and we’ll walk you through the integration from the comfort of your own publisher panel.
+
+![PublisherPanel's top menu](http://greedygame.github.io/images/wizard.png "SDK Integration Wizard")
 
 
----
-## Android Setup
+# Documentation
+### GreedyAdManager
+#### Class Overview
+Singleton monobehaviour class encapsulating the overall GreedyGame ad flow and model.
+
+
+#### Public Methods
+##### `public static GreedyAdManager.Instance`
+Create and return singleton instance of GreedyAdManager class.
+
+##### `public void init(bool isDebug, bool isLazyLoad, IAgentListener agentListener)`
+Lookup for an active campaign from the server.
+* **isDebug** : make debug logs visible in logcat
+* **isLazyLoad** : if true, nativeunits will refect branding as soon as campaign get downloaded
+* **agentListener** : instance of IAgentListener's implemented class
+
+
+##### `public string[] NativeUnitIds`
+Return array of all [nativeunit](http://greedygame.github.io/#nativeunits)'s id used in the game
+
+##### `public string CampaignPath`
+Return path of folder, where assets of current campaign is stored.
+
+##### `public void fetchFloatUnit(String unit_id) `
+Fetch [floatunit](http://greedygame.github.io/#floatunits) and add view to current context.
+
+##### `public void removeAllFloatUnits() `
+Remove all fetched [floatunit](http://greedygame.github.io/#floatunits).
+
+##### `public void showEngagementWindow(string unit_id) `
+Open [engagement window](http://greedygame.github.io/#engagementwindow) attached with provided floatunit
+
+----
+### interface IAgentListener
+#### Class Overview
+It is used as a callback listener argument for GreedyGameAgent class
+
+#### Public Methods
+##### `void onAvailable()`
+When a new campaign is available and ready to use for the next scene.
+
+##### `void onUnavailable()`
+When no campaign is available
+
+##### `void onProgress(int progress)`
+Gives progress of campaign being downloaded as an integer.
+
+##### `void onPermissionsUnavailable(ArrayList permissions)`
+Gives a list of permission unavailable or revoked by the user.
+
+**Permissions that are checked**
+```
+Manifest.permission.ACCESS_COARSE_LOCATION
+Manifest.permission.WRITE_EXTERNAL_STORAGE
+Manifest.permission.READ_PHONE_STATE
+```
+**Interface Example**
+```csharp
+public class GreedyAgentListener : IAgentListener {
+
+    public void onAvailable() {
+        /**
+         * TODO: New campaign is available and ready to use for the next scene.
+         **/
+    }
+
+    public void onUnavailable() {
+        /**
+         * TODO: No campaign is available, proceed with normal follow of the game.
+         **/
+    }
+
+    public void onProgress(int progress) {
+        /**
+         * TODO: Progress bar can be shown using progress value from 0 to 100.
+         **/
+    }
+
+    public void onPermissionsUnavailable(string[] permissions) {
+        /**
+         * TODO: Prompt user to give required permission
+         **/
+        for(int i = 0; i < permissions.Length; i++) {
+            string p = permissions[i];
+            Debug.Log(String.Format("permission unavailable = {0}", p));
+        }
+    }
+}
+```
+
+# Android Setup
 1. [For users running a version of Unity earlier than 5.0] Navigate to Temp/StagingArea of your project directory and copy AndroidManifest.xml to Assets/Plugins/Android. Add the following <meta-data> tag to the AndroidManifest.xml file:
   
   ```xml
@@ -108,120 +134,17 @@ Goto to GreedyGame > CreateAndroidXMLs
   
   ```
 
----
-## Running on device
 
-### Checking runtime unit list
+## Proguard Settings
 
-1. Goto LoadingLevel scene and select **GreedyGameConfigPrefab**
-2. Look for **GlobalConfig** component attached.
-3. Validate value of **GlobalConfig** component, with values from *panel.greedygame.com*
-
-  > ![GreedyGameConfigObject](https://raw.githubusercontent.com/GreedyGame/unity-plugin/master/screen-shots/6_global_config.png?raw=true "Checking runtime unit list" )
-
-4. During the ‘debug’ mode you’ll see debug branded objects. (Colored grid texture)
-5. To disable ‘debug’, uncheck isDebug. 
-6. Before building your final project setup a demo campaign with help from your GreedyGame POC or contact integration@greedygame.com to check how a campaign looks within your game.
-
----
-## Advance Customization Documentation
-
-### GreedyAdManager
-#### Class Overview
-Contains high-level classes encapsulating the overall GreedyGame ad flow and model.
-
-#### GreedyGame's headers 
-```csharp
-using GreedyGame.Runtime.Common;
-using GreedyGame.Platform;
+If you are using Proguard add the following to your Proguard settings ! 
 ```
----
-
-#### Public Singleton Constructors
-`GreedyAdManager.Instance`
-
-*Example*
-```csharp
-private GreedyAdManager ggAdManager = null;
-void Awake(){
-//Initialization as singleton
-  ggAdManager = GreedyAdManager.Instance;
-}
+-keep class com.greedygame.android.** { *;}
+-keepattributes JavascriptInterface
+-keepclassmembers class * {
+    @android.webkit.JavascriptInterface <methods>;
+ }
 ```
----
-
-##### CALLBACK METHOD IN WRAPPER : unAvailablePermissions(ArrayList<String> permissions)
-* This method needs to be used only if your game is targetting SDK version 23 or
-  higher. This callback gives a list of permissions that are not available at runtime and is invoked after GreedyGameAgent initialization.
-
-   IMPORTANT : Unity takes care of dangerous permissions on its own at runtime. Use this callback function only if you are    not using Unity Runtime Permission facility.
-   NB : Only performs check for 4 dangerous permissions that are required by GreedyGameSDK. 
-
-  Permissions that are checked : 
-
-   * Manifest.permission.ACCESS_COARSE_LOCATION
-   * Manifest.permission.WRITE_EXTERNAL_STORAGE
-   * Manifest.permission.GET_ACCOUNTS
-   * Manifest.permission.READ_PHONE_STATE
-
-   NB : The above strings itself are returned in the argument if they are not available.
-
-#### Init
-`init(String GameId, String[] AdUnits, Boolean isDebug, Boolean isLazyLoad, OnGreedyEvent)`
-
-Lookup for new native campaign from server.
-* GameId - Unique game profile id from panel.greedygame.com
-* AdUnits - Array register unit id. eg. Unit-XYZ
-* isDebug- To build debug app for testing
-* isLazyLoad- In case of true, it will show branded assets as soon as downloaded 
-* OnGreedyEvent - Callback function for **RuntimeEvent** as follow:
-  - CAMPAIGN_NOT_AVAILABLE  :  if currently no campaign is available.
-  - CAMPAIGN_AVAILABLE : if a campaign is available and ready for download.
-  - CAMPAIGN_DOWNLOADED : callback after campaign is available and assets have been downloaded.
-  - CAMPAIGN_DOWNLOAD_ERROR : callback after campaign is available but failed before complete download.
-
-*Example*
-```csharp
-void Start() {
-  if (isSupported) {
-    GlobalConfig[] ggLoaders = Resources.FindObjectsOfTypeAll<GlobalConfig> ();
-    if(ggLoaders != null && ggLoaders.Length != 1){
-      isSupported = false;
-      Debug.LogError("None or multuple occurrence of GlobalConfig object found!");
-      return;
-    }
-    GlobalConfig ggConfig = ggLoaders [0];
-    ggAdManager.init (ggConfig.GameId, ggConfig.AdUnits.ToArray (), ggConfig.isDebug, ggConfig.isLazyLoad, OnGreedyEvent);
-  }
-}
-```
----
-
-#### OnGreedyEvent
-`void OnGreedyEvent(RuntimeEvent greedy_events)`
-
-Callback function for **RuntimeEvent**
-
-*Example*
-```csharp
-void OnGreedyEvent(RuntimeEvent greedy_events){
-  if (greedy_events == RuntimeEvent.CAMPAIGN_NOT_AVAILABLE || 
-      greedy_events == RuntimeEvent.CAMPAIGN_DOWNLOAD_ERROR) {
-  //Goto play scene if server reponse is recevied
-    Application.LoadLevel (PostLevel);
-  }
-}
-```
----
-
-### External Jars
-GreedyGame SDK uses Volley from Google as the only external jar. In case of conflicts you can remove it from libs folder of the wrapper. 
-
-### Video Tutorial
-Check out the following youtube link for a video tutorial which contains the entire walkthrough for GreedyGame Integration in Unity.
-
-[![Video Tutorial](https://img.youtube.com/vi/L8Lq5UIbd68/0.jpg)](https://www.youtube.com/watch?v=L8Lq5UIbd68)
-
-
-
-### For more help please see [FAQ] (https://github.com/GreedyGame/unity-plugin/wiki/FAQs)
+ 
+# FAQ
+For more help please see [FAQ](https://github.com/GreedyGame/unity-plugin/wiki/FAQs)
