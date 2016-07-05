@@ -73,7 +73,7 @@ When no campaign is available
 ##### `void onProgress(int progress)`
 Gives progress of campaign being downloaded as an integer.
 
-##### `void onPermissionsUnavailable(ArrayList permissions)`
+##### `void onPermissionsUnavailable(string[] permissions)`
 Gives a list of permission unavailable or revoked by the user.
 
 **Permissions that are checked**
