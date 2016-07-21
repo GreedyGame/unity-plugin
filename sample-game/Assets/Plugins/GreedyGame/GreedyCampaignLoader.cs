@@ -25,27 +25,26 @@ public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>{
 		}
 	}
 
-	public class GreedyAgentListener : IAgentListener
-	{
+	public class GreedyAgentListener : IAgentListener {
+
 		public void onAvailable() {
 			/**
-			* TODO: New campaign is available and ready to use for the next scene.
-			**/
+         * TODO: New campaign is available and ready to use for the next scene.
+         **/
 			moveToNextScene();
 		}
 
 		public void onUnavailable() {
 			/**
-			* TODO: No campaign is available, proceed with normal follow of the game.
-			**/
+         * TODO: No campaign is available, proceed with normal follow of the game.
+         **/
 			moveToNextScene();
 		}
 
 		public void onProgress(int progress) {
 			/**
-			* TODO: progress will give progress value of download from 0 to 100.
-			* This can be used to render loading bar.
-			**/
+         * TODO: Progress bar can be shown using progress value from 0 to 100.
+         **/
 		}
 
 		public void onPermissionsUnavailable(string[] permissions) {
