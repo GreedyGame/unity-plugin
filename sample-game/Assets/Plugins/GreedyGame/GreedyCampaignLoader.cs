@@ -2,18 +2,17 @@ using UnityEngine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using GreedyGame.Runtime.Common;
+using GreedyGame.Runtime;
 using GreedyGame.Platform;
 
 public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>{
 	
 	public bool isDebug = false;
-	private bool isLazyLoad = true;
 	void Awake(){
 		DontDestroyOnLoad(this.gameObject) ;
 		if (RuntimePlatform.Android == Application.platform ||
 		    Application.isEditor) {
-			GreedyAdManager.Instance.init (isDebug, isLazyLoad, new GreedyAgentListener());
+			GreedyGameAgent.Instance.init (isDebug, new GreedyAgentListener());
 		}else{
 			moveToNextScene();
 		}
@@ -56,16 +55,19 @@ public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>{
 				Debug.Log(String.Format("permission unavailable = {0}", p));
 			}
 		}
+
+		public void onActionPerformed (string float_unit, string action) {
+
+		}
 	}
 
 	public static void fetchFloatAd(String f_id){
 		Debug.Log (String.Format ("Fetching FloatUnit {0}", f_id));
-		GreedyAdManager.Instance.fetchFloatUnit (f_id);
+		GreedyGameAgent.Instance.fetchFloatUnit (f_id);
 	}
 
 	public static void removeFloatAd(){
-		GreedyAdManager.Instance.removeAllFloatUnits ();
+		GreedyGameAgent.Instance.removeCurrentFloatUnit ();
 	}
-	
 	
 }

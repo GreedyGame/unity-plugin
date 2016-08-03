@@ -1,15 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
-using GreedyGame.Runtime.Common;
+using GreedyGame.Runtime;
 using GreedyGame.Platform;
 
 public class showScriptGG : MonoBehaviour {
 
 	public string FloatUnit = null;
-	private GreedyAdManager ggAdManager = null;
+	private GreedyGameAgent ggAdManager = null;
 
 	void Awake (){	
-		ggAdManager = GreedyAdManager.Instance;
+		ggAdManager = GreedyGameAgent.Instance;
 	}
 
 	public void showEngage() {

@@ -1,25 +1,35 @@
 ﻿using UnityEngine;
 using System;
 using System.Collections;
-using GreedyGame.Runtime.Common;
+using GreedyGame.Runtime;
 using GreedyGame.Platform;
 
 public class FloatUnitLoader : MonoBehaviour {
 
 	public string FloatUnit = null;
-	private GreedyAdManager ggAdManager = null;
+	private GreedyGameAgent greedyGameAgent = null;
 	
 	void Awake (){	
 		Debug.Log(String.Format("FloatUnitLoader - awake {0}", FloatUnit));
-		ggAdManager = GreedyAdManager.Instance;
+		greedyGameAgent = GreedyGameAgent.Instance;
 	}
 
 	void Start (){
-		ggAdManager.fetchFloatUnit (FloatUnit);
+		greedyGameAgent.fetchFloatUnit (FloatUnit);
+		greedyGameAgent.setActionListener(FloatUnit, new GreedyOnActionPerformedListener());
 	}
 	
 	void OnDestroy (){
-		ggAdManager.removeAllFloatUnits ();
+		greedyGameAgent.removeCurrentFloatUnit ();
 	}
 	
+
+	public class GreedyOnActionPerformedListener : IActionListener {
+		public bool onActionPerformed(String action) {
+			/**
+         * TODO: The reward action has been completed. The reward point can be parsed from string action
+         **/
+			return false;
+		}
+	}
 }
