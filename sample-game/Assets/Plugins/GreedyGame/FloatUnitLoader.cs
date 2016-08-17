@@ -22,11 +22,10 @@ public class FloatUnitLoader : MonoBehaviour {
 	void OnDestroy (){
 		greedyGameAgent.removeCurrentFloatUnit ();
 	}
-	
 
 	public class GreedyOnActionPerformedListener : IActionListener {
 		public bool onActionPerformed(String action) {
-			/**
+		/**
          * TODO: The reward action has been completed. The reward point can be parsed from string action
          **/
 			return false;

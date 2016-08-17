@@ -9,10 +9,12 @@ public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>{
 	
 	public bool isDebug = false;
 	void Awake(){
+		Debug.Log("NIKHIL inside awake");
 		DontDestroyOnLoad(this.gameObject) ;
 		if (RuntimePlatform.Android == Application.platform ||
 		    Application.isEditor) {
 			GreedyGameAgent.Instance.init (isDebug, new GreedyAgentListener());
+
 		}else{
 			moveToNextScene();
 		}
@@ -27,27 +29,28 @@ public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>{
 	public class GreedyAgentListener : IAgentListener {
 
 		public void onAvailable() {
-			/**
+		/**
          * TODO: New campaign is available and ready to use for the next scene.
          **/
+			GreedyGameAgent.isInitDone = true;
 			moveToNextScene();
 		}
 
 		public void onUnavailable() {
-			/**
+		/**
          * TODO: No campaign is available, proceed with normal follow of the game.
          **/
 			moveToNextScene();
 		}
 
 		public void onProgress(int progress) {
-			/**
+		/**
          * TODO: Progress bar can be shown using progress value from 0 to 100.
          **/
 		}
 
 		public void onPermissionsUnavailable(string[] permissions) {
-			/**
+		/**
          * TODO: Prompt user to give required permission
          **/
 			for(int i = 0; i < permissions.Length; i++) {

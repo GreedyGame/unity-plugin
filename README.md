@@ -17,6 +17,7 @@ Before we get started with the detailed reference, let’s brush through the def
 # Requirements
 * Android API Version: 14
 * Unity3d 4 or lastest
+* Google Play Service
 
 # Integration
 If you have gone through the definitions of important keywords. To make the rest of the integration an absolute breeze for you, we’ve set up an integration wizard on your [publisher panel](http://publisher.greedygame.com).
@@ -36,18 +37,10 @@ Singleton monobehaviour class encapsulating the overall GreedyGame ad flow and m
 ##### `public static GreedyAdManager.Instance`
 Create and return singleton instance of GreedyAdManager class.
 
-##### `public void init(bool isDebug, bool isLazyLoad, IAgentListener agentListener)`
+##### `public void init(bool isDebug, IAgentListener agentListener)`
 Lookup for an active campaign from the server.
 * **isDebug** : make debug logs visible in logcat
-* **isLazyLoad** : if true, nativeunits will refect branding as soon as campaign get downloaded
 * **agentListener** : instance of IAgentListener's implemented class
-
-
-##### `public string[] NativeUnitIds`
-Return array of all [nativeunit](http://greedygame.github.io/#nativeunits)'s id used in the game
-
-##### `public string CampaignPath`
-Return path of folder, where assets of current campaign is stored.
 
 ##### `public void fetchFloatUnit(String unit_id) `
 Fetch [floatunit](http://greedygame.github.io/#floatunits) and add view to current context.
@@ -55,8 +48,17 @@ Fetch [floatunit](http://greedygame.github.io/#floatunits) and add view to curre
 ##### `public void removeAllFloatUnits() `
 Remove all fetched [floatunit](http://greedygame.github.io/#floatunits).
 
+##### `public void getNativeUnitTexture(String unit_id, delegate (Texture2D brandedTexture) )`
+Get [nativeunit](http://greedygame.github.io/#nativeunits) texture for current campaign by unit id.
+
+##### `public void getFloatUnitTexture(String unit_id, delegate (Texture2D brandedTexture) )`
+Get [floatunit](http://greedygame.github.io/#floatunits) texture for current campaign by unit id.
+
 ##### `public void showEngagementWindow(string unit_id) `
 Open [engagement window](http://greedygame.github.io/#engagementwindow) attached with provided floatunit
+
+##### `public string CampaignPath`
+Return a path of the folder, where assets of the current campaign are being stored.
 
 ----
 ### interface IAgentListener
