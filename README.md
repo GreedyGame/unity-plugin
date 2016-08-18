@@ -50,6 +50,16 @@ Remove all fetched [floatunit](http://greedygame.github.io/#floatunits).
 
 ##### `public void getNativeUnitTexture(String unit_id, delegate (Texture2D brandedTexture) )`
 Get [nativeunit](http://greedygame.github.io/#nativeunits) texture for current campaign by unit id.
+**Example**
+```csharp
+GreedyGameAgent.Instance.getNativeUnitTexture (nativeUnitId, delegate(Texture2D brandedTexture) {
+	if(brandedTexture){
+		/**
+  	 	 * TODO: Use can use brandedTexture as your own will
+  	 	 **/
+	}
+});
+```
 
 ##### `public void getFloatUnitTexture(String unit_id, delegate (Texture2D brandedTexture) )`
 Get [floatunit](http://greedygame.github.io/#floatunits) texture for current campaign by unit id.
