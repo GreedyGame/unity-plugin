@@ -8,7 +8,7 @@ public class ButtonCreator : MonoBehaviour {
 	Texture btnTexture;
 
 	void Start () {
-		GreedyGameAgent.Instance.getFloatUnitTexture (floatUnitId, delegate(Texture2D texture) {
+		GreedyGameAgent.Instance.getFloatUnitTexture (floatUnitId, delegate(string unitId,Texture2D texture) {
 			btnTexture = texture;
 		});
 	}
@@ -16,7 +16,7 @@ public class ButtonCreator : MonoBehaviour {
 	void OnGUI() {
 		if (btnTexture) {
 			if (GUI.Button (new Rect (Screen.width-250, 0, 200, 100), btnTexture)) {
-				GreedyGameAgent.Instance.showEngagementWindow (floatUnitId);
+				GreedyGameAgent.Instance.showUII (floatUnitId);
 				Debug.Log ("Clicked the button with an image");
 			}
 		} else {
