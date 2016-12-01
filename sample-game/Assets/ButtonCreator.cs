@@ -4,7 +4,7 @@ using GreedyGame.Runtime;
 
 public class ButtonCreator : MonoBehaviour {
 
-	string floatUnitId = "float-1271";
+	string floatUnitId = "float-2002";
 	Texture btnTexture;
 
 	void Start () {
@@ -16,7 +16,7 @@ public class ButtonCreator : MonoBehaviour {
 	void OnGUI() {
 		if (btnTexture) {
 			if (GUI.Button (new Rect (Screen.width-250, 0, 200, 100), btnTexture)) {
-				GreedyGameAgent.Instance.showUII (floatUnitId);
+				GreedyGameAgent.Instance.showEngagementWindow (floatUnitId);
 				Debug.Log ("Clicked the button with an image");
 			}
 		} else {

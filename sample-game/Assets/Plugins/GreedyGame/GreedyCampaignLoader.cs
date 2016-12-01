@@ -10,9 +10,7 @@ public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>{
 	void Awake(){
 		DontDestroyOnLoad(this.gameObject) ;
 		if (RuntimePlatform.Android == Application.platform) {
-			GreedyGameAgent.Instance.setCampaignStateListener(new StateListener());
-			GreedyGameAgent.Instance.setCampaignProgressListener(new ProgressListener());
-			GreedyGameAgent.Instance.init ();
+			GreedyGameAgent.Instance.init (new GreedyAgentListener());
 		}else{
 			moveToNextScene();
 		}
@@ -24,7 +22,7 @@ public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>{
 		}
 	}
 
-	public class StateListener : CampaignStateListener {
+	public class GreedyAgentListener : IAgentListener {
 
 		public void onAvailable() {
 			/**
@@ -47,25 +45,28 @@ public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>{
 			moveToNextScene();
 		}
 
-		
-	}
-
-	public class ProgressListener : CampaignProgressListener {
-
 		public void onProgress(int progress) {
-		
+			/**
+         * TODO: Campaign progress from 1-100.
+         **/
 		}
 		
 	}
 
 	public static void showFloat(String f_id){
 		Debug.Log (String.Format ("Fetching FloatUnit {0}", f_id));
-		GreedyGameAgent.Instance.showFloat(f_id);
+		GreedyGameAgent.Instance.fetchFloatUnit (f_id);
 	}
 
-	public static void removeFloat(string f_id){
+	public static void removeFloatAd(string FloatUnit){
 		Debug.Log (String.Format ("Remove FloatUnit"));
-		GreedyGameAgent.Instance.removeFloat(f_id);
+		GreedyGameAgent.Instance.removeFloatUnit (FloatUnit);
+	}
+
+	public static void removeAllFloatAds(){
+		Debug.Log (String.Format ("Remove AllFloatUnits"));
+		GreedyGameAgent.Instance.removeAllFloatUnits ();
+
 	}
 	
 }
