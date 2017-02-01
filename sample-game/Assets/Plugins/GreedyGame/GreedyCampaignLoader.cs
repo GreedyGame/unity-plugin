@@ -42,6 +42,7 @@ public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>{
 			/**
          * TODO: Campaign is found. Starting download of assets. This will be followed by onAvailable callback once download completes successfully.
          **/
+			moveToNextScene();
 		}
 
 		public void onProgress(int progress) {
