@@ -21,6 +21,7 @@ public class FloatUnitLoader : MonoBehaviour {
 	void OnDestroy (){
 
 		greedyGameAgent.removeFloatUnit (FloatUnit);
+        
 
 	}
 
