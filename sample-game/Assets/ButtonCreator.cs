@@ -11,6 +11,7 @@ public class ButtonCreator : MonoBehaviour {
 		GreedyGameAgent.Instance.getFloatUnitTexture (floatUnitId, delegate(string unitId,Texture2D texture) {
 			btnTexture = texture;
 		});
+        GreedyGameAgent.Instance.showEngagementWindow("float-2002");
 	}
 	
 	void OnGUI() {

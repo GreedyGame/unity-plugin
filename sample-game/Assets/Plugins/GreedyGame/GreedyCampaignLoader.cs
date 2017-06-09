@@ -42,7 +42,7 @@ public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>{
 			/**
          * TODO: Campaign is found. Starting download of assets. This will be followed by onAvailable callback once download completes successfully.
          **/
-			//moveToNextScene();
+			moveToNextScene();
 		}
 
 		public void onProgress(int progress) {
@@ -50,8 +50,16 @@ public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>{
          * TODO: Campaign progress from 1-100.
          **/
 		}
-		
-	}
+
+        public void onError(string progress)
+        {
+            /**
+         * TODO: Campaign will not be served proceed with the rest of the game logic
+         **/
+            moveToNextScene();
+        }
+
+    }
 
 	public static void showFloat(String f_id){
 		Debug.Log (String.Format ("Fetching FloatUnit {0}", f_id));
