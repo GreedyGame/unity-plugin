@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using GreedyGame.Runtime;
 using GreedyGame.Platform;
+using GreedyGame.Runtime.Units;
 
 public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>{
 	
@@ -25,13 +26,34 @@ public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>{
 	public class GreedyAgentListener : IAgentListener {
 
 		public void onAvailable() {
-			/**
+            /**
          * TODO: New campaign is available and ready to use for the next scene.
          **/
-			moveToNextScene();
+            Debug.Log("Inside onAvailable function");
+            moveToNextScene();
+            refreshNativeUnits();
+            
+
 		}
 
-		public void onUnavailable() {
+        private void refreshNativeUnits()
+        {
+            NativeUnit[] nativeScriptObjects = FindObjectsOfType(typeof(NativeUnit)) as NativeUnit[];
+            foreach(NativeUnit nativeUnit in nativeScriptObjects) {
+                nativeUnit.GG_SetUpTexture();
+            }
+
+            SharedNativeUnit[] sharedScriptObjects = FindObjectsOfType(typeof(SharedNativeUnit)) as SharedNativeUnit[];
+            foreach (SharedNativeUnit sharedUnit in sharedScriptObjects)
+            {
+                sharedUnit.GG_SetUpTexture();
+            }
+
+            GreedyGameAgent.Instance.removeAllFloatUnits();
+            GreedyGameAgent.Instance.fetchFloatUnit("float-2002");
+        }
+
+        public void onUnavailable() {
 			/**
          * TODO: No campaign is available, proceed with normal follow of the game.
          **/
@@ -42,7 +64,7 @@ public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>{
 			/**
          * TODO: Campaign is found. Starting download of assets. This will be followed by onAvailable callback once download completes successfully.
          **/
-			moveToNextScene();
+			//moveToNextScene();
 		}
 
 		public void onProgress(int progress) {
@@ -51,13 +73,15 @@ public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>{
          **/
 		}
 
-        public void onError(string progress)
+        public void onError(string error)
         {
             /**
-         * TODO: Campaign will not be served proceed with the rest of the game logic
+         * TODO: No Campaign will be served since the initialization resulted in an error. 
+         * If device api level is below 15 this callback is invoked.
          **/
             moveToNextScene();
         }
+
 
     }
 
