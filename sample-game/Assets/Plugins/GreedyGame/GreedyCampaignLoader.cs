@@ -31,9 +31,11 @@ public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>{
          **/
             Debug.Log("Inside onAvailable function");
             moveToNextScene();
-            refreshNativeUnits();
-            
 
+            //see the following functions for reference for refreshing native and float units
+            //and the implementation of the same should be done inside this function.
+            //refreshNativeUnits();
+            //refreshFloatUnits();
 		}
 
         private void refreshNativeUnits()
@@ -49,8 +51,14 @@ public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>{
                 sharedUnit.GG_SetUpTexture();
             }
 
+            
+        }
+
+        private void refreshFloatUnits()
+        {
             GreedyGameAgent.Instance.removeAllFloatUnits();
-            GreedyGameAgent.Instance.fetchFloatUnit("float-2002");
+            //replace with your float unit id
+            //GreedyGameAgent.Instance.fetchFloatUnit("your float unit id");
         }
 
         public void onUnavailable() {
