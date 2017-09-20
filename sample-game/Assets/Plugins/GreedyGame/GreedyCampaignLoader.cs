@@ -3,83 +3,72 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using GreedyGame.Runtime;
-using GreedyGame.Platform;
 using GreedyGame.Runtime.Units;
 
-public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>{
-	
-	void Awake(){
-		DontDestroyOnLoad(this.gameObject) ;
-		if (RuntimePlatform.Android == Application.platform) {
-			GreedyGameAgent.Instance.init (new GreedyAgentListener());
-		}else{
-			moveToNextScene();
-		}
-	}
-	
-	private static void moveToNextScene(){
-		if (Application.loadedLevel == 0) {
-			Application.LoadLevel (1);
-		}
-	}
 
-	public class GreedyAgentListener : IAgentListener {
+public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>
+{
 
-		public void onAvailable() {
+    void Awake()
+    {
+        DontDestroyOnLoad(this.gameObject);
+        if (RuntimePlatform.Android == Application.platform)
+        {
+            GreedyGameAgent.Instance.init(new GreedyAgentListener());
+        }
+        else
+        {
+            moveToNextScene();
+        }
+    }
+
+    private static void moveToNextScene()
+    {
+        if (Application.loadedLevel == 0)
+        {
+            Application.LoadLevel(1);
+        }
+    }
+
+    public class GreedyAgentListener : IAgentListener
+    {
+
+        public void onAvailable(string campaignId)
+        {
             /**
          * TODO: New campaign is available and ready to use for the next scene.
          **/
             Debug.Log("Inside onAvailable function");
             moveToNextScene();
+            refreshNativeUnits();
+            refreshFloatUnits();
 
-            //see the following functions for reference for refreshing native and float units
-            //and the implementation of the same should be done inside this function.
-            //refreshNativeUnits();
-            //refreshFloatUnits();
-		}
-
-        private void refreshNativeUnits()
-        {
-            NativeUnit[] nativeScriptObjects = FindObjectsOfType(typeof(NativeUnit)) as NativeUnit[];
-            foreach(NativeUnit nativeUnit in nativeScriptObjects) {
-                nativeUnit.GG_SetUpTexture();
-            }
-
-            SharedNativeUnit[] sharedScriptObjects = FindObjectsOfType(typeof(SharedNativeUnit)) as SharedNativeUnit[];
-            foreach (SharedNativeUnit sharedUnit in sharedScriptObjects)
-            {
-                sharedUnit.GG_SetUpTexture();
-            }
-
-            
         }
 
-        private void refreshFloatUnits()
+        public void onUnavailable()
         {
-            GreedyGameAgent.Instance.removeAllFloatUnits();
-            //replace with your float unit id
-            //GreedyGameAgent.Instance.fetchFloatUnit("your float unit id");
-        }
-
-        public void onUnavailable() {
-			/**
+            /**
          * TODO: No campaign is available, proceed with normal follow of the game.
          **/
-			moveToNextScene();
-		}
+            refreshNativeUnits();
+            refreshFloatUnits();
+            moveToNextScene();
+        }
 
-		public void onFound() {
-			/**
+        public void onFound()
+        {
+            /**
          * TODO: Campaign is found. Starting download of assets. This will be followed by onAvailable callback once download completes successfully.
          **/
-			//moveToNextScene();
-		}
+            //moveToNextScene();
+        }
 
-		public void onProgress(int progress) {
-			/**
+        public void onProgress(int progress)
+        {
+            /**
          * TODO: Campaign progress from 1-100.
          **/
-		}
+        }
 
         public void onError(string error)
         {
@@ -90,23 +79,54 @@ public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>{
             moveToNextScene();
         }
 
+        //see the following functions for reference for refreshing native and float units
+        //and the implementation of the same should be done inside this function.
+        //refreshNativeUnits();
+        //refreshFloatUnits();
+        private void refreshNativeUnits()
+        {
+            NativeUnit[] nativeScriptObjects = FindObjectsOfType(typeof(NativeUnit)) as NativeUnit[];
+            foreach (NativeUnit nativeUnit in nativeScriptObjects)
+            {
+                nativeUnit.GG_SetUpTexture();
+            }
+
+            SharedNativeUnit[] sharedScriptObjects = FindObjectsOfType(typeof(SharedNativeUnit)) as SharedNativeUnit[];
+            foreach (SharedNativeUnit sharedUnit in sharedScriptObjects)
+            {
+                sharedUnit.GG_SetUpTexture();
+            }
+
+
+        }
+
+        private void refreshFloatUnits()
+        {
+            GreedyGameAgent.Instance.removeAllFloatUnits();
+            GreedyGameAgent.Instance.fetchFloatUnit("float-2014");
+            //replace with your float unit id
+            //GreedyGameAgent.Instance.fetchFloatUnit("your float unit id");
+        }
 
     }
 
-	public static void showFloat(String f_id){
-		Debug.Log (String.Format ("Fetching FloatUnit {0}", f_id));
-		GreedyGameAgent.Instance.fetchFloatUnit (f_id);
-	}
+    public static void showFloat(String f_id)
+    {
+        Debug.Log(String.Format("Fetching FloatUnit {0}", f_id));
+        GreedyGameAgent.Instance.fetchFloatUnit(f_id);
+    }
 
-	public static void removeFloatAd(string FloatUnit){
-		Debug.Log (String.Format ("Remove FloatUnit"));
-		GreedyGameAgent.Instance.removeFloatUnit (FloatUnit);
-	}
+    public static void removeFloatAd(string FloatUnit)
+    {
+        Debug.Log(String.Format("Remove FloatUnit"));
+        GreedyGameAgent.Instance.removeFloatUnit(FloatUnit);
+    }
 
-	public static void removeAllFloatAds(){
-		Debug.Log (String.Format ("Remove AllFloatUnits"));
-		GreedyGameAgent.Instance.removeAllFloatUnits ();
+    public static void removeAllFloatAds()
+    {
+        Debug.Log(String.Format("Remove AllFloatUnits"));
+        GreedyGameAgent.Instance.removeAllFloatUnits();
 
-	}
-	
+    }
+
 }
