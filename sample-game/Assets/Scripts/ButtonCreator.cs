@@ -13,6 +13,11 @@ public class ButtonCreator : MonoBehaviour {
 		});
         GreedyGameAgent.Instance.showEngagementWindow("float-2014");
 	}
-
-
+	
+	void OnGUI() {
+			if (GUI.Button (new Rect (Screen.width-250, 0, 200, 100), "Refresh")) {
+                GreedyGameAgent.Instance.startEventRefresh();
+				Debug.Log ("Clicked the button with text");
+			}
+		}
 }
