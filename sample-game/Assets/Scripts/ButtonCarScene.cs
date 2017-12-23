@@ -35,7 +35,7 @@ public class ButtonCarScene : MonoBehaviour {
         if (GUI.Button(new Rect(100, 170, 150, 50), "REMOVEALL"))
         {
             Debug.Log("GG[ButtonCarScene] fetching 1877 and after calling REMOVEALLFLOATS ");
-            GreedyGameAgent.Instance.fetchFloatUnit("float-1877");
+            //GreedyGameAgent.Instance.fetchFloatUnit("float-1877");
             GreedyGameAgent.Instance.removeAllFloatUnits();
         }
 
