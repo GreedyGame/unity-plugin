@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using GreedyGame.Runtime;
 using GreedyGame.Runtime.Units;
+using GreedyGame.Commons;
 
 
 public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>
