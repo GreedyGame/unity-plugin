@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using GreedyGame.Runtime;
 using GreedyGame.Runtime.Units;
+using GreedyGame.Commons;
 
 
 public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>
@@ -40,9 +41,6 @@ public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>
          **/
             Debug.Log("Inside onAvailable function");
             moveToNextScene();
-            refreshNativeUnits();
-            refreshFloatUnits();
-
         }
 
         public void onUnavailable()
@@ -50,8 +48,6 @@ public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>
             /**
          * TODO: No campaign is available, proceed with normal follow of the game.
          **/
-            refreshNativeUnits();
-            refreshFloatUnits();
             moveToNextScene();
         }
 
@@ -77,35 +73,6 @@ public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>
          * If device api level is below 15 this callback is invoked.
          **/
             moveToNextScene();
-        }
-
-        //see the following functions for reference for refreshing native and float units
-        //and the implementation of the same should be done inside this function.
-        //refreshNativeUnits();
-        //refreshFloatUnits();
-        private void refreshNativeUnits()
-        {
-            NativeUnit[] nativeScriptObjects = FindObjectsOfType(typeof(NativeUnit)) as NativeUnit[];
-            foreach (NativeUnit nativeUnit in nativeScriptObjects)
-            {
-                nativeUnit.GG_SetUpTexture();
-            }
-
-            SharedNativeUnit[] sharedScriptObjects = FindObjectsOfType(typeof(SharedNativeUnit)) as SharedNativeUnit[];
-            foreach (SharedNativeUnit sharedUnit in sharedScriptObjects)
-            {
-                sharedUnit.GG_SetUpTexture();
-            }
-
-
-        }
-
-        private void refreshFloatUnits()
-        {
-            GreedyGameAgent.Instance.removeAllFloatUnits();
-            GreedyGameAgent.Instance.fetchFloatUnit("float-2014");
-            //replace with your float unit id
-            //GreedyGameAgent.Instance.fetchFloatUnit("your float unit id");
         }
 
     }
