@@ -126,6 +126,14 @@ public class ButtonCarScene : MonoBehaviour {
             refreshFloatUnitsWithIdentifierScript();
         }
 
+        public void onProceed()
+        {
+            /**
+         * TODO: Campaign is found. Starting download of assets. This will be followed by onAvailable callback once download completes successfully.
+         **/
+          
+        }
+
         public void onFound()
         {
             /**
