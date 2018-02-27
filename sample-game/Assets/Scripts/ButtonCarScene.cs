@@ -17,6 +17,7 @@ public class ButtonCarScene : MonoBehaviour {
 	    void OnGUI() {
 			if (GUI.Button (new Rect (100 , 100,150,50 ), "INIT")) {
 				Debug.Log ("GG[ButtonCarScene] INIT called ");
+            GreedyGameAgent.Instance.enableAdmobMediation(true);
                 GreedyGameAgent.Instance.init(new GreedyAgentListener()); 
 			}
 
