@@ -3,6 +3,8 @@ using System.Collections;
 using GreedyGame.Runtime;
 using GreedyGame.Runtime.Units;
 using GreedyGame.Commons;
+using System;
+using UnityEngine.SceneManagement;
 
 public class ButtonCarScene : MonoBehaviour {
 
@@ -23,35 +25,35 @@ public class ButtonCarScene : MonoBehaviour {
 
         if (GUI.Button(new Rect(300, 100, 150, 50), "SHOWFLOAT"))
         {
-            Debug.Log("GG[ButtonCarScene] SHOWFLOAT called with id float-1877 ");
-            GreedyGameAgent.Instance.fetchFloatUnit("float-1877");
+            Debug.Log("GG[ButtonCarScene] SHOWFLOAT called with id float-3160 ");
+            GreedyGameAgent.Instance.fetchFloatUnit("float-3804");
         }
 
         if (GUI.Button(new Rect(500, 100, 150, 50), "REMOVEFLOAT"))
         {
             Debug.Log("GG[ButtonCarScene] REMOVEFLOAT called with id float-1877 ");
-            GreedyGameAgent.Instance.removeFloatUnit("float-1877");
+            GreedyGameAgent.Instance.removeFloatUnit("float-3804");
         }
 
         if (GUI.Button(new Rect(100, 170, 150, 50), "REMOVEALL"))
         {
-            Debug.Log("GG[ButtonCarScene] fetching 1877 and after calling REMOVEALLFLOATS ");
-            //GreedyGameAgent.Instance.fetchFloatUnit("float-1877");
+            Debug.Log("GG[ButtonCarScene] fetching 3160 and after calling REMOVEALLFLOATS ");
+            //GreedyGameAgent.Instance.fetchFloatUnit("float-3804");
             GreedyGameAgent.Instance.removeAllFloatUnits();
         }
 
         if (GUI.Button(new Rect(300, 170, 150, 50), "SHOWUII"))
         {
-            Debug.Log("GG[ButtonCarScene] calling SHOWENGAGEMENTWINDOW with id : 1877 ");
-            GreedyGameAgent.Instance.showEngagementWindow("float-1877");
+            Debug.Log("GG[ButtonCarScene] calling SHOWENGAGEMENTWINDOW with id : 3804 ");
+            GreedyGameAgent.Instance.showEngagementWindow("float-3804");
         }
 
         if (GUI.Button(new Rect(500, 170, 150, 50), "GETNATIVETEXTURE"))
         {
             Debug.Log("GG[ButtonCarScene] calling GETNATIVETEXTURE with id : 2334 ");
-            GreedyGameAgent.Instance.getNativeUnitTexture("unit-2334", delegate (string unitID, Texture2D texture)
+            GreedyGameAgent.Instance.getNativeUnitTexture("unit-3804", delegate (string unitID, Texture2D texture)
              {
-                 if(unitID.Equals("unit-2334"))
+                 if(unitID.Equals("unit-3804"))
                  {
                      Debug.Log("GG[ButtonCarScene] callback to delegate after getNativeTexture success for unit-2334");
                      NativeIdentifier[] nativeIdentifier = FindObjectsOfType(typeof(NativeIdentifier)) as NativeIdentifier[];
@@ -66,12 +68,12 @@ public class ButtonCarScene : MonoBehaviour {
 
         if (GUI.Button(new Rect(100, 240, 150, 50), "GETFLOATTEXTURE"))
         {
-            Debug.Log("GG[ButtonCarScene] calling GETFLOATTEXTURE with id : 1877 ");
-            GreedyGameAgent.Instance.getFloatUnitTexture("float-1877", delegate (string unitID, Texture2D texture)
+            Debug.Log("GG[ButtonCarScene] calling GETFLOATTEXTURE with id : 3160 ");
+            GreedyGameAgent.Instance.getFloatUnitTexture("float-3804", delegate (string unitID, Texture2D texture)
             {
-                if (unitID.Equals("float-1877"))
+                if (unitID.Equals("float-3804"))
                 {
-                    Debug.Log("GG[ButtonCarScene] callback to delegate after getNativeTexture success for float 1877");
+                    Debug.Log("GG[ButtonCarScene] callback to delegate after getNativeTexture success for float 3160");
                     FloatIdentifier[] floatIdentifier = FindObjectsOfType(typeof(FloatIdentifier)) as FloatIdentifier[];
                     foreach (FloatIdentifier floatUnit in floatIdentifier)
                     {
@@ -86,6 +88,33 @@ public class ButtonCarScene : MonoBehaviour {
         {
             Debug.Log("GG[ButtonCarScene] calling REFRESH ");
             GreedyGameAgent.Instance.startEventRefresh();
+        }
+
+        if (GUI.Button(new Rect(300, 320, 150, 50), "LEVEL 1"))
+        {
+            Debug.Log("GG[ButtonCarScene] calling REFRESH ");
+            SceneManager.LoadScene(1);
+        }
+
+        if (GUI.Button(new Rect(500, 320, 150, 50), "LEVEL 2"))
+        {
+            Debug.Log("GG[ButtonCarScene] calling REFRESH ");
+            SceneManager.LoadScene(2);
+        }
+
+        if (GUI.Button(new Rect(500, 240, 150, 50), "CRASH"))
+        {
+            try
+            {
+                Debug.Log("GG[ButtonCarScene] calling REFRESH ");
+                NullReferenceException exception = new NullReferenceException("GG CUSTOM CRASH FOR TESTING");
+                throw exception;
+            } catch (NullReferenceException ex)
+            {
+                GreedyGameAgent.Instance.sendCrashReport(ex.Message + ex.StackTrace, false);
+                Debug.Log("GG[CRASH] Message : " + ex.Message);
+                Debug.Log("GG[CRASH] stacktrace : " + ex.StackTrace);
+            }
         }
 
 
@@ -106,12 +135,8 @@ public class ButtonCarScene : MonoBehaviour {
          * TODO: New campaign is available and ready to use for the next scene.
          **/
             Debug.Log("Inside onAvailable function");
-            refreshNativeUnits();
-            refreshFloatUnits();
 
             Debug.Log("GG[ButtonCarScene] onAvailable calling refreshUnitsWith IdentifierScript (floor textures");
-            refreshNativeUnitsWithIdentifierScript();
-            refreshFloatUnitsWithIdentifierScript();
 
         }
 
@@ -120,11 +145,7 @@ public class ButtonCarScene : MonoBehaviour {
             /**
          * TODO: No campaign is available, proceed with normal follow of the game.
          **/
-            refreshNativeUnits();
-            refreshFloatUnits();
             Debug.Log("GG[ButtonCarScene] onUnavailable calling refreshUnitsWith IdentifierScript (floor textures");
-            refreshNativeUnitsWithIdentifierScript();
-            refreshFloatUnitsWithIdentifierScript();
         }
 
         public void onProceed()
@@ -158,71 +179,7 @@ public class ButtonCarScene : MonoBehaviour {
          **/
             moveToNextScene();
         }
-
-        //see the following functions for reference for refreshing native and float units
-        //and the implementation of the same should be done inside this function.
-        //refreshNativeUnits();
-        //refreshFloatUnits();
-        private void refreshNativeUnits()
-        {
-            NativeUnit[] nativeScriptObjects = FindObjectsOfType(typeof(NativeUnit)) as NativeUnit[];
-            foreach (NativeUnit nativeUnit in nativeScriptObjects)
-            {
-                nativeUnit.GG_SetUpTexture();
-            }
-
-            SharedNativeUnit[] sharedScriptObjects = FindObjectsOfType(typeof(SharedNativeUnit)) as SharedNativeUnit[];
-            foreach (SharedNativeUnit sharedUnit in sharedScriptObjects)
-            {
-                sharedUnit.GG_SetUpTexture();
-            }
-
-
-        }
-
-        private void refreshFloatUnits()
-        {
-            GreedyGameAgent.Instance.removeAllFloatUnits();
-            GreedyGameAgent.Instance.fetchFloatUnit("float-1877");
-            //replace with your float unit id
-            //GreedyGameAgent.Instance.fetchFloatUnit("your float unit id");
-        }
-
-        private void refreshNativeUnitsWithIdentifierScript()
-        {
-            Debug.Log("GG[ButtonCarScene] refreshNativeUnitsWithIdentifierScript ");
-            GreedyGameAgent.Instance.getNativeUnitTexture("unit-2334", delegate (string unitID, Texture2D texture)
-            {
-                if (unitID.Equals("unit-2334"))
-                {
-                    Debug.Log("GG[ButtonCarScene] callback to delegate after getNativeTexture success for unit-2334");
-                    NativeIdentifier[] nativeIdentifier = FindObjectsOfType(typeof(NativeIdentifier)) as NativeIdentifier[];
-                    foreach (NativeIdentifier nativeUnit in nativeIdentifier)
-                    {
-                        nativeUnit.updateTexture(texture);
-                    }
-                }
-            });
-        }
-
-
-        private void refreshFloatUnitsWithIdentifierScript()
-        {
-            Debug.Log("GG[ButtonCarScene] refreshFloatsUnitsWithIdentifierScript ");
-            GreedyGameAgent.Instance.getFloatUnitTexture("float-1877", delegate (string unitID, Texture2D texture)
-            {
-                if (unitID.Equals("float-1877"))
-                {
-                    Debug.Log("GG[ButtonCarScene] callback to delegate after getNativeTexture success for float-1877");
-                    FloatIdentifier[] floatIdentifier = FindObjectsOfType(typeof(FloatIdentifier)) as FloatIdentifier[];
-                    foreach (FloatIdentifier floatUnit in floatIdentifier)
-                    {
-                        floatUnit.updateTexture(texture);
-                    }
-                }
-            });
-        }
-
+        
     }
 
 

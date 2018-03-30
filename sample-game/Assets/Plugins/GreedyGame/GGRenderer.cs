@@ -13,6 +13,7 @@ public class GGRenderer : MonoBehaviour {
 	void Start () {
         // Attach this script to an object that needs branding. Make sure that the object has 
         // mesh or sprite renderer attached to it.
+        Debug.Log("Calling register : ");
         GreedyGameAgent.Instance.registerGameObject(this.gameObject, texture, unitId,true);
 	}
 	
@@ -24,6 +25,7 @@ public class GGRenderer : MonoBehaviour {
     // Destroy
     void OnDestroy()
     {
+        Debug.Log("Calling unregister : ");
         GreedyGameAgent.Instance.unregisterGameObject(this.gameObject);
     }
 }

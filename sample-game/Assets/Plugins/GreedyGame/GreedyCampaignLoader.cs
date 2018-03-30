@@ -12,6 +12,7 @@ public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>{
 	void Awake(){
 		DontDestroyOnLoad(this.gameObject) ;
 		if (RuntimePlatform.Android == Application.platform) {
+            GreedyGameAgent.Instance.enableAdmobMediation(true);
 			GreedyGameAgent.Instance.init (new GreedyAgentListener());
 		}else{
 			moveToNextScene();
@@ -67,7 +68,6 @@ public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>{
          * scenes or else upon a refresh call you might get switched from an intermediate scene to 
          * the next one. ( Refer to moveToNextScene function )
          **/
-            moveToNextScene();
         }
 
 

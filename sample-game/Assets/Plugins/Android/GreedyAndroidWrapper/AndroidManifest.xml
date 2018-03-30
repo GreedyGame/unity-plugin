@@ -4,11 +4,44 @@
     android:versionName="1.0" 
     package="com.greedygame.android.unityvalues" 
     android:installLocation="preferExternal">
- 
 <application>
 
 <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"
 />
+
+<activity
+            android:name="com.greedygame.android.core.campaign.uii.web.GGWebActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden|screenSize|screenLayout|layoutDirection"
+            android:hardwareAccelerated="true"
+            android:launchMode="singleTask"
+            android:theme="@style/Theme.GGTransparent">
+        </activity>
+        <activity
+            android:name="com.greedygame.android.core.campaign.uii.video.GGVideoActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden|screenSize|screenLayout|layoutDirection"
+            android:hardwareAccelerated="true"
+            android:launchMode="singleTask"
+            android:theme="@style/Theme.GGTransparent">
+        </activity>
+        <activity
+            android:name="com.greedygame.android.core.mediation.admob.GGAdMobActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden|screenSize|screenLayout|layoutDirection"
+            android:hardwareAccelerated="true"
+            android:launchMode="singleTask"
+            android:theme="@style/Theme.GGTransparent">
+        </activity>
+
+        <activity
+            android:name="com.greedygame.android.core.mediation.greedygame.GGS2SActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden|screenSize|screenLayout|layoutDirection"
+            android:hardwareAccelerated="true"
+            android:launchMode="singleTask"
+            android:theme="@style/Theme.GGTransparent">
+        </activity>
 
 </application>
 
