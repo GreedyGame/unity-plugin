@@ -14,7 +14,7 @@ public class GGRenderer : MonoBehaviour {
         // Attach this script to an object that needs branding. Make sure that the object has 
         // mesh or sprite renderer attached to it.
         Debug.Log("Calling register : ");
-        GreedyGameAgent.Instance.registerGameObject(this.gameObject, texture, unitId,true);
+        GreedyGameAgent.Instance.registerGameObject(this.gameObject, texture, unitId, true);
 	}
 	
 	// Update is called once per frame
