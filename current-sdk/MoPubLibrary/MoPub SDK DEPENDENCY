@@ -1,0 +1,26 @@
+MoPub SDK DEPENDENCY 
+
+If you are enabling MoPub SDK then you need to have the following dependencies
+1. mopub-base
+2. mopub-sdk-base
+3. mopub-sdk-native-static
+4. mopub-volley
+
+If your game already has mopub integrated with version above 4.16.1  then you just need to import the unity package and need not follow the rest of this documentation.
+
+
+If your game doesn't already have a mopub dependency then follow the instructions below.
+
+If play version you are using is 12.0.0 or above then copy 
+contents inside mopub > 4.20.0 to your Plugins > Android > libs folder.
+
+Please note here that we assume that you already have play services and the dependencies along with it already in your game. In case you don't please follow the instructions given in the play services readme.
+
+
+If play version is above 11.0.2 and below 12.0.0 then copy contents inside 
+mopub > 4.17.0 to your Plugins > Android > libs folder.
+
+
+
+
+

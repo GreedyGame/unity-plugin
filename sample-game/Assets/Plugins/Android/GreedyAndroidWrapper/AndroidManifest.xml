@@ -43,6 +43,26 @@
             android:theme="@style/Theme.GGTransparent">
         </activity>
 
+        <activity
+          android:name="com.greedygame.android.core.mediation.facebook.GGFacebookActivity"
+          android:screenOrientation="sensorLandscape"
+          android:configChanges="keyboardHidden|screenSize|screenLayout|layoutDirection|orientation"
+          android:hardwareAccelerated="true"
+          android:launchMode="singleTask"
+          android:theme="@style/Theme.GGTransparent">
+        </activity>
+
+        <activity
+              android:name="com.greedygame.android.core.mediation.mopub.GGMoPubActivity"
+              android:configChanges="keyboardHidden|orientation|screenSize|screenLayout|layoutDirection"
+              android:hardwareAccelerated="true"
+              android:launchMode="singleTask"
+              android:theme="@style/Theme.GGTransparent">
+        </activity>
+  
+        <activity android:name="com.mopub.common.MoPubBrowser"
+                  android:configChanges="keyboardHidden|orientation|screenSize"/>
+
 </application>
 
 </manifest>

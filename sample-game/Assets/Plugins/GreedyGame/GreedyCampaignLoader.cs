@@ -8,12 +8,28 @@ using GreedyGame.Runtime.Units;
 using GreedyGame.Commons;
 
 public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>{
+
+    public List<string> unitList;
+
+    public bool AdmobMediation = false;
+
+    public bool FacebookMediation = false;
+
+    public bool MopubMediation = false;
+
+    public bool EnableCrashReporting = true;
 	
 	void Awake(){
 		DontDestroyOnLoad(this.gameObject) ;
 		if (RuntimePlatform.Android == Application.platform) {
-            GreedyGameAgent.Instance.enableAdmobMediation(true);
-			GreedyGameAgent.Instance.init (new GreedyAgentListener());
+            GGAdConfig adConfig = new GGAdConfig();
+            adConfig.setListener(new GreedyAgentListener());
+            adConfig.enableCrash(EnableCrashReporting);
+            adConfig.enableAdmob(AdmobMediation);
+            adConfig.enableFAN(FacebookMediation);
+            adConfig.enableMopub(MopubMediation);
+            adConfig.addUnitList(unitList);
+			GreedyGameAgent.Instance.init (adConfig);
 		}else{
 			moveToNextScene();
 		}
