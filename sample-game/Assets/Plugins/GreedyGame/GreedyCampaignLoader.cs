@@ -16,21 +16,19 @@ public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>{
     public bool FacebookMediation = false;
 
     public bool MopubMediation = false;
-
-    public bool EnableCrashReporting = true;
 	
 	void Awake(){
 		DontDestroyOnLoad(this.gameObject) ;
 		if (RuntimePlatform.Android == Application.platform) {
             GGAdConfig adConfig = new GGAdConfig();
             adConfig.setListener(new GreedyAgentListener());
-            adConfig.enableCrash(EnableCrashReporting);
             adConfig.enableAdmob(AdmobMediation);
             adConfig.enableFAN(FacebookMediation);
             adConfig.enableMopub(MopubMediation);
             adConfig.addUnitList(unitList);
-			GreedyGameAgent.Instance.init (adConfig);
-		}else{
+			GreedyGameAgent.Instance.init(adConfig);
+        }
+        else{
 			moveToNextScene();
 		}
 	}
