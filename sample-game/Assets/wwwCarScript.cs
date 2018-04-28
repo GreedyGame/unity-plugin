@@ -14,5 +14,6 @@ public class wwwCarScript : MonoBehaviour
             renderer.material.mainTexture = www.texture;
             Debug.Log("GGNIXAC AFTER APPLYING TEXTURE ");
         }
+
     }
 }

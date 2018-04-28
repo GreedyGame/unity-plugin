@@ -16,10 +16,15 @@ public class FloatUnitLoader : MonoBehaviour {
 
 	void Start (){
 		greedyGameAgent.fetchFloatUnit(FloatUnit);
+        greedyGameAgent.removeFloatUnit(FloatUnit);
+        greedyGameAgent.fetchFloatUnit(FloatUnit);
+
     }
 	
 	void OnDestroy (){
+
 		greedyGameAgent.removeFloatUnit (FloatUnit);
+
 	}
 
 }

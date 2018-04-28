@@ -22,9 +22,9 @@ public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>{
 		if (RuntimePlatform.Android == Application.platform) {
             GGAdConfig adConfig = new GGAdConfig();
             adConfig.setListener(new GreedyAgentListener());
-            adConfig.enableAdmob(AdmobMediation);
-            adConfig.enableFAN(FacebookMediation);
-            adConfig.enableMopub(MopubMediation);
+            adConfig.enableAdmobMediation(AdmobMediation);
+            adConfig.enableFacebookMediation(FacebookMediation);
+            adConfig.enableMopubMediation(MopubMediation);
             adConfig.addUnitList(unitList);
 			GreedyGameAgent.Instance.init(adConfig);
         }

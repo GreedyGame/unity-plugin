@@ -21,10 +21,6 @@ public class ButtonCarScene : MonoBehaviour {
 				Debug.Log ("GG[ButtonCarScene] INIT called ");
             GGAdConfig adConfig = new GGAdConfig();
             adConfig.setListener(new GreedyAgentListener());
-            adConfig.enableCrash(true);
-            adConfig.enableAdmob(true);
-            adConfig.enableFAN(true);
-            adConfig.enableMopub(true);
             GreedyGameAgent.Instance.init(adConfig);
         }
 
