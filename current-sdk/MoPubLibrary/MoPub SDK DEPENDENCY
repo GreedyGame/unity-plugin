@@ -1,3 +1,4 @@
+Section 1 
 MoPub SDK DEPENDENCY 
 
 If you are enabling MoPub SDK then you need to have the following dependencies
@@ -6,19 +7,24 @@ If you are enabling MoPub SDK then you need to have the following dependencies
 3. mopub-sdk-native-static
 4. mopub-volley
 
-If your game already has mopub integrated with version above 4.16.1  then you just need to import the unity package and need not follow the rest of this documentation.
+If your game already has mopub integrated with version above 4.16.1  then you just need to import the GreedyGameunity package and need not follow the rest of this documentation.
 
 
 If your game doesn't already have a mopub dependency then follow the instructions below.
 
-If play version you are using is 12.0.0 or above then copy 
-contents inside mopub > 4.20.0 to your Plugins > Android > libs folder.
+If play version you are using is 12.0.0 or above then include the mopub librariy aar version 4.20.0 ( 4 aar's which are described above )
 
 Please note here that we assume that you already have play services and the dependencies along with it already in your game. In case you don't please follow the instructions given in the play services readme.
 
 
-If play version is above 11.0.2 and below 12.0.0 then copy contents inside 
-mopub > 4.17.0 to your Plugins > Android > libs folder.
+If play version is above 11.0.2 and below 12.0.0 then copy contents inside current-sdk > MopubLibrary  > 4.17.0 to your Plugins > Android > libs folder.
+
+
+Section 2
+Mediating Mopub through Admob
+1.Import the mopub library by following Section 1 above
+2.Copy the adapter aar inside current-sdk > MoPubLibrary > 4.17.0 > mopub-admob-adapter to your project's Plugins > Android > libs folder. ( Note that if you are using any other version of mopub then you should include the same version of the adapter which you can find in the following link )
+(https://bintray.com/google/mobile-ads-adapters-android/com.google.ads.mediation.mopub)
 
 
 
