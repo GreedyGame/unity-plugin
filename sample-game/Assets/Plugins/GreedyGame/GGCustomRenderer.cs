@@ -8,14 +8,14 @@ public class GGCustomRenderer : MonoBehaviour {
 
     RawImage rawImage;
     public Texture defaultTexture;
-    public string unitId;
+    public string unitId = null;
 
 	// Use this for initialization
 	void Start () {
         // Use this api to register delegates which will send you the branded texture.
         // The below delegate is an example which uses raw image to render image.
         // You should make sure that the actual rendering of the object is done inside the delegate
-        GreedyGameAgent.Instance.registerGameObject(this.gameObject, defaultTexture as Texture2D, unitId, delegate (string unitId, Texture2D brandedTexture)
+        GreedyGameAgent.Instance.registerGameObject(this.gameObject, defaultTexture as Texture2D, unitId, delegate (string unitID, Texture2D brandedTexture)
          {
              if (brandedTexture != null)
              {
