@@ -10,13 +10,7 @@ public class ButtonLoaderScene : MonoBehaviour {
 	void Start () {
 	}
 	
-	void OnGUI() {
-			if (GUI.Button (new Rect (Screen.width / 2 , Screen.height / 2,100,30 ), "Start Game")) {
-				Debug.Log ("GG[ButtonLoaderScene] Start Game ");
-                moveToNextScene();
-                
-			}
-		}
+	
 
 
 

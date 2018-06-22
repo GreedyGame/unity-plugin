@@ -15,7 +15,7 @@ public class GGCustomRenderer : MonoBehaviour {
         // Use this api to register delegates which will send you the branded texture.
         // The below delegate is an example which uses raw image to render image.
         // You should make sure that the actual rendering of the object is done inside the delegate
-        GreedyGameAgent.Instance.registerGameObject(this.gameObject, defaultTexture as Texture2D, unitId, delegate (string unitID, Texture2D brandedTexture)
+        GreedyGameAgent.Instance.registerGameObject(this.gameObject, defaultTexture as Texture2D, unitId, delegate (string unitID, Texture2D brandedTexture, bool isBrandedTexture)
          {
              if (brandedTexture != null)
              {
@@ -25,14 +25,15 @@ public class GGCustomRenderer : MonoBehaviour {
                  {
                      rawImage.texture = brandedTexture as Texture;
                  }
-             } else
+             } 
+
+             // If you want to enable or disable the gameobject based on whether the texture is branded or default
+             // you can use isBrandedFlag
+             if(!isBrandedTexture)
              {
-                 //Step Delegate-B 
-                 rawImage = GetComponent<RawImage>();
-                 if (rawImage != null)
-                 {
-                     rawImage.texture = defaultTexture;
-                 }
+                 //Step Delegate-B
+                 //you can disable the gameobject here if you dont want to show game object
+                 // with default texture.
              }
          });
 	}

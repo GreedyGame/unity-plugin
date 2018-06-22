@@ -5,6 +5,7 @@ using GreedyGame.Runtime.Units;
 using GreedyGame.Commons;
 using System;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 public class ButtonCarScene : MonoBehaviour {
 
@@ -21,6 +22,7 @@ public class ButtonCarScene : MonoBehaviour {
 				Debug.Log ("GG[ButtonCarScene] INIT called ");
             GGAdConfig adConfig = new GGAdConfig();
             adConfig.setListener(new GreedyAgentListener());
+            adConfig.addUnitList( new List<string>() { "unit-3816", "float-2706", "float-3126", "float-3804" });
             GreedyGameAgent.Instance.init(adConfig);
         }
 
