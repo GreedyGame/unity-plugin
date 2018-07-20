@@ -120,6 +120,12 @@ public class ButtonCarScene : MonoBehaviour {
             }
         }
 
+        if (GUI.Button(new Rect(500, 480, 150, 50), "QUIT"))
+        {
+            Debug.Log("GG[ButtonCarScene] calling REFRESH ");
+            Application.Quit();
+        }
+
 
 
     }

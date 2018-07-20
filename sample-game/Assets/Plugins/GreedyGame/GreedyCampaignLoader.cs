@@ -12,19 +12,21 @@ public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>
 
     public List<string> unitList;
 
-    public bool AdmobMediation = false;
+    public bool AdMobMediation = false;
 
-    GGAdConfig adConfig = new GGAdConfig();
+    public bool MoPubMediation = false;
 
     void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
         if (RuntimePlatform.Android == Application.platform)
         {
+            GGAdConfig adConfig = new GGAdConfig();
             adConfig.setListener(new GreedyAgentListener());
-            adConfig.enableAdmobMediation(AdmobMediation);
+            adConfig.enableAdmobMediation(AdMobMediation);
+            adConfig.enableMopubMediation(MoPubMediation);
             adConfig.addUnitList(unitList);
-            Debug.Log("GDPRGG START");
+            GreedyGameAgent.Instance.init(adConfig);
         }
         else
         {
@@ -48,6 +50,7 @@ public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>
             /**
          * TODO: New campaign is available and ready to use for the next scene.
          **/
+            moveToNextScene();
 
         }
 
@@ -56,6 +59,7 @@ public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>
             /**
          * TODO: No campaign is available, proceed with normal flow of the game.
          **/
+            moveToNextScene();
         }
 
         public void onFound()
@@ -91,26 +95,6 @@ public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>
     {
         Debug.Log(String.Format("Remove AllFloatUnits"));
         GreedyGameAgent.Instance.removeAllFloatUnits();
-
-    }
-
-    void OnGUI()
-    {
-        if (GUI.Button(new Rect(Screen.width / 4, Screen.height -100, 100, 30), "Start Game"))
-        {
-            Debug.Log("GG[ButtonLoaderScene] Start Game ");
-            GreedyGameAgent.Instance.init(adConfig);
-            moveToNextScene();
-
-        }
-
-        if (GUI.Button(new Rect(Screen.width / 2, Screen.height -100, 100, 30), "Personalized"))
-        {
-            Debug.Log("GG[ButtonLoaderScene] Start Game ");
-            adConfig.enforceGgNpa(true);
-        }
-
-
 
     }
 
