@@ -19,10 +19,12 @@ public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>
     void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
-        if (RuntimePlatform.Android == Application.platform)
+        if (RuntimePlatform.Android == Application.platform || RuntimePlatform.IPhonePlayer == Application.platform)
         {
             GGAdConfig adConfig = new GGAdConfig();
+            adConfig.setGameId("14435775");
             adConfig.setListener(new GreedyAgentListener());
+            adConfig.disableReflection(true);
             adConfig.enableAdmobMediation(AdMobMediation);
             adConfig.enableMopubMediation(MoPubMediation);
             adConfig.addUnitList(unitList);
@@ -50,8 +52,8 @@ public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>
             /**
          * TODO: New campaign is available and ready to use for the next scene.
          **/
+            Debug.Log("GreedyAgentListener onAvailable");
             moveToNextScene();
-
         }
 
         public void onUnavailable()
@@ -59,6 +61,7 @@ public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>
             /**
          * TODO: No campaign is available, proceed with normal flow of the game.
          **/
+            Debug.Log("GreedyAgentListener onUnavailable");
             moveToNextScene();
         }
 
@@ -67,6 +70,7 @@ public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>
             /**
          * TODO: Campaign is found. Starting download of assets. This will be followed by onAvailable callback once download completes successfully.
          **/
+            Debug.Log("GreedyAgentListener onFound");
         }
 
         public void onError(string error)
@@ -75,27 +79,8 @@ public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>
          * TODO: No Campaign will be served since the initialization resulted in an error. 
          * If device api level is below 15 this callback is invoked.
          **/
+            Debug.Log("GreedyAgentListener onError");
         }
 
     }
-
-    public static void showFloat(String f_id)
-    {
-        Debug.Log(String.Format("Fetching FloatUnit {0}", f_id));
-        GreedyGameAgent.Instance.fetchFloatUnit(f_id);
-    }
-
-    public static void removeFloatAd(string FloatUnit)
-    {
-        Debug.Log(String.Format("Remove FloatUnit"));
-        GreedyGameAgent.Instance.removeFloatUnit(FloatUnit);
-    }
-
-    public static void removeAllFloatAds()
-    {
-        Debug.Log(String.Format("Remove AllFloatUnits"));
-        GreedyGameAgent.Instance.removeAllFloatUnits();
-
-    }
-
 }
