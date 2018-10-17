@@ -65,14 +65,6 @@ public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>
             moveToNextScene();
         }
 
-        public void onFound()
-        {
-            /**
-         * TODO: Campaign is found. Starting download of assets. This will be followed by onAvailable callback once download completes successfully.
-         **/
-            Debug.Log("GreedyAgentListener onFound");
-        }
-
         public void onError(string error)
         {
             /**

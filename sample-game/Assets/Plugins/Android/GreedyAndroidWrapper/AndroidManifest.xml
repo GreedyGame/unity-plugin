@@ -5,8 +5,6 @@
     package="com.greedygame.android.unityvalues" 
     android:installLocation="preferExternal">
   <application>
-    
- 
 
   </application>
 </manifest>
