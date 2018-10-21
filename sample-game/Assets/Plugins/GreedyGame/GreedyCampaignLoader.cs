@@ -16,13 +16,15 @@ public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>
 
     public bool MoPubMediation = false;
 
+    public string GameId = "";
+
     void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
         if (RuntimePlatform.Android == Application.platform || RuntimePlatform.IPhonePlayer == Application.platform)
         {
             GGAdConfig adConfig = new GGAdConfig();
-            adConfig.setGameId("14435775");
+            adConfig.setGameId(GameId);
             adConfig.setListener(new GreedyAgentListener());
             adConfig.disableReflection(true);
             adConfig.enableAdmobMediation(AdMobMediation);
