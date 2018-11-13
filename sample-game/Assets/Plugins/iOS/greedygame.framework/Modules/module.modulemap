@@ -1,0 +1,11 @@
+framework module greedygame {
+  umbrella header "greedygame.h"
+
+  export *
+  module * { export * }
+}
+
+module greedygame.Swift {
+    header "greedygame-Swift.h"
+    requires objc
+}

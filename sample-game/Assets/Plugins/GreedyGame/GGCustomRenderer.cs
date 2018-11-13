@@ -19,6 +19,7 @@ public class GGCustomRenderer : MonoBehaviour {
          {
              if (brandedTexture != null)
              {
+                 Debug.Log("UnityGG branded texture found");
                  //Step Delegate-A
                  rawImage = GetComponent<RawImage>();
                  if(rawImage!=null)
@@ -30,7 +31,8 @@ public class GGCustomRenderer : MonoBehaviour {
              // If you want to enable or disable the gameobject based on whether the texture is branded or default
              // you can use isBrandedFlag
              if(!isBrandedTexture)
-             {
+            {
+                Debug.Log("UnityGG branded texture not found");
                  //Step Delegate-B
                  //you can disable the gameobject here if you dont want to show game object
                  // with default texture.

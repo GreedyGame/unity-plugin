@@ -24,8 +24,8 @@ public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>
         if (RuntimePlatform.Android == Application.platform || RuntimePlatform.IPhonePlayer == Application.platform)
         {
             GGAdConfig adConfig = new GGAdConfig();
-            adConfig.setGameId(GameId);
             adConfig.setListener(new GreedyAgentListener());
+            adConfig.setGameId(GameId);
             adConfig.disableReflection(true);
             adConfig.enableAdmobMediation(AdMobMediation);
             adConfig.enableMopubMediation(MoPubMediation);
@@ -55,7 +55,7 @@ public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>
          * TODO: New campaign is available and ready to use for the next scene.
          **/
             Debug.Log("GreedyAgentListener onAvailable");
-            moveToNextScene();
+            //moveToNextScene();
         }
 
         public void onUnavailable()
@@ -64,7 +64,7 @@ public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>
          * TODO: No campaign is available, proceed with normal flow of the game.
          **/
             Debug.Log("GreedyAgentListener onUnavailable");
-            moveToNextScene();
+            //moveToNextScene();
         }
 
         public void onError(string error)
@@ -77,4 +77,5 @@ public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>
         }
 
     }
+
 }

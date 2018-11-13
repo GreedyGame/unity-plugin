@@ -1,0 +1,11 @@
+framework module GreedyiOSWrapper {
+  umbrella header "GreedyiOSWrapper.h"
+
+  export *
+  module * { export * }
+}
+
+module GreedyiOSWrapper.Swift {
+    header "GreedyiOSWrapper-Swift.h"
+    requires objc
+}
