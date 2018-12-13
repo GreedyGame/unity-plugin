@@ -10,7 +10,7 @@
 		</data>
 		<key>Headers/GreedyiOSWrapper-Swift.h</key>
 		<data>
-		Ep4+EvcDBC7HpKhFx+8yiehB9w8=
+		at+Yl7QKtDIA2X9A1JPbJ0ul7zA=
 		</data>
 		<key>Headers/GreedyiOSWrapper.h</key>
 		<data>
@@ -26,31 +26,31 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		pQudDkdA7XlVA1ZV31Y8OdYvbug=
+		Af3pQPzOhVk4TqoYoQPLq3Hm//o=
 		</data>
 		<key>Modules/GreedyiOSWrapper.swiftmodule/arm.swiftdoc</key>
 		<data>
-		9Fbbb0WL0GIp1Zw2TN+kR2X7gu8=
+		hvIXL/8PKgCTxjOeNsJWmGjv6JM=
 		</data>
 		<key>Modules/GreedyiOSWrapper.swiftmodule/arm.swiftmodule</key>
 		<data>
-		Glk4S9hm1pE6wXKUZewCeZ/R0Kg=
+		jGLCVWzHFBSVmYucaQLBesr3pys=
 		</data>
 		<key>Modules/GreedyiOSWrapper.swiftmodule/arm64.swiftdoc</key>
 		<data>
-		cBc9aFJ6hsqXFifabEm7SwLcWZo=
+		SCCraE4MBfveqDMmp6zd+xJQfas=
 		</data>
 		<key>Modules/GreedyiOSWrapper.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		X+rzo/VI/UxYG/ewe62lgF/sdW4=
+		2sySm5AqjhiJEOrsCgpLus0usHU=
 		</data>
 		<key>Modules/GreedyiOSWrapper.swiftmodule/x86_64.swiftdoc</key>
 		<data>
-		5QDqtqMIVPYFopeYXmZ7ttHpzn4=
+		LvFB1j0ctQWah1W4Ysz5PUT3GXU=
 		</data>
 		<key>Modules/GreedyiOSWrapper.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		iB8knBWqPWMHyMjkeO0opwKl5L4=
+		J/ELVfhOEJKvubv4w09BZuF4trk=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -74,11 +74,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Ep4+EvcDBC7HpKhFx+8yiehB9w8=
+			at+Yl7QKtDIA2X9A1JPbJ0ul7zA=
 			</data>
 			<key>hash2</key>
 			<data>
-			YuyydEexofYRKetvkZpGmRREj+XWJlQOLB+iOgipuxY=
+			XW+BzJ+zrH/g6Caogx3Pp5lUO4UEa9Y7mv4KZPET7Kk=
 			</data>
 		</dict>
 		<key>Headers/GreedyiOSWrapper.h</key>
@@ -118,66 +118,66 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			9Fbbb0WL0GIp1Zw2TN+kR2X7gu8=
+			hvIXL/8PKgCTxjOeNsJWmGjv6JM=
 			</data>
 			<key>hash2</key>
 			<data>
-			3f0QHSTqROSQC+N3hmdsxxP0tHt4Po+apY3DNIOyAcs=
+			fLEenP+se0eegs7PRzrhiLZePJErZx9tNF2CJt2z1jE=
 			</data>
 		</dict>
 		<key>Modules/GreedyiOSWrapper.swiftmodule/arm.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Glk4S9hm1pE6wXKUZewCeZ/R0Kg=
+			jGLCVWzHFBSVmYucaQLBesr3pys=
 			</data>
 			<key>hash2</key>
 			<data>
-			KqYRfLkKXh1Bko3IRQjD/cEnjbwNF5cWI3nYjAEtPt0=
+			HHFed1HtznRx1bUvtc8aSX+JGw85zBdr/NJA9+MdWP8=
 			</data>
 		</dict>
 		<key>Modules/GreedyiOSWrapper.swiftmodule/arm64.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			cBc9aFJ6hsqXFifabEm7SwLcWZo=
+			SCCraE4MBfveqDMmp6zd+xJQfas=
 			</data>
 			<key>hash2</key>
 			<data>
-			NtPLzVbOj3xwQ9XcYz1DmomxUnghFhdH+fLY8w1eq1Q=
+			rmirR1/+Zg1KDTCFNCj2iSZWw6EIMM4MsWRZ/C09/JM=
 			</data>
 		</dict>
 		<key>Modules/GreedyiOSWrapper.swiftmodule/arm64.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			X+rzo/VI/UxYG/ewe62lgF/sdW4=
+			2sySm5AqjhiJEOrsCgpLus0usHU=
 			</data>
 			<key>hash2</key>
 			<data>
-			xECeYltsPMjDKshgBdYuZ6FxJLEdZ7QCLRHQxwMtJDU=
+			8DprPN6Fwy7Gq1hxWNRYgHT1fkhjDUSCQrOb54F/zKU=
 			</data>
 		</dict>
 		<key>Modules/GreedyiOSWrapper.swiftmodule/x86_64.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			5QDqtqMIVPYFopeYXmZ7ttHpzn4=
+			LvFB1j0ctQWah1W4Ysz5PUT3GXU=
 			</data>
 			<key>hash2</key>
 			<data>
-			0al3YZWClzj31xxc75+Bk65B9WN+yFSFPKO0Rjd809g=
+			FUSsdjlAPvLxFjGtHqotXyUYKMhV+b0/5FBo/4K0FV4=
 			</data>
 		</dict>
 		<key>Modules/GreedyiOSWrapper.swiftmodule/x86_64.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			iB8knBWqPWMHyMjkeO0opwKl5L4=
+			J/ELVfhOEJKvubv4w09BZuF4trk=
 			</data>
 			<key>hash2</key>
 			<data>
-			Lo+RROT3aQ3T/Jic2pJXoKo3i71FLJTEzUNNGBUV0ZE=
+			2SRrSStGgy1VTXFuuc5UVKrWMEn51Qj1AvGds/9Stv8=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -194,7 +194,7 @@
 	</dict>
 	<key>rules</key>
 	<dict>
-		<key>^</key>
+		<key>^.*</key>
 		<true/>
 		<key>^.*\.lproj/</key>
 		<dict>
@@ -225,24 +225,12 @@
 			<key>weight</key>
 			<real>11</real>
 		</dict>
-		<key>^</key>
-		<dict>
-			<key>weight</key>
-			<real>20</real>
-		</dict>
 		<key>^(.*/)?\.DS_Store$</key>
 		<dict>
 			<key>omit</key>
 			<true/>
 			<key>weight</key>
 			<real>2000</real>
-		</dict>
-		<key>^(Frameworks|SharedFrameworks|PlugIns|Plug-ins|XPCServices|Helpers|MacOS|Library/(Automator|Spotlight|LoginItems))/</key>
-		<dict>
-			<key>nested</key>
-			<true/>
-			<key>weight</key>
-			<real>10</real>
 		</dict>
 		<key>^.*</key>
 		<true/>
@@ -278,13 +266,6 @@
 			<true/>
 			<key>weight</key>
 			<real>20</real>
-		</dict>
-		<key>^[^/]+$</key>
-		<dict>
-			<key>nested</key>
-			<true/>
-			<key>weight</key>
-			<real>10</real>
 		</dict>
 		<key>^embedded\.provisionprofile$</key>
 		<dict>
