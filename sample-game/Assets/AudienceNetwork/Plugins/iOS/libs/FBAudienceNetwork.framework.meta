@@ -1,22 +1,31 @@
 fileFormatVersion: 2
 guid: a8584f6f94768a34f80d9580a64263ae
 folderAsset: yes
-timeCreated: 1522746432
-licenseType: Free
 PluginImporter:
-  serializedVersion: 1
+  externalObjects: {}
+  serializedVersion: 2
   iconMap: {}
   executionOrder: {}
   isPreloaded: 0
   isOverridable: 0
   platformData:
-    Any:
-      enabled: 1
+  - first:
+      Any: 
+    second:
+      enabled: 0
       settings: {}
-    Editor:
+  - first:
+      Editor: Editor
+    second:
       enabled: 0
       settings:
         DefaultValueInitialized: true
+  - first:
+      iPhone: iOS
+    second:
+      enabled: 1
+      settings:
+        FrameworkDependencies: AdSupport;StoreKit;
   userData: 
   assetBundleName: 
   assetBundleVariant: 

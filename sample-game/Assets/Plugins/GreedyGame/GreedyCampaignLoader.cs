@@ -26,7 +26,6 @@ public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>
             GGAdConfig adConfig = new GGAdConfig();
             adConfig.setListener(new GreedyAgentListener());
             adConfig.setGameId(GameId);
-            adConfig.disableReflection(true);
             adConfig.enableAdmobMediation(AdMobMediation);
             adConfig.enableMopubMediation(MoPubMediation);
             adConfig.addUnitList(unitList);

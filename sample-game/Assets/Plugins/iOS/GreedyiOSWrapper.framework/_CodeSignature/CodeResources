@@ -26,7 +26,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		pQudDkdA7XlVA1ZV31Y8OdYvbug=
+		izrV5Eq7qmKQTeCPZqNxl4+skKU=
 		</data>
 		<key>Modules/GreedyiOSWrapper.swiftmodule/arm.swiftdoc</key>
 		<data>
@@ -34,7 +34,7 @@
 		</data>
 		<key>Modules/GreedyiOSWrapper.swiftmodule/arm.swiftmodule</key>
 		<data>
-		Glk4S9hm1pE6wXKUZewCeZ/R0Kg=
+		BXFL1BFaBt54MD5t7Wnt+ljB43c=
 		</data>
 		<key>Modules/GreedyiOSWrapper.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -42,7 +42,7 @@
 		</data>
 		<key>Modules/GreedyiOSWrapper.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		X+rzo/VI/UxYG/ewe62lgF/sdW4=
+		8mf2b8jmbdnWDVtbx/+n3KHRTus=
 		</data>
 		<key>Modules/GreedyiOSWrapper.swiftmodule/x86_64.swiftdoc</key>
 		<data>
@@ -50,7 +50,7 @@
 		</data>
 		<key>Modules/GreedyiOSWrapper.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		iB8knBWqPWMHyMjkeO0opwKl5L4=
+		vhVu1G0tefvcCU+UaScb1SS1X3A=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -129,11 +129,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Glk4S9hm1pE6wXKUZewCeZ/R0Kg=
+			BXFL1BFaBt54MD5t7Wnt+ljB43c=
 			</data>
 			<key>hash2</key>
 			<data>
-			KqYRfLkKXh1Bko3IRQjD/cEnjbwNF5cWI3nYjAEtPt0=
+			0h4QYfo0lBkSBEc51EV8Wa8NFKLSIgn7ur9VBuJKkNA=
 			</data>
 		</dict>
 		<key>Modules/GreedyiOSWrapper.swiftmodule/arm64.swiftdoc</key>
@@ -151,11 +151,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			X+rzo/VI/UxYG/ewe62lgF/sdW4=
+			8mf2b8jmbdnWDVtbx/+n3KHRTus=
 			</data>
 			<key>hash2</key>
 			<data>
-			xECeYltsPMjDKshgBdYuZ6FxJLEdZ7QCLRHQxwMtJDU=
+			Rkgx6U+iidoufeXFv3KKhcRBaQVselM4qc+iwBshTlg=
 			</data>
 		</dict>
 		<key>Modules/GreedyiOSWrapper.swiftmodule/x86_64.swiftdoc</key>
@@ -173,11 +173,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			iB8knBWqPWMHyMjkeO0opwKl5L4=
+			vhVu1G0tefvcCU+UaScb1SS1X3A=
 			</data>
 			<key>hash2</key>
 			<data>
-			Lo+RROT3aQ3T/Jic2pJXoKo3i71FLJTEzUNNGBUV0ZE=
+			uArwzT8zN+TDF4eM1E6g8ET1PrLORhxCM6Mk2eW/Fz0=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
