@@ -2,22 +2,30 @@ fileFormatVersion: 2
 guid: bdda5acd0d4d04ad9840ec40976defd0
 folderAsset: yes
 PluginImporter:
-  serializedVersion: 1
+  externalObjects: {}
+  serializedVersion: 2
   iconMap: {}
   executionOrder: {}
   isPreloaded: 0
   isOverridable: 0
   platformData:
-    Editor:
+  - first:
+      Any: 
+    second:
+      enabled: 0
+      settings: {}
+  - first:
+      Editor: Editor
+    second:
       enabled: 0
       settings:
         DefaultValueInitialized: true
-    first:
-      enabled: 0
-      settings: {}
-    iOS:
+  - first:
+      iPhone: iOS
+    second:
       enabled: 1
-      settings: {}
+      settings:
+        AddToEmbeddedBinaries: true
   userData: 
   assetBundleName: 
   assetBundleVariant: 

@@ -10,7 +10,7 @@
 		</data>
 		<key>Headers/GreedyiOSWrapper-Swift.h</key>
 		<data>
-		at+Yl7QKtDIA2X9A1JPbJ0ul7zA=
+		ou6piekF0+dhG5cNewC4irZRvK0=
 		</data>
 		<key>Headers/GreedyiOSWrapper.h</key>
 		<data>
@@ -26,31 +26,31 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		Af3pQPzOhVk4TqoYoQPLq3Hm//o=
+		an9YX7i95ofGoyIo9zIKUh1n3Is=
 		</data>
 		<key>Modules/GreedyiOSWrapper.swiftmodule/arm.swiftdoc</key>
 		<data>
-		hvIXL/8PKgCTxjOeNsJWmGjv6JM=
+		MwNKPMORb6NPDh3rmvCkJQcQ8cg=
 		</data>
 		<key>Modules/GreedyiOSWrapper.swiftmodule/arm.swiftmodule</key>
 		<data>
-		jGLCVWzHFBSVmYucaQLBesr3pys=
+		haJ9stnp4NECnStSFOu26OV9JTs=
 		</data>
 		<key>Modules/GreedyiOSWrapper.swiftmodule/arm64.swiftdoc</key>
 		<data>
-		SCCraE4MBfveqDMmp6zd+xJQfas=
+		BGq+HgW59hEuqQHfC4baMfsWDsY=
 		</data>
 		<key>Modules/GreedyiOSWrapper.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		2sySm5AqjhiJEOrsCgpLus0usHU=
+		GcEPHPqsmpL19FN28hzaTaVr9QA=
 		</data>
 		<key>Modules/GreedyiOSWrapper.swiftmodule/x86_64.swiftdoc</key>
 		<data>
-		LvFB1j0ctQWah1W4Ysz5PUT3GXU=
+		SGjQ7aAEloie+BDAq8cA5MmULGI=
 		</data>
 		<key>Modules/GreedyiOSWrapper.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		J/ELVfhOEJKvubv4w09BZuF4trk=
+		7n0c+S1OH3IZIAF66Zpp6fKrUdE=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -74,11 +74,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			at+Yl7QKtDIA2X9A1JPbJ0ul7zA=
+			ou6piekF0+dhG5cNewC4irZRvK0=
 			</data>
 			<key>hash2</key>
 			<data>
-			XW+BzJ+zrH/g6Caogx3Pp5lUO4UEa9Y7mv4KZPET7Kk=
+			yEXL+heaqTp29r8fGHSjW7cV1TyNWtdMJolrPqqfhBs=
 			</data>
 		</dict>
 		<key>Headers/GreedyiOSWrapper.h</key>
@@ -118,66 +118,66 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			hvIXL/8PKgCTxjOeNsJWmGjv6JM=
+			MwNKPMORb6NPDh3rmvCkJQcQ8cg=
 			</data>
 			<key>hash2</key>
 			<data>
-			fLEenP+se0eegs7PRzrhiLZePJErZx9tNF2CJt2z1jE=
+			XauyVVjwdWluB1T73gA3YP1nOGaSYKn8ml/EYFc2fxk=
 			</data>
 		</dict>
 		<key>Modules/GreedyiOSWrapper.swiftmodule/arm.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			jGLCVWzHFBSVmYucaQLBesr3pys=
+			haJ9stnp4NECnStSFOu26OV9JTs=
 			</data>
 			<key>hash2</key>
 			<data>
-			HHFed1HtznRx1bUvtc8aSX+JGw85zBdr/NJA9+MdWP8=
+			OHBCltn+47Np9a6TU47v67zK6P6foLk0zpWtE8AreQA=
 			</data>
 		</dict>
 		<key>Modules/GreedyiOSWrapper.swiftmodule/arm64.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			SCCraE4MBfveqDMmp6zd+xJQfas=
+			BGq+HgW59hEuqQHfC4baMfsWDsY=
 			</data>
 			<key>hash2</key>
 			<data>
-			rmirR1/+Zg1KDTCFNCj2iSZWw6EIMM4MsWRZ/C09/JM=
+			2a6hwhBe58+BX7gvcm0Q2PTr9q5nK3sVtu8g11O8Ha4=
 			</data>
 		</dict>
 		<key>Modules/GreedyiOSWrapper.swiftmodule/arm64.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			2sySm5AqjhiJEOrsCgpLus0usHU=
+			GcEPHPqsmpL19FN28hzaTaVr9QA=
 			</data>
 			<key>hash2</key>
 			<data>
-			8DprPN6Fwy7Gq1hxWNRYgHT1fkhjDUSCQrOb54F/zKU=
+			F3ZnEF81DZRokG0LoZbqFgEeKR6yK2NIiTCJWQ3strM=
 			</data>
 		</dict>
 		<key>Modules/GreedyiOSWrapper.swiftmodule/x86_64.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			LvFB1j0ctQWah1W4Ysz5PUT3GXU=
+			SGjQ7aAEloie+BDAq8cA5MmULGI=
 			</data>
 			<key>hash2</key>
 			<data>
-			FUSsdjlAPvLxFjGtHqotXyUYKMhV+b0/5FBo/4K0FV4=
+			3w6ingEQFA5A+dt/7HdhJh2L8P8lxF5lVMssrXZd8mg=
 			</data>
 		</dict>
 		<key>Modules/GreedyiOSWrapper.swiftmodule/x86_64.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			J/ELVfhOEJKvubv4w09BZuF4trk=
+			7n0c+S1OH3IZIAF66Zpp6fKrUdE=
 			</data>
 			<key>hash2</key>
 			<data>
-			2SRrSStGgy1VTXFuuc5UVKrWMEn51Qj1AvGds/9Stv8=
+			/PFh0gAOsMsCo16QnOtavkUGB4kcM1UwTk0m4P1t7q0=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
