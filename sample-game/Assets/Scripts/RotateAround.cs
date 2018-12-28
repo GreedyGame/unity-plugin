@@ -9,6 +9,6 @@ public class RotateAround : MonoBehaviour {
 	void Update ()
 	{
 		transform.LookAt(target);
-		transform.Translate(Vector3.right * Time.deltaTime);
+		transform.Translate(Vector3.right * Time.deltaTime * 2);
 	}
 }
