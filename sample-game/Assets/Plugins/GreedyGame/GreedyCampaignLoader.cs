@@ -4,19 +4,16 @@ using System.Collections;
 using System.Collections.Generic;
 using GreedyGame.Runtime;
 using GreedyGame.Platform;
-using GreedyGame.Runtime.Units;
 using GreedyGame.Commons;
 
-public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>
+public class GreedyCampaignLoader : MonoBehaviour
 {
 
-    public List<string> unitList;
+    public List<GGUnityNativeUnit> unitList;
 
     public bool AdMobMediation = false;
 
     public bool MoPubMediation = false;
-
-    public string GameId = "";
 
     void Awake()
     {
@@ -24,12 +21,12 @@ public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>
         if (RuntimePlatform.Android == Application.platform || RuntimePlatform.IPhonePlayer == Application.platform)
         {
             GGAdConfig adConfig = new GGAdConfig();
+            adConfig.setGameId("14435775");
             adConfig.setListener(new GreedyAgentListener());
-            adConfig.setGameId(GameId);
             adConfig.enableAdmobMediation(AdMobMediation);
             adConfig.enableMopubMediation(MoPubMediation);
-            adConfig.addUnitList(unitList);
-            GreedyGameAgent.Instance.init(adConfig);
+            //adConfig.addUnitList(unitList);
+            GreedyGameAgent.Instance.Init(adConfig);
         }
         else
         {
@@ -73,9 +70,7 @@ public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>
          * If device api level is below 15 this callback is invoked.
          **/
             Debug.Log("GreedyAgentListener onError");
-            moveToNextScene();
         }
 
     }
-
 }

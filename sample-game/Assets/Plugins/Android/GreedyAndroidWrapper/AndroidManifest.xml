@@ -5,6 +5,16 @@
     package="com.greedygame.android.unityvalues" 
     android:installLocation="preferExternal">
   <application>
-      
+
+
+<activity
+    android:name="com.greedygame.android.core.campaign.uii.GreedyGameActivity"
+    android:configChanges="keyboardHidden|orientation|screenSize|screenLayout|layoutDirection"
+    android:hardwareAccelerated="true"
+    android:launchMode="singleTask"
+    android:screenOrientation="landscape"
+    android:theme="@style/Theme.GGTransparent">
+</activity>
+
   </application>
 </manifest>
