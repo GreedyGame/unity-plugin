@@ -7,7 +7,6 @@
 
 #import "GADUPluginUtil.h"
 #import "UnityAppController.h"
-#import "UnityInterface.h"
 
 @interface GADUInterstitial () <GADInterstitialDelegate>
 @end

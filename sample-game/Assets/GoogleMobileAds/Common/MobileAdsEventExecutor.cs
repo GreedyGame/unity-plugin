@@ -20,7 +20,7 @@ using UnityEngine;
 
 namespace GoogleMobileAds.Common
 {
-    public class MobileAdsEventExecutor : MonoBehaviour
+    internal class MobileAdsEventExecutor : MonoBehaviour
     {
         private static MobileAdsEventExecutor instance = null;
 
@@ -52,7 +52,7 @@ namespace GoogleMobileAds.Common
             DontDestroyOnLoad(gameObject);
         }
 
-        public static void ExecuteInUpdate(Action action)
+        public static void executeInUpdate(Action action)
         {
             lock (adEventsQueue)
             {
@@ -60,6 +60,7 @@ namespace GoogleMobileAds.Common
                 adEventsQueueEmpty = false;
             }
         }
+
         public void Update()
         {
             if (adEventsQueueEmpty)

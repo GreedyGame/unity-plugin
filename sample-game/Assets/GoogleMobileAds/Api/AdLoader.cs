@@ -1,4 +1,4 @@
-// Copyright (C) 2015 Google, Inc.
+﻿// Copyright (C) 2015 Google, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -50,14 +50,17 @@ namespace GoogleMobileAds.Api
             this.adLoaderClient.OnCustomNativeTemplateAdLoaded +=
                     delegate (object sender, CustomNativeEventArgs args)
             {
-                this.OnCustomNativeTemplateAdLoaded(this, args);
+                if (this.OnCustomNativeTemplateAdLoaded != null)
+                {
+                    MobileAdsEventExecutor.executeInUpdate(() => this.OnCustomNativeTemplateAdLoaded(this, args));
+                }
             };
             this.adLoaderClient.OnAdFailedToLoad += delegate (
                 object sender, AdFailedToLoadEventArgs args)
             {
                 if (this.OnAdFailedToLoad != null)
                 {
-                    this.OnAdFailedToLoad(this, args);
+                    MobileAdsEventExecutor.executeInUpdate(() => this.OnAdFailedToLoad(this, args));
                 }
             };
         }
@@ -105,7 +108,6 @@ namespace GoogleMobileAds.Api
             {
                 get; private set;
             }
-
 
             public Builder ForCustomNativeAd(string templateId)
             {

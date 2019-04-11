@@ -34,11 +34,12 @@ namespace GoogleMobileAds.Api
             this.client = (IInterstitialClient)method.Invoke(null, null);
             client.CreateInterstitialAd(adUnitId);
 
+            Utils.CheckInitialization();
             this.client.OnAdLoaded += (sender, args) =>
             {
                 if (this.OnAdLoaded != null)
                 {
-                    this.OnAdLoaded(this, args);
+                    MobileAdsEventExecutor.executeInUpdate(() => this.OnAdLoaded(this, args));
                 }
             };
 
@@ -46,7 +47,7 @@ namespace GoogleMobileAds.Api
             {
                 if (this.OnAdFailedToLoad != null)
                 {
-                    this.OnAdFailedToLoad(this, args);
+                    MobileAdsEventExecutor.executeInUpdate(() => this.OnAdFailedToLoad(this, args));
                 }
             };
 
@@ -54,7 +55,7 @@ namespace GoogleMobileAds.Api
             {
                 if (this.OnAdOpening != null)
                 {
-                    this.OnAdOpening(this, args);
+                    MobileAdsEventExecutor.executeInUpdate(() => this.OnAdOpening(this, args));
                 }
             };
 
@@ -62,7 +63,7 @@ namespace GoogleMobileAds.Api
             {
                 if (this.OnAdClosed != null)
                 {
-                    this.OnAdClosed(this, args);
+                    MobileAdsEventExecutor.executeInUpdate(() => this.OnAdClosed(this, args));
                 }
             };
 
@@ -70,7 +71,7 @@ namespace GoogleMobileAds.Api
             {
                 if (this.OnAdLeavingApplication != null)
                 {
-                    this.OnAdLeavingApplication(this, args);
+                    MobileAdsEventExecutor.executeInUpdate(() => this.OnAdLeavingApplication(this, args));
                 }
             };
         }

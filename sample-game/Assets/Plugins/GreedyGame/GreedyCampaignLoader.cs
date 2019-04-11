@@ -4,32 +4,29 @@ using System.Collections;
 using System.Collections.Generic;
 using GreedyGame.Runtime;
 using GreedyGame.Platform;
-using GreedyGame.Runtime.Units;
 using GreedyGame.Commons;
 
-public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>
+public class GreedyCampaignLoader : MonoBehaviour
 {
 
-    public List<string> unitList;
+    public List<GGUnitConfig> unitList;
 
     public bool AdMobMediation = false;
 
     public bool MoPubMediation = false;
-
-    public string GameId = "";
 
     void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
         if (RuntimePlatform.Android == Application.platform || RuntimePlatform.IPhonePlayer == Application.platform)
         {
-            GGAdConfig adConfig = new GGAdConfig();
-            adConfig.setListener(new GreedyAgentListener());
-            adConfig.setGameId(GameId);
-            adConfig.enableAdmobMediation(AdMobMediation);
-            adConfig.enableMopubMediation(MoPubMediation);
-            adConfig.addUnitList(unitList);
-            GreedyGameAgent.Instance.init(adConfig);
+            GGConfig adConfig = new GGConfig();
+            adConfig.SetAppId("14435775");
+            adConfig.SetAdListener(new GreedyAgentListener());
+            adConfig.EnableAdmobMediation(AdMobMediation);
+            adConfig.EnableMopubMediation(MoPubMediation);
+            //adConfig.addUnitList(unitList);
+            GreedyGameAgent.Instance.Load(adConfig);
         }
         else
         {
@@ -45,7 +42,7 @@ public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>
         }
     }
 
-    public class GreedyAgentListener : IAgentListener
+    public class GreedyAgentListener : GGAdListener
     {
 
         public void onAvailable(string campaignId)
@@ -73,9 +70,7 @@ public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>
          * If device api level is below 15 this callback is invoked.
          **/
             Debug.Log("GreedyAgentListener onError");
-            moveToNextScene();
         }
 
     }
-
 }

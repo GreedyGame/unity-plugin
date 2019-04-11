@@ -52,9 +52,6 @@ namespace GoogleMobileAds.iOS
         internal delegate void GADURewardBasedVideoAdWillLeaveApplicationCallback(
             IntPtr rewardBasedVideoAdClient);
 
-        internal delegate void GADURewardBasedVideoAdDidCompleteCallback(
-            IntPtr rewardBasedVideoAdClient);
-
         #endregion
 
         public event EventHandler<EventArgs> OnAdLoaded;
@@ -70,8 +67,6 @@ namespace GoogleMobileAds.iOS
         public event EventHandler<Reward> OnAdRewarded;
 
         public event EventHandler<EventArgs> OnAdLeavingApplication;
-
-        public event EventHandler<EventArgs> OnAdCompleted;
 
         // This property should be used when setting the rewardBasedVideoPtr.
         private IntPtr RewardBasedVideoAdPtr
@@ -102,8 +97,7 @@ namespace GoogleMobileAds.iOS
                 RewardBasedVideoAdDidStartCallback,
                 RewardBasedVideoAdDidCloseCallback,
                 RewardBasedVideoAdDidRewardUserCallback,
-                RewardBasedVideoAdWillLeaveApplicationCallback,
-                RewardBasedVideoAdDidCompleteCallback);
+                RewardBasedVideoAdWillLeaveApplicationCallback);
         }
 
         // Load an ad.
@@ -121,12 +115,6 @@ namespace GoogleMobileAds.iOS
             Externs.GADUShowRewardBasedVideoAd(this.RewardBasedVideoAdPtr);
         }
 
-        // Sets the user ID to be used in server-to-server reward callbacks.
-        public void SetUserId(string userId)
-        {
-            Externs.GADUSetRewardBasedVideoAdUserId(this.RewardBasedVideoAdPtr, userId);
-        }
-
         public bool IsLoaded()
         {
             return Externs.GADURewardBasedVideoAdReady(this.RewardBasedVideoAdPtr);
@@ -135,8 +123,7 @@ namespace GoogleMobileAds.iOS
         // Returns the mediation adapter class name.
         public string MediationAdapterClassName()
         {
-            return Utils.PtrToString(
-                Externs.GADUMediationAdapterClassNameForRewardedVideo(this.RewardBasedVideoAdPtr));
+            return Externs.GADUMediationAdapterClassNameForRewardedVideo(this.RewardBasedVideoAdPtr);
         }
 
         // Destroys the rewarded video ad.
@@ -246,18 +233,6 @@ namespace GoogleMobileAds.iOS
             if (client.OnAdLeavingApplication != null)
             {
                 client.OnAdLeavingApplication(client, EventArgs.Empty);
-            }
-        }
-
-        [MonoPInvokeCallback(typeof(GADURewardBasedVideoAdDidCompleteCallback))]
-        private static void RewardBasedVideoAdDidCompleteCallback(
-            IntPtr rewardBasedVideoAdClient)
-        {
-            RewardBasedVideoAdClient client = IntPtrToRewardBasedVideoClient(
-                rewardBasedVideoAdClient);
-            if (client.OnAdCompleted != null)
-            {
-                client.OnAdCompleted(client, EventArgs.Empty);
             }
         }
 
