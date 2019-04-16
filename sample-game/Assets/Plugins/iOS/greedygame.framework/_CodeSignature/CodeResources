@@ -6,47 +6,47 @@
 	<dict>
 		<key>AdMobInstallView.nib</key>
 		<data>
-		TYB1pjO1LyyfxY0mg74twE4UKDI=
+		aohgYDWCSZAW3hLvryGjU9QA624=
 		</data>
 		<key>AdMobInstallViewLandscape.nib</key>
 		<data>
-		DZjYa5nUIz4HLib/xYpJRA5ZGkg=
+		nSwieAX7zLcNoIG8fyKpP4v050c=
 		</data>
 		<key>AdMobIpadView.nib</key>
 		<data>
-		WM8SZ2HjdRbFnvGZUCTNdbBY4DY=
+		B5n0mkaVxqQ/c+DRNlLnJLZq6yY=
 		</data>
 		<key>AdMobIpadViewLandscape.nib</key>
 		<data>
-		bC9ASKChYQKhNKlSYvIHCDkESoo=
+		+MnvLgbnJWeOEIbP/VmmLQX/MAg=
 		</data>
 		<key>AdMobView.nib</key>
 		<data>
-		t8pQGYh0v5knTnVH43dgcThyGk0=
+		GX2vT0hw5l8MnfO09oJC55h5JT4=
 		</data>
 		<key>AdMobViewLandscape.nib</key>
 		<data>
-		LdbCQaLyh0fY2vFEVZ+rrnZVxbo=
+		49nz2xxZqB6nuNuow4LWNdxbg5s=
 		</data>
 		<key>AdmobIpadInstallView.nib</key>
 		<data>
-		uEpdTG4hqT27BJtc6eht+gUwGqw=
+		rksLYlFJhLB8MjmFi9+UNVEB0Vk=
 		</data>
 		<key>AdmobIpadInstallViewLandscape.nib</key>
 		<data>
-		ssYl0T51dofHOtJxA1g8PiIaqhc=
+		t9w0FJqzU+Hy8QH+1aw9COGZjDk=
 		</data>
 		<key>Assets.car</key>
 		<data>
-		zlB8/n9ahndo8jEWr5Vq+C0GzGI=
+		ZLrHRKtgg3guwctVsVtfdHVA2YM=
 		</data>
 		<key>BasicVCPortrait.nib</key>
 		<data>
-		MslPsyTwuWtfjBL/RQUsqOCAYhM=
+		ITzMBZbnl7Shb1CwbNN6nqIepqY=
 		</data>
 		<key>Headers/greedygame-Swift.h</key>
 		<data>
-		fBy2hJJUunIUQtRinbPavG5T5T0=
+		8Tk8kQKV6XXjsRzB4fnBAyhoi8M=
 		</data>
 		<key>Headers/greedygame.h</key>
 		<data>
@@ -54,31 +54,31 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		u7cWUNPPok4B8blfne/vJ/28YM0=
+		952C7OoI7ioYJkK+hVxUOuASkJQ=
 		</data>
 		<key>Modules/greedygame.swiftmodule/arm.swiftdoc</key>
 		<data>
-		8BPv1PrVeo3DhiM6okysC6hJYo0=
+		qWYsud1uikGgGCFZZmsoHubu0Hg=
 		</data>
 		<key>Modules/greedygame.swiftmodule/arm.swiftmodule</key>
 		<data>
-		8KshoypYD73OGo/Gg0WO7PXhH3s=
+		8wLuONUINXeB0tzEUImrOnPASxI=
 		</data>
 		<key>Modules/greedygame.swiftmodule/arm64.swiftdoc</key>
 		<data>
-		E3rayCxqSZ9flRWNmzKWBMQWxHo=
+		ZdIOCKaIH11rvW6gtqOoQRuXrNE=
 		</data>
 		<key>Modules/greedygame.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		/hk16JxmBkZlk5KizxQilob/MgE=
+		pOMI7Scp58A5XLpZhOi364lsEcU=
 		</data>
 		<key>Modules/greedygame.swiftmodule/x86_64.swiftdoc</key>
 		<data>
-		U31BNlCGxhkShDrVnNGj3mlAkRI=
+		fwZiNoPo5QPfGrn/4XyC/9ifQHk=
 		</data>
 		<key>Modules/greedygame.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		TdT2laHmJ6Q2QLEPPcBGCyYk0Cg=
+		jKKvGXpWL/wCs2W+oTZQ/3IEriQ=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -86,19 +86,19 @@
 		</data>
 		<key>S2SVCIpadView.nib</key>
 		<data>
-		SipwAF6Z62RJmkFytsIfbCRLOsc=
+		teIX6KZrCWwlY4K7nH9qxC3vQgw=
 		</data>
 		<key>S2SVCIpadViewLandscape.nib</key>
 		<data>
-		bkSxNqYoQR2hxGVLC/2eA6udRqw=
+		eu/5Ly2LpP0tjSNw2v9DSGNAoyI=
 		</data>
 		<key>S2SVCView.nib</key>
 		<data>
-		sPS8PfY/RzcIih4ZXIYIHQbsT0c=
+		El27rwnnoKutri8R6UEr01wtbQw=
 		</data>
 		<key>S2SVCViewLandscape.nib</key>
 		<data>
-		5oXDssc5ihDzZ6JxiXgMFcnXDCE=
+		sEeiLP9qdmq2fb8u6hGpTAysh44=
 		</data>
 		<key>gg_logo.png</key>
 		<data>
@@ -111,121 +111,121 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			TYB1pjO1LyyfxY0mg74twE4UKDI=
+			aohgYDWCSZAW3hLvryGjU9QA624=
 			</data>
 			<key>hash2</key>
 			<data>
-			gIz63n8CkF4tcAueU8GoKHi8G+3srxlQ96Unc6ZRYxM=
+			svkFCMhlbghgTHJ5hxpSaV8NKLDQqahoEE/04eilxrc=
 			</data>
 		</dict>
 		<key>AdMobInstallViewLandscape.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			DZjYa5nUIz4HLib/xYpJRA5ZGkg=
+			nSwieAX7zLcNoIG8fyKpP4v050c=
 			</data>
 			<key>hash2</key>
 			<data>
-			0PRhW2FTaGmORtXZtZLg7ULsI2BaHy0w4ie4gj19HfY=
+			kqD/1euRBOVa1+C+Jxu6zNQ6P0gSGKO064mFwVtfSTI=
 			</data>
 		</dict>
 		<key>AdMobIpadView.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			WM8SZ2HjdRbFnvGZUCTNdbBY4DY=
+			B5n0mkaVxqQ/c+DRNlLnJLZq6yY=
 			</data>
 			<key>hash2</key>
 			<data>
-			5JBCFu9g4FQwEUXjZMXeQsfLkHyQyKBr7NvWFPWBYo8=
+			zDVcPSQqjPlirUj8Ct/wUCZmnL75GPOGbn3D7XQY6G8=
 			</data>
 		</dict>
 		<key>AdMobIpadViewLandscape.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			bC9ASKChYQKhNKlSYvIHCDkESoo=
+			+MnvLgbnJWeOEIbP/VmmLQX/MAg=
 			</data>
 			<key>hash2</key>
 			<data>
-			3sIpAUoXBdYG8+tFwl288Itrvl+a7J6auBOP9TOa8DU=
+			mbJr2l8/QQpGdDGrpYcGdDfhX/iu5Oj8pamed7terzQ=
 			</data>
 		</dict>
 		<key>AdMobView.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			t8pQGYh0v5knTnVH43dgcThyGk0=
+			GX2vT0hw5l8MnfO09oJC55h5JT4=
 			</data>
 			<key>hash2</key>
 			<data>
-			lnxBoGj67Yyc0cgEte2rcdX+sS7rVHKacr2TUleCyBk=
+			pNjjymvyPKjArFdvvr+Pwb5Virpz1VigPy1V3SkTDhc=
 			</data>
 		</dict>
 		<key>AdMobViewLandscape.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			LdbCQaLyh0fY2vFEVZ+rrnZVxbo=
+			49nz2xxZqB6nuNuow4LWNdxbg5s=
 			</data>
 			<key>hash2</key>
 			<data>
-			jZz1WT7dJm6JsIX0udXtkUrdJbvvy5od6AkbRkSNxbU=
+			eY2Wg0FXL2QOGPnOX15W+5OR+qjrVb0rP+6CmFcAAr0=
 			</data>
 		</dict>
 		<key>AdmobIpadInstallView.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			uEpdTG4hqT27BJtc6eht+gUwGqw=
+			rksLYlFJhLB8MjmFi9+UNVEB0Vk=
 			</data>
 			<key>hash2</key>
 			<data>
-			dmQv5yXqe8RXcIvCzI+dQ5293J8qB0jQz/P1Kf7bI0w=
+			E3kd4m7ZmaIQOcbCaI/dp1qv+rp8aoHmAcwrkJBEfKk=
 			</data>
 		</dict>
 		<key>AdmobIpadInstallViewLandscape.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			ssYl0T51dofHOtJxA1g8PiIaqhc=
+			t9w0FJqzU+Hy8QH+1aw9COGZjDk=
 			</data>
 			<key>hash2</key>
 			<data>
-			NJq1412p5JtmT764jha0zrHscIQ8IAJ7db3WeqvjjNs=
+			81jVI+5F4PJh3YVJVUKqPZsky04WzQ+Tb/TWsWXRRhc=
 			</data>
 		</dict>
 		<key>Assets.car</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			zlB8/n9ahndo8jEWr5Vq+C0GzGI=
+			ZLrHRKtgg3guwctVsVtfdHVA2YM=
 			</data>
 			<key>hash2</key>
 			<data>
-			wkzeCXC0ADsxP7MR87en0hb6F7xbgZs0Vf5hvkPfPhc=
+			Ke7ZES68fQYpqm5Vomd3WLr4WcPnHTDIKiLaLSS3Co8=
 			</data>
 		</dict>
 		<key>BasicVCPortrait.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			MslPsyTwuWtfjBL/RQUsqOCAYhM=
+			ITzMBZbnl7Shb1CwbNN6nqIepqY=
 			</data>
 			<key>hash2</key>
 			<data>
-			G9P8NPpDK41kllmDVQizoXYitdedq9eQGrTwYGSMwjI=
+			wBjHadfyQfDZBMZpouIIQyC/R8dXzSctJOGSUAt2NOw=
 			</data>
 		</dict>
 		<key>Headers/greedygame-Swift.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			fBy2hJJUunIUQtRinbPavG5T5T0=
+			8Tk8kQKV6XXjsRzB4fnBAyhoi8M=
 			</data>
 			<key>hash2</key>
 			<data>
-			kR4ET2SZ2v2nuv6OZeK4xvr7VNzDb9II5e1uCXUycL8=
+			8xrX7tuhKMkey+bJS0sQlRxoINmgjiiTs94MemXRz6U=
 			</data>
 		</dict>
 		<key>Headers/greedygame.h</key>
@@ -243,66 +243,66 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			8BPv1PrVeo3DhiM6okysC6hJYo0=
+			qWYsud1uikGgGCFZZmsoHubu0Hg=
 			</data>
 			<key>hash2</key>
 			<data>
-			mEzIPpk83JrL+4TLAXXGaij6CaaGJZ2/D9nlCTNUDnQ=
+			x/1z8xJ1E7uu64Lh+nGxIze2YxAx9iGp6/oDiXLD8r4=
 			</data>
 		</dict>
 		<key>Modules/greedygame.swiftmodule/arm.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			8KshoypYD73OGo/Gg0WO7PXhH3s=
+			8wLuONUINXeB0tzEUImrOnPASxI=
 			</data>
 			<key>hash2</key>
 			<data>
-			/2WknxgcAoZ6dXR/kpDHxz10zLeJKWIXSV1BPTnoYnY=
+			IU5q90VvrwpCxaKUIN9Ux9kCdMoRoRq1V4Lgd7AB/mE=
 			</data>
 		</dict>
 		<key>Modules/greedygame.swiftmodule/arm64.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			E3rayCxqSZ9flRWNmzKWBMQWxHo=
+			ZdIOCKaIH11rvW6gtqOoQRuXrNE=
 			</data>
 			<key>hash2</key>
 			<data>
-			TXOx9YoVJs9Yw5Y0PMHQeSU+e3SbwMfmMV6vUL+iqA0=
+			QnqbnI55jzcF7vfTNUT9CCk8Tbgmxc05b0xqXvSXzZ0=
 			</data>
 		</dict>
 		<key>Modules/greedygame.swiftmodule/arm64.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			/hk16JxmBkZlk5KizxQilob/MgE=
+			pOMI7Scp58A5XLpZhOi364lsEcU=
 			</data>
 			<key>hash2</key>
 			<data>
-			x/sg4goSe5lKZtiof9//jCbuRqzmKuZqZnpxiV4kRac=
+			VuYPJ3XvoVJ1TAw+E3SmbFIGrl+kYeIeJXhNvVwAtQs=
 			</data>
 		</dict>
 		<key>Modules/greedygame.swiftmodule/x86_64.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			U31BNlCGxhkShDrVnNGj3mlAkRI=
+			fwZiNoPo5QPfGrn/4XyC/9ifQHk=
 			</data>
 			<key>hash2</key>
 			<data>
-			EEmYRBl3I5s04Ne5Bgd71sTptnqzEv03ZfLSiITliSo=
+			22hoMCkqD9BIIuNfTkEHDgwK1QtKRxEYV2ZeRgJqgo4=
 			</data>
 		</dict>
 		<key>Modules/greedygame.swiftmodule/x86_64.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			TdT2laHmJ6Q2QLEPPcBGCyYk0Cg=
+			jKKvGXpWL/wCs2W+oTZQ/3IEriQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			2zf3Pz7wYAFPL1J/RoUPBSMZIjaTBrQH58esYa11jTI=
+			JfWGGDEzwJyaHvctXWjVFe85woZ9Uw6UOYAnBQAZNBw=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -320,44 +320,44 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			SipwAF6Z62RJmkFytsIfbCRLOsc=
+			teIX6KZrCWwlY4K7nH9qxC3vQgw=
 			</data>
 			<key>hash2</key>
 			<data>
-			7+AjYhKmQEc0O3a3eFMDJSRg7ngsNNyMymtpHRiM9+c=
+			J+Dre6/grAtIZV1j2bCd8iMKpwhIzQsFRv+R08IMeak=
 			</data>
 		</dict>
 		<key>S2SVCIpadViewLandscape.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			bkSxNqYoQR2hxGVLC/2eA6udRqw=
+			eu/5Ly2LpP0tjSNw2v9DSGNAoyI=
 			</data>
 			<key>hash2</key>
 			<data>
-			dex/H/FUvxvFAQsrV2eW4aerh7MWZZhGaIdM0uZGqRI=
+			WW8JE3fPdSSwlrY4KiMlnDScJ9lwjxJrSpLe09f8Um4=
 			</data>
 		</dict>
 		<key>S2SVCView.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			sPS8PfY/RzcIih4ZXIYIHQbsT0c=
+			El27rwnnoKutri8R6UEr01wtbQw=
 			</data>
 			<key>hash2</key>
 			<data>
-			J/NUjNIqn6DKKK7hrTIbIJApTMUTOV6ZV4aZZ6FFLiM=
+			qdKgnMs2bTYZGja/90tyXeAS5NMiw//yfRAPs58zfdU=
 			</data>
 		</dict>
 		<key>S2SVCViewLandscape.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			5oXDssc5ihDzZ6JxiXgMFcnXDCE=
+			sEeiLP9qdmq2fb8u6hGpTAysh44=
 			</data>
 			<key>hash2</key>
 			<data>
-			Tqoon9t8xWp6GCEl69yJ24hmFTIfUXUTUG0ieKzkq0A=
+			+4FNnCvNsMYaEZlfNwRUaRgeuUrp4iQi5dHQrsvTeqI=
 			</data>
 		</dict>
 		<key>gg_logo.png</key>
