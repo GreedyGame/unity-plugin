@@ -34,6 +34,8 @@ namespace GoogleMobileAds.Common
         event EventHandler<EventArgs> OnAdClosed;
         // Ad event fired when the reward based video ad is leaving the application.
         event EventHandler<EventArgs> OnAdLeavingApplication;
+        // Ad event fired when the reward based video ad completes playing.
+        event EventHandler<EventArgs> OnAdCompleted;
 
         // Creates a reward based video ad and adds it to the view hierarchy.
         void CreateRewardBasedVideoAd();
@@ -49,5 +51,8 @@ namespace GoogleMobileAds.Common
 
         // Shows the reward based video ad on the screen.
         void ShowRewardBasedVideoAd();
+
+        // Sets the user id of current user.
+        void SetUserId(string userId);
     }
 }

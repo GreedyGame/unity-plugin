@@ -10,7 +10,7 @@
 
 /// Initializes a GADURewardBasedVideoAd.
 - (instancetype)initWithRewardBasedVideoClientReference:
-        (GADUTypeRewardBasedVideoAdClientRef *)rewardBasedVideoAdClient;
+    (GADUTypeRewardBasedVideoAdClientRef *)rewardBasedVideoAdClient;
 
 /// The reward based video ad.
 @property(nonatomic, strong) GADRewardBasedVideoAd *rewardBasedVideo;
@@ -40,6 +40,9 @@
 /// The will leave application callback into Unity.
 @property(nonatomic, assign) GADURewardBasedVideoAdWillLeaveApplicationCallback willLeaveCallback;
 
+/// The did complete callback into Unity.
+@property(nonatomic, assign) GADURewardBasedVideoAdDidCompleteCallback didCompleteCallback;
+
 // Returns the mediation adapter class name.
 @property(nonatomic, readonly, copy) NSString *mediationAdapterClassName;
 
@@ -51,5 +54,8 @@
 
 /// Shows the reward based video ad.
 - (void)show;
+
+// Sets the user ID to be used in server-to-server reward callbacks.
+- (void)setUserId:(NSString *)userId;
 
 @end

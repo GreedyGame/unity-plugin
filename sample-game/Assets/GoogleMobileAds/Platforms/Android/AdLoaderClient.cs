@@ -1,4 +1,4 @@
-﻿// Copyright (C) 2015 Google, Inc.
+// Copyright (C) 2015 Google, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -84,8 +84,7 @@ namespace GoogleMobileAds.Android
         {
             CustomNativeTemplateAd nativeAd = new CustomNativeTemplateAd(
                     new CustomNativeTemplateClient(ad));
-            MobileAdsEventExecutor.executeInUpdate(() =>
-                this.CustomNativeTemplateCallbacks[nativeAd.GetCustomTemplateId()](nativeAd, assetName));
+            this.CustomNativeTemplateCallbacks[nativeAd.GetCustomTemplateId()](nativeAd, assetName);
         }
     }
 }

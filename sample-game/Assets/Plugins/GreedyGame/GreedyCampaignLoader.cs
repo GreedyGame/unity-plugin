@@ -4,29 +4,32 @@ using System.Collections;
 using System.Collections.Generic;
 using GreedyGame.Runtime;
 using GreedyGame.Platform;
+using GreedyGame.Runtime.Units;
 using GreedyGame.Commons;
 
-public class GreedyCampaignLoader : MonoBehaviour
+public class GreedyCampaignLoader : SingletoneBase<GreedyCampaignLoader>
 {
 
-    public List<GGUnitConfig> unitList;
+    public List<string> unitList;
 
     public bool AdMobMediation = false;
 
     public bool MoPubMediation = false;
+
+    public string GameId = "";
 
     void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
         if (RuntimePlatform.Android == Application.platform || RuntimePlatform.IPhonePlayer == Application.platform)
         {
-            GGConfig adConfig = new GGConfig();
-            adConfig.SetAppId("14435775");
-            adConfig.SetAdListener(new GreedyAgentListener());
-            adConfig.EnableAdmobMediation(AdMobMediation);
-            adConfig.EnableMopubMediation(MoPubMediation);
-            //adConfig.addUnitList(unitList);
-            GreedyGameAgent.Instance.Load(adConfig);
+            GGAdConfig adConfig = new GGAdConfig();
+            adConfig.setListener(new GreedyAgentListener());
+            adConfig.setGameId(GameId);
+            adConfig.enableAdmobMediation(AdMobMediation);
+            adConfig.enableMopubMediation(MoPubMediation);
+            adConfig.addUnitList(unitList);
+            GreedyGameAgent.Instance.init(adConfig);
         }
         else
         {
@@ -42,7 +45,7 @@ public class GreedyCampaignLoader : MonoBehaviour
         }
     }
 
-    public class GreedyAgentListener : GGAdListener
+    public class GreedyAgentListener : IAgentListener
     {
 
         public void onAvailable(string campaignId)
@@ -70,7 +73,9 @@ public class GreedyCampaignLoader : MonoBehaviour
          * If device api level is below 15 this callback is invoked.
          **/
             Debug.Log("GreedyAgentListener onError");
+            moveToNextScene();
         }
 
     }
+
 }

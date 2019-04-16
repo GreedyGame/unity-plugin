@@ -7,6 +7,7 @@
 
 #import "GADUPluginUtil.h"
 #import "UnityAppController.h"
+#import "UnityInterface.h"
 
 @interface GADURewardBasedVideoAd () <GADRewardBasedVideoAdDelegate>
 @end
@@ -48,6 +49,10 @@
   } else {
     NSLog(@"GoogleMobileAdsPlugin: Reward based video ad is not ready to be shown.");
   }
+}
+
+- (void)setUserId:(NSString *)userId {
+  self.rewardBasedVideo.userIdentifier = userId;
 }
 
 - (NSString *)mediationAdapterClassName {
@@ -111,6 +116,12 @@
 - (void)rewardBasedVideoAdWillLeaveApplication:(GADRewardBasedVideoAd *)rewardBasedVideoAd {
   if (self.willLeaveCallback) {
     self.willLeaveCallback(self.rewardBasedVideoAdClient);
+  }
+}
+
+- (void)rewardBasedVideoAdDidCompletePlaying:(GADRewardBasedVideoAd *)rewardBasedVideoAd {
+  if (self.didCompleteCallback) {
+    self.didCompleteCallback(self.rewardBasedVideoAdClient);
   }
 }
 

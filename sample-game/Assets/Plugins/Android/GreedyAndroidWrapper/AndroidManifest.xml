@@ -5,8 +5,6 @@
     package="com.greedygame.android.unityvalues" 
     android:installLocation="preferExternal">
   <application>
- <uses-library android:name="org.apache.http.legacy" android:required="false"/>
-
-
+      
   </application>
 </manifest>
