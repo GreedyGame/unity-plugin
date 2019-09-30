@@ -1,0 +1,21 @@
+
+<!-- Classes used by GreedyGame Reflection -->
+<linker>
+       <assembly fullname="UnityEngine.UnityWebRequestModule">
+               <type fullname="UnityEngine.Networking.UnityWebRequest" preserve="all"/>
+               <type fullname="UnityEngine.Networking.DownloadHandlerTexture" preserve="all"/>
+       </assembly>
+
+       <assembly fullname="UnityEngine.UnityWebRequestTextureModule">
+               <type fullname="UnityEngine.Networking.UnityWebRequestTexture" preserve="all"/>
+       </assembly>
+
+       <assembly fullname="UnityEngine">
+              <type fullname="UnityEngine.Networking.UnityWebRequest" preserve="all"/>
+               <type fullname="UnityEngine.Networking.DownloadHandlerTexture" preserve="all"/>
+               <type fullname="UnityEngine.Networking.UnityWebRequestTexture" preserve="all"/>
+               <type fullname="UnityEngine.AndroidJavaRunnableProxy" preserve="all"/>
+       </assembly>
+
+       
+</linker>

@@ -7,5 +7,8 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Plugins/GreedyGame/GreedyLoaderScene.unity
+    guid: c5a696df5d218a2418b320ed01ea8ec9
   - enabled: 1
-    path: Assets/RendererScene.unity
+    path: Assets/Plugins/GreedyGame/RendererScene.unity
+    guid: b98f5314db2ef524daff2cdbb7c78602
+  m_configObjects: {}
